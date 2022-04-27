@@ -25,6 +25,18 @@ New Items:
 - Established means of communication
 - Created GitHub repository
 
+Project Progress:
+- Decided on creating a state machine to sort items on a conveyor belt and then place these items into a box
+	- Will use python for code
+	- Will use classes for item type and dimensions and another class for box characteristics
+	- Assuming that all items have been successfully identified for the sake of simplification
+		- Potentially make identification module if time allows
+	- Use LIDAR to check that items placed in box are in the correct position
+	- Eggs to be placed on top of all other items
+	- States go from Idle -> Ready -> Tetris -> Place <-> Check -> Idle
+                                                          '-> Error
+	- 
+	
 AOB (Any Other Business):
 None.
 
