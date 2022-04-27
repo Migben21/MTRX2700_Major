@@ -1,4 +1,4 @@
-# MTRX2700_Major
+# Controlled Universally Nextgen Tactical Systems
 MTRX2700 Major project; Futuristic technology for supermarkets
 
 Project Aim: 
@@ -20,4 +20,4 @@ This section is to describe the functions and how they're broken down into modul
 * 
 
 # Details about the Project:
-Group Members: 
+Group Members: Aditya Bhambri, Michael Mei, Miguel Bentiro, Stephen Capar, Yingjie Mie
