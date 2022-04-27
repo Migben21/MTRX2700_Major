@@ -35,7 +35,6 @@ Project Progress:
 	- Eggs to be placed on top of all other items
 	- States go from Idle -> Ready -> Tetris -> Place <-> Check -> Idle
                                                           '-> Error
-	- 
 	
 AOB (Any Other Business):
 None.
