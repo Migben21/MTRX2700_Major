@@ -20,4 +20,4 @@ This section is to describe the functions and how they're broken down into modul
 * 
 
 # Details about the Project:
-Group Members: Aditya Bhambri, Michael Mei, Miguel Bentiro, Stephen Capar, Yingjie Mie
+Group Members: Aditya Bhambri, Michael Mei, Miguel Bentiro, Stephen Capar, Yingjie Mi
