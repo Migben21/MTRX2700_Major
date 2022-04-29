@@ -22,6 +22,12 @@ Regular Items:
 
 New Items:
 - Discussed how to modularise the Project
+- Michael is working on how to check how many boxes are needed
+    - Has to read CSV file and determine how many boxes are needed
+    - Return an array with item oredered from largest to smallest with
+    each array referencing a certain box, also stating its range
+    - Also consider other conditions (e.g. fragile items)
+
 	
 AOB (Any Other Business):
 None.
