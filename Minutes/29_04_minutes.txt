@@ -2,25 +2,29 @@ Design Project Group Assignment 3
 Minutes of the team meeting
 29 April, 2022, Online Meeting
 
-Present: 
+Present: Michael Mei, Miguel Bentiro, Stephen Capar, Yingjie Mie 
 
 Welcome: 
 
 Apologies: None.
 
-Meeting Purpose: 
+Meeting Purpose: To split project module tasks amongst the group members
 
 Previous Actions:
-- 
+- Introduced all members
+- Brainstormed some ideas
+- Established means of communication
+- Created GitHub repository
+- Decided on Project Premise
 
 Regular Items:
-- 
+- Updated GitHub Repository
 
 New Items:
-- 
+- Discussed how to modularise the Project
 	
 AOB (Any Other Business):
-
+None.
 
 Next Meetings:
 a) 
