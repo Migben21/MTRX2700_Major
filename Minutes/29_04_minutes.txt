@@ -22,7 +22,8 @@ Regular Items:
 
 New Items:
 - Discussed how to modularise the Project
-- Michael is working on how to check how many boxes are needed
+- Michael is initialisation, working on how to check how many boxes 
+are needed
     - Has to read CSV file and determine how many boxes are needed
     - Return an array with item oredered from largest to smallest with
     each array referencing a certain box, also stating its range
@@ -39,9 +40,13 @@ of objects
 - Yingjie is working on the placement algorithm of the items in the boxes
     - Uses a 2D Space to determine where to place the items
     - z-axis order doesn't matter. Choosing the area is more important
-    - Should also do the boxes in the 3D Space
+    - Should also do the boxes in the 3D Space. Also need a 3D Representation
+    of where the boxes will go (Maybe using matplotlib)
 - Aditya and Miguel are working on getting the LIDAR working
     - Should consider that its range is radial
+
+- A draw.io diagram was given for the members to add all their subroutines
+ & functions to
 
 Other things to add to project: 
 - Machine beeps when complete and sends message to LCD. Also notifies
