@@ -39,6 +39,7 @@ of objects
 - Yingjie is working on the placement algorithm of the items in the boxes
     - Uses a 2D Space to determine where to place the items
     - z-axis order doesn't matter. Choosing the area is more important
+    - Should also do the boxes in the 3D Space
 - Aditya and Miguel are working on getting the LIDAR working
     - Should consider that its range is radial
 
