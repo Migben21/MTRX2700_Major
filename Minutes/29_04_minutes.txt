@@ -27,7 +27,29 @@ New Items:
     - Return an array with item oredered from largest to smallest with
     each array referencing a certain box, also stating its range
     - Also consider other conditions (e.g. fragile items)
+- Stephen is working on how to determine the most efficient way of placing
+of objects
+    - Will take in an order in which the objects placed are known
+    - Will be outputted asn a array ordered in the method of which they'll
+    be placed
+    - It's then shown in a 3D Graph that displays where it's meant to be in
+    the box, the object is then placed in the box. A function stops this
+    process from contuining until a command is inputted, which checks
+    the space and then proceeds.
+- Yingjie is working on the placement algorithm of the items in the boxes
+    - Uses a 2D Space to determine where to place the items
+    - z-axis order doesn't matter. Choosing the area is more important
+- Aditya and Miguel are working on getting the LIDAR working
+    - Should consider that its range is radial
 
+Other things to add to project: 
+- Machine beeps when complete and sends message to LCD. Also notifies
+the Python console
+    - Double beep for errors
+    - Print a code for the error (There's an ID for every error)
+
+Things to note:
+- Decided unit of measurement for length is cm
 	
 AOB (Any Other Business):
 None.
