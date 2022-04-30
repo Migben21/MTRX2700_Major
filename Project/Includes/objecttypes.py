@@ -31,3 +31,7 @@ class Eggs:
         self.depth = 5
         self.volume = self.length * self.width * self.depth
         self.type = "t"
+
+
+# Dictionary to store all possible item names
+allItems = {'apples': Apples, 'bottles': Bottles, 'eggs': Eggs}
