@@ -24,7 +24,8 @@ with open('../Includes/items/itemList.csv', newline='') as csvfile:
                 sys.stderr.write("Invalid item name")
                 exit(1)
 
-        everything.sort(key=vol)
+        # Sorts array in order from largest to smallest
+        everything.sort(key=vol, reverse=True)
         for i in range(len(everything)):
             print(everything[i].name)
         print("")

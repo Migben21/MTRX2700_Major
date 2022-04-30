@@ -1,7 +1,8 @@
 # Dimensions in centimetres
-# dm types can be placed anywhere
-# f types require their own padded box
-# t types require to be placed on the topmost layers
+# dm(doesn't matter) types can be placed anywhere
+# f(fragile) types require their own padded box
+# t(top layers) types require to be placed on the topmost layers
+# h(heavy) types require to be placed on the bottommost layers
 
 class Apples:
     def __init__(self):
@@ -33,5 +34,15 @@ class Eggs:
         self.type = "t"
 
 
+class WaterBottlePack:
+    def __init__(self):
+        self.name = "waterbottlepack"
+        self.length = 30
+        self.width = 25
+        self.depth = 20
+        self.volume = self.length * self.width * self.depth
+        self.type = "h"
+
+
 # Dictionary to store all possible item names
-allItems = {'apples': Apples, 'bottles': Bottles, 'eggs': Eggs}
+allItems = {'apples': Apples, 'bottles': Bottles, 'eggs': Eggs, 'waterbottlepack': WaterBottlePack}
