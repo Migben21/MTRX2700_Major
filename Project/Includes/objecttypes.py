@@ -1,8 +1,8 @@
 # Dimensions in centimetres
-# dm(doesn't matter) types can be placed anywhere
+# d(doesn't matter) types can be placed anywhere
 # f(fragile) types require their own padded box
-# t(top layers) types require to be placed on the topmost layers
-# h(heavy) types require to be placed on the bottommost layers
+# t(top layers) types require placement on the topmost layers
+# h(heavy) types require placement on the bottommost layers
 
 class Apples:
     def __init__(self):
@@ -11,7 +11,7 @@ class Apples:
         self.width = 5
         self.depth = 5
         self.volume = self.length * self.width * self.depth
-        self.type = "dm"
+        self.type = "d"
 
 
 class Bottles:
