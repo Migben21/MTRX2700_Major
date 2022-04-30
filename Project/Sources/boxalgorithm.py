@@ -12,7 +12,7 @@ pear = obj.Apples()
 print(pear.length)
 
 firstbox = box.LargeBox()
-
+print(firstbox.length)
 
 objects = []
 
@@ -20,3 +20,5 @@ for x in range(10):
     item = obj.Apples()
 
     objects.append(item)
+
+print(objects[1].name)

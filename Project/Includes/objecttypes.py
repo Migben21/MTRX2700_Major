@@ -5,6 +5,7 @@
 
 class Apples:
     def __init__(self):
+        self.name = "apple"
         self.length = 5
         self.width = 5
         self.depth = 5
@@ -14,6 +15,7 @@ class Apples:
 
 class Bottles:
     def __init__(self):
+        self.name = "bottle"
         self.length = 5
         self.width = 5
         self.depth = 15
@@ -23,6 +25,7 @@ class Bottles:
 
 class Eggs:
     def __init__(self):
+        self.name = "egg"
         self.length = 10
         self.width = 5
         self.depth = 5
