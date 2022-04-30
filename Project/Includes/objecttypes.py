@@ -9,6 +9,10 @@ class Apples:
     depth = 5
     type = "dm"
 
+    def getvolume(self):
+        volume = self.length * self.width * self.depth
+        return volume
+
 
 class Bottles:
     length = 5
@@ -16,9 +20,18 @@ class Bottles:
     height = 15
     type = "f"
 
+    def getvolume(self):
+        volume = self.length * self.width * self.depth
+        return volume
+
 
 class Eggs:
     length = 10
     width = 5
     height = 5
     type = "t"
+
+    def getvolume(self):
+        volume = self.length * self.width * self.depth
+        return volume
+
