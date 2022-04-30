@@ -15,9 +15,11 @@ class MediumBox:
         self.depth: 40
         self.volume = self.length * self.width * self.depth
 
+
 class SmallBox:
     def __init__(self):
         self.length: 40
         self.width: 40
         self.depth: 40
         self.volume = self.length * self.width * self.depth
+
