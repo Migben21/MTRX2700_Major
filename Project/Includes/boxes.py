@@ -1,18 +1,21 @@
 # Box dimensions in centimetres
 
 class LargeBox:
-    length: 100
-    width: 100
-    depth: 40
+    def __init__(self):
+        self.length: 100
+        self.width: 100
+        self.depth: 40
 
 
 class MediumBox:
-    length: 75
-    width: 75
-    depth: 40
+    def __init__(self):
+        self.length: 75
+        self.width: 75
+        self.depth: 40
 
 
 class SmallBox:
-    length: 40
-    width: 40
-    depth: 40
+    def __init__(self):
+        self.length: 40
+        self.width: 40
+        self.depth: 40

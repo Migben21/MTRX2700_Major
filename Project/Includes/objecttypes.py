@@ -4,34 +4,27 @@
 # t types require to be placed on the topmost layers
 
 class Apples:
-    length = 5
-    width = 5
-    depth = 5
-    type = "dm"
-
-    def getvolume(self):
-        volume = self.length * self.width * self.depth
-        return volume
+    def __init__(self):
+        self.length = 5
+        self.width = 5
+        self.depth = 5
+        self.volume = self.length * self.width * self.depth
+        self.type = "dm"
 
 
 class Bottles:
-    length = 5
-    width = 5
-    height = 15
-    type = "f"
-
-    def getvolume(self):
-        volume = self.length * self.width * self.depth
-        return volume
+    def __init__(self):
+        self.length = 5
+        self.width = 5
+        self.depth = 15
+        self.volume = self.length * self.width * self.depth
+        self.type = "f"
 
 
 class Eggs:
-    length = 10
-    width = 5
-    height = 5
-    type = "t"
-
-    def getvolume(self):
-        volume = self.length * self.width * self.depth
-        return volume
-
+    def __init__(self):
+        self.length = 10
+        self.width = 5
+        self.depth = 5
+        self.volume = self.length * self.width * self.depth
+        self.type = "t"
