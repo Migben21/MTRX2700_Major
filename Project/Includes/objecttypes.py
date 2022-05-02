@@ -44,5 +44,15 @@ class WaterBottlePack:
         self.type = "h"
 
 
+class AGMJSOW:  # For testing purposes only
+    def __init__(self):
+        self.name = "agm154"
+        self.length = 410
+        self.width = 330
+        self.depth = 150
+        self.volume = self.length * self.width * self.depth
+        self.type = "h"
+
+
 # Dictionary to store all possible item names
-allItems = {'apples': Apples, 'bottles': Bottles, 'eggs': Eggs, 'waterbottlepack': WaterBottlePack}
+allItems = {'apples': Apples, 'bottles': Bottles, 'eggs': Eggs, 'waterbottlepack': WaterBottlePack, 'agm154': AGMJSOW}

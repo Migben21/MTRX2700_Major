@@ -26,9 +26,14 @@ def determine_boxes(items):
         scannedItems.append(items[i])
 
         if totalVolume >= 100 * 100 * 40:  # Volume of large box
-            boxes.append(box.SortedBox('l', scannedItems))
-            scannedItems = []
-            totalVolume = 0
+            if len(scannedItems):
+                sys.stderr.write("Item too large to fit in a box")
+                exit(2)
+            else:
+                boxes.append(box.SortedBox('l', scannedItems))
+                scannedItems = []
+                totalVolume = 0
+
     if (40 ^ 3) - totalVolume < 0:
         if (75 * 75 * 40) - totalVolume < 0:
             boxes.append(box.SortedBox('l', scannedItems))
@@ -80,6 +85,3 @@ def box_algorithm(filename):
                 boxes.append(fragileItems[i])
 
     return boxes
-
-
-box_algorithm('itemList.csv')
