@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib as mp
 from Includes import boxes as box
 
-def tetris_main(items_multi):
+def tetris_init(items_multi):
     #determine amount of boxes and set to array
-    for b in range(items_multi ): #set to change
+    for b in range(items_multi): #set to change
 
         items = items_multi[b]
 
@@ -34,8 +34,14 @@ def tetris_main(items_multi):
 
 
 
-def move_y():
 
+
+##to be used later
+def tetris_place_item():
+
+def tetris_item_coordinates():
+
+def move_y():
 
 def move_x():
 
