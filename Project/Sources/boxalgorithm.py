@@ -15,19 +15,44 @@ def get_type(entry):
     return entry.type
 
 
-# Goes through csv file containing items and calculates how many boxes are needed
-# Returns array of boxes with what items are to be placed inside those boxes
+# Function to determine the amount of and size of boxes needed for a list of items
+def determine_boxes(items):
+    boxes = []
+    scannedItems = []
+    totalVolume = 0
+
+    for i in range(len(items)):
+        totalVolume += items[i].volume
+        scannedItems.append(items[i])
+
+        if totalVolume >= 100 * 100 * 40:  # Volume of large box
+            boxes.append(box.SortedBox('l', scannedItems))
+            scannedItems = []
+            totalVolume = 0
+    if (40 ^ 3) - totalVolume < 0:
+        if (75 * 75 * 40) - totalVolume < 0:
+            boxes.append(box.SortedBox('l', scannedItems))
+        else:
+            boxes.append(box.SortedBox('m', scannedItems))
+    else:
+        boxes.append(box.SortedBox('s', scannedItems))
+
+    return boxes
+
+
+# Goes through csv file to read what items need to be sorted and parses them into determine_boxes()
+# Returns array of boxes with objects to be placed inside
 def box_algorithm(filename):
+    boxes = []
     with open('../Includes/items/' + filename, newline='') as csvfile:
         contents = csv.reader(csvfile, delimiter=',', quotechar='|')
         for line in contents:
-            # array to store input items
+            # array to store items
             itemList = []
             fragileItemList = []
 
             for i in line:
                 # Compares content of csv file to dictionary containing all item names to create objects
-                # print(obj.allItems[i.lower()]().name)
                 try:
                     itemList.append(obj.allItems[i.lower()]())
                 except KeyError:
@@ -37,21 +62,24 @@ def box_algorithm(filename):
             # Sorts array in order from largest to smallest
             itemList.sort(key=vol, reverse=True)
 
+            # Separates fragile items into their own list and removes them from the normal item list
             for i in range(len(itemList)):
                 # print(itemList[i].name + ' ' + str(itemList[i].volume))
                 if itemList[i].type == "f":
                     fragileItemList.append(itemList[i])
-            print("")
 
             for i in range(len(fragileItemList)):
                 itemList.remove(fragileItemList[i])
 
-            for i in range(len(fragileItemList)):
-                print(fragileItemList[i].name)
+            normalItems = determine_boxes(itemList)
+            fragileItems = determine_boxes(fragileItemList)
 
-            print('')
-            for i in range(len(itemList)):
-                print(itemList[i].name)
+            for i in range(len(normalItems)):
+                boxes.append(normalItems[i])
+            for i in range(len(fragileItems)):
+                boxes.append(fragileItems[i])
+
+    return boxes
 
 
 box_algorithm('itemList.csv')

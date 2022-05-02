@@ -31,9 +31,10 @@ boxSizes = {'s': SmallBox, 'm': MediumBox, 'l': LargeBox}
 
 
 class SortedBox:
-    def __init__(self, size):
-        self.contents = []
-
+    def __init__(self, size, contents):
+        if contents is None:
+            contents = []
+        self.contents = contents
         self.type = size
         match size:
             case 's':
