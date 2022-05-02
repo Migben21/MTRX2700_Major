@@ -40,9 +40,18 @@ def box_algorithm(filename):
             for i in range(len(itemList)):
                 # print(itemList[i].name + ' ' + str(itemList[i].volume))
                 if itemList[i].type == "f":
-                    print('y')
                     fragileItemList.append(itemList[i])
             print("")
+
+            for i in range(len(fragileItemList)):
+                itemList.remove(fragileItemList[i])
+
+            for i in range(len(fragileItemList)):
+                print(fragileItemList[i].name)
+
+            print('')
+            for i in range(len(itemList)):
+                print(itemList[i].name)
 
 
 box_algorithm('itemList.csv')
