@@ -1,4 +1,4 @@
-# Box dimensions in centimetres
+# Dimensions in centimetres
 
 class LargeBox:
     def __init__(self):
@@ -6,7 +6,7 @@ class LargeBox:
         self.width = 100
         self.depth = 40
         self.volume = self.length * self.width * self.depth
-        self.type = 'l'
+        self.size = 'l'
 
 
 class MediumBox:
@@ -15,7 +15,7 @@ class MediumBox:
         self.width = 75
         self.depth = 40
         self.volume = self.length * self.width * self.depth
-        self.type = 'm'
+        self.size = 'm'
 
 
 class SmallBox:
@@ -24,7 +24,7 @@ class SmallBox:
         self.width = 40
         self.depth = 40
         self.volume = self.length * self.width * self.depth
-        self.type = 's'
+        self.size = 's'
 
 
 boxSizes = {'s': SmallBox, 'm': MediumBox, 'l': LargeBox}
