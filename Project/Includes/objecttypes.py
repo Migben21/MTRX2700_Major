@@ -19,7 +19,7 @@ class Bottles:
         self.name = "bottle"
         self.length = 5
         self.width = 5
-        self.depth = 15
+        self.depth = 20
         self.volume = self.length * self.width * self.depth
         self.type = "f"
 
@@ -27,7 +27,7 @@ class Bottles:
 class Eggs:
     def __init__(self):
         self.name = "egg"
-        self.length = 10
+        self.length = 30
         self.width = 5
         self.depth = 5
         self.volume = self.length * self.width * self.depth
