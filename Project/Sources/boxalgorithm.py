@@ -89,5 +89,3 @@ def box_algorithm(filename):
 
     return boxes
 
-
-x = box_algorithm('itemList.csv')
