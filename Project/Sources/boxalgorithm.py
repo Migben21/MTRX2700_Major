@@ -28,7 +28,7 @@ def determine_boxes(items):
         if totalVolume >= 100 * 100 * 40:  # Volume of large box
             if len(scannedItems):
                 sys.stderr.write("Item too large to fit in a box")
-                exit(2)
+                exit(2)  # Item too large for any box
             else:
                 boxes.append(box.SortedBox('l', scannedItems))
                 scannedItems = []
@@ -62,14 +62,13 @@ def box_algorithm(filename):
                     itemList.append(obj.allItems[i.lower()]())
                 except KeyError:
                     sys.stderr.write("Invalid item name")
-                    exit(1)
+                    exit(1)  # Invalid item name found in contents
 
             # Sorts array in order from largest to smallest
             itemList.sort(key=vol, reverse=True)
 
             # Separates fragile items into their own list and removes them from the normal item list
             for i in range(len(itemList)):
-                # print(itemList[i].name + ' ' + str(itemList[i].volume))
                 if itemList[i].type == "f":
                     fragileItemList.append(itemList[i])
 
