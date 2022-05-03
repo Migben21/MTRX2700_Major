@@ -30,17 +30,19 @@ def determine_boxes(items):
                 sys.stderr.write("Item too large to fit in a box")
                 exit(2)  # Item too large for any box
             else:
-                boxes.append(box.SortedBox('l', scannedItems))
+                scannedItems.pop(len(scannedItems)-1)
+                boxes.append(box.LargeBox(scannedItems))
                 scannedItems = []
                 totalVolume = 0
+                i -= 1
 
     if (40 ^ 3) - totalVolume < 0:
         if (75 * 75 * 40) - totalVolume < 0:
-            boxes.append(box.SortedBox('l', scannedItems))
+            boxes.append(box.LargeBox(scannedItems))
         else:
-            boxes.append(box.SortedBox('m', scannedItems))
+            boxes.append(box.MediumBox(scannedItems))
     else:
-        boxes.append(box.SortedBox('s', scannedItems))
+        boxes.append(box.SmallBox(scannedItems))
 
     return boxes
 
