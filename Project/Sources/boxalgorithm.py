@@ -46,7 +46,7 @@ def determine_boxes(items):
     return boxes
 
 
-# Goes through csv file to read what items need to be sorted and parses them into determine_boxes()
+# Opens csv file and reads what items need to be sorted and parses them into determine_boxes()
 # Returns array of boxes with objects to be placed inside
 def box_algorithm(filename):
     boxes = []
@@ -58,13 +58,15 @@ def box_algorithm(filename):
             fragileItemList = []
 
             for i in line:
+                # Remove spaces from input
+                i = i.translate({ord(' '): None for i in ' '})
+
                 # Compares content of csv file to dictionary containing all item names to create objects
                 try:
                     itemList.append(obj.allItems[i.lower()]())
                 except KeyError:
                     sys.stderr.write("Invalid item name")
                     exit(1)  # Invalid item name found in contents
-
             # Sorts array in order from largest to smallest
             itemList.sort(key=vol, reverse=True)
 
@@ -86,3 +88,6 @@ def box_algorithm(filename):
                     boxes.append(fragileItems[i])
 
     return boxes
+
+
+x = box_algorithm('itemList.csv')
