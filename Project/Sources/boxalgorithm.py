@@ -35,14 +35,13 @@ def determine_boxes(items):
                 scannedItems = [items[i]]
                 totalVolume = 0
 
-    if (40 ^ 3) - totalVolume < 0:
-        if (75 * 75 * 40) - totalVolume < 0:
+    if totalVolume - (40 * 40 * 40) > 0:
+        if totalVolume - (75 * 75 * 40) > 0:
             boxes.append(box.LargeBox(scannedItems))
         else:
             boxes.append(box.MediumBox(scannedItems))
-    else:
-        if totalVolume:
-            boxes.append(box.SmallBox(scannedItems))
+    elif totalVolume:
+        boxes.append(box.SmallBox(scannedItems))
 
     return boxes
 
@@ -88,9 +87,3 @@ def box_algorithm(filename):
                 boxes.append(fragileItems[i])
 
     return boxes
-
-
-x = box_algorithm('LockMartTM.csv')
-print(x)
-print(x[1].volume)
-print(x[1].contentsVolume)
