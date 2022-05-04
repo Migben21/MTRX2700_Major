@@ -90,5 +90,7 @@ def box_algorithm(filename):
     return boxes
 
 
-x = box_algorithm('bigTest.csv')
+x = box_algorithm('LockMartTM.csv')
 print(x)
+print(x[1].volume)
+print(x[1].contentsVolume)
