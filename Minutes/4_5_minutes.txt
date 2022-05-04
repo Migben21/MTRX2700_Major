@@ -9,13 +9,15 @@ Apologies: Aditya Bhambri and Stephen Capar are unable to make today's meeting.
 Meeting Purpose: 
 
 Previous Actions:
-- 
+- Discussed how to modularise the project
+- Created a draw.io file for members to add their subroutines & functions to
+- See previous minutes file for more specific details
 
 Regular Items:
-- 
+- Updated GitHub repository
 
 New Items:
-- 
+- Updated progress on each others' tasks
 	
 AOB (Any Other Business):
 None.
