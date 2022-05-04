@@ -14,6 +14,14 @@ Code as well as documentation are stored within this GitHub Repository.
 # High Level Information about the Code:
 This section is to describe the functions and how they're broken down into modules
 
+## State Machine States:
+1: Idle
+2: Initialise
+3: 'Tetris'
+4: Placement
+5: Checking
+6: Outputting 3D Representation
+
 ## Module 1: Initialisation
 The function reads a CSV file, and determines how many boxes are needed. It then returns an array with each item ordered from largest to smallest with each array referencing a certain box, and also stating its range.
 
