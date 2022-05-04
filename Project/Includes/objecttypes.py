@@ -57,7 +57,7 @@ class JSOW:  # For testing
 class BoxFiller:  # For testing
     def __init__(self):
         self.name = "bigboi"
-        self.length = 99
+        self.length = 97
         self.width = 99
         self.depth = 40
         self.volume = self.length * self.width * self.depth

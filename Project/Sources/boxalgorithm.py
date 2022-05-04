@@ -41,7 +41,8 @@ def determine_boxes(items):
         else:
             boxes.append(box.MediumBox(scannedItems))
     else:
-        boxes.append(box.SmallBox(scannedItems))
+        if totalVolume:
+            boxes.append(box.SmallBox(scannedItems))
 
     return boxes
 
@@ -83,9 +84,11 @@ def box_algorithm(filename):
 
             for i in range(len(normalItems)):
                 boxes.append(normalItems[i])
-            if fragileItems:  # Adds box for fragile items if there are items
-                for i in range(len(fragileItems)):
-                    boxes.append(fragileItems[i])
+            for i in range(len(fragileItems)):
+                boxes.append(fragileItems[i])
 
     return boxes
 
+
+x = box_algorithm('bigTest.csv')
+print(x)

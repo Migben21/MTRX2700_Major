@@ -10,6 +10,9 @@ class LargeBox:
         if contents is None:
             contents = []
         self.contents = contents
+        self.contentsVolume = 0
+        for i in range(len(contents)):
+            self.contentsVolume += contents[i].volume
 
 
 class MediumBox:
@@ -22,6 +25,9 @@ class MediumBox:
         if contents is None:
             contents = []
         self.contents = contents
+        self.contentsVolume = 0
+        for i in range(len(contents)):
+            self.contentsVolume += contents[i].volume
 
 
 class SmallBox:
@@ -34,7 +40,9 @@ class SmallBox:
         if contents is None:
             contents = []
         self.contents = contents
+        self.contentsVolume = 0
+        for i in range(len(contents)):
+            self.contentsVolume += contents[i].volume
 
 
 boxSizes = {'s': SmallBox, 'm': MediumBox, 'l': LargeBox}
-
