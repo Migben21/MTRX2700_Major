@@ -2,10 +2,10 @@
 
 class LargeBox:
     def __init__(self, contents):
-        self.length = 100
+        self.height = 100
         self.width = 100
-        self.depth = 40
-        self.volume = self.length * self.width * self.depth
+        self.length = 40
+        self.volume = self.height * self.width * self.length
         self.size = 'l'
         if contents is None:
             contents = []
@@ -17,10 +17,10 @@ class LargeBox:
 
 class MediumBox:
     def __init__(self, contents):
-        self.length = 75
+        self.height = 75
         self.width = 75
-        self.depth = 40
-        self.volume = self.length * self.width * self.depth
+        self.length = 40
+        self.volume = self.height * self.width * self.length
         self.size = 'm'
         if contents is None:
             contents = []
@@ -32,10 +32,10 @@ class MediumBox:
 
 class SmallBox:
     def __init__(self, contents):
-        self.length = 40
+        self.height = 40
         self.width = 40
-        self.depth = 40
-        self.volume = self.length * self.width * self.depth
+        self.length = 40
+        self.volume = self.height * self.width * self.length
         self.size = 's'
         if contents is None:
             contents = []
