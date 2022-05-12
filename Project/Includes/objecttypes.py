@@ -75,6 +75,16 @@ class MilkCarton:
         self.type = "o"
 
 
+class Plank:
+    def __init__(self):
+        self.name = "plank"
+        self.height = 50
+        self.width = 20
+        self.length = 10
+        self.volume = self.height * self.width * self.length
+        self.type = "d"
+
+
 # Dictionary to store all possible item names
 allItems = {'apples': Apples, 'bottles': Bottles, 'eggs': Eggs, 'waterbottlepack': WaterBottlePack, 'agm154': JSOW,
-            'bigboi': BoxFiller, 'milkcarton': MilkCarton}
+            'bigboi': BoxFiller, 'milkcarton': MilkCarton, 'plank': Plank}

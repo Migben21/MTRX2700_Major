@@ -40,9 +40,11 @@ def box_algorithm(filename):
             fragileItems = determine_boxes(fragileItemList)
 
             for i in range(len(normalItems)):
-                boxes.append(normalItems[i])
+                if normalItems[i].contentsVolume:
+                    boxes.append(normalItems[i])
             for i in range(len(fragileItems)):
-                boxes.append(fragileItems[i])
+                if fragileItems[i].contentsVolume:
+                    boxes.append(fragileItems[i])
 
     return boxes
 
@@ -77,8 +79,8 @@ def largest_side(entry):
 
 # Checks the dimensions of an input item and checks if the largest side of an item is larger than the size of a box
 # Returns 0 if item won't fit in box, or 1 if it can
-def side_check(item, side):
-    if largest_side(item) > side:
+def side_check(items, side):
+    if largest_side(items) > side:
         return 0
     else:
         return 1
@@ -98,7 +100,7 @@ def determine_boxes(items):
             if len(scannedItems) == 1:
                 sys.stderr.write("Item too large to fit in a box")
                 exit(2)  # Item too large for any box
-            else:
+            elif totalVolume != 0:
                 scannedItems.pop(len(scannedItems)-1)
                 boxes.append(box.LargeBox(scannedItems))
                 scannedItems = [items[i]]
@@ -109,7 +111,10 @@ def determine_boxes(items):
             boxes.append(box.LargeBox(scannedItems))
         else:
             boxes.append(box.MediumBox(scannedItems))
-    elif totalVolume:
+    else:
+        for i in range(len(scannedItems)):
+            if not side_check(scannedItems[i], 40):
+                pass
         boxes.append(box.SmallBox(scannedItems))
 
     return boxes
