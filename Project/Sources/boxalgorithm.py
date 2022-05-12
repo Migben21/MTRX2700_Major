@@ -111,7 +111,12 @@ def determine_boxes(items):
         if totalVolume > (75 * 75 * 40):
             boxes.append(box.LargeBox(scannedItems))
         else:
-            boxes.append(box.MediumBox(scannedItems))
+            for i in range(len(scannedItems)):
+                check = side_check(scannedItems[i], 75)
+            if check:
+                boxes.append(box.MediumBox(scannedItems))
+            else:
+                boxes.append(box.LargeBox(scannedItems))
     else:
         for i in range(len(scannedItems)):
             check = side_check(scannedItems[i], 40)
@@ -134,7 +139,7 @@ def determine_boxes(items):
 # print(x[0].contentsVolume)
 # for j in range(len(x[0].contents)):
 #     print(x[0].contents[j].name)
-# # print(x[0].contents[0]
+# print(x[0].contents[0]
 # print(largest_side(x[0].contents[0]))
 
 # a = 9
