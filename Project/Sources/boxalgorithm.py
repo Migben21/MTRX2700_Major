@@ -91,6 +91,7 @@ def determine_boxes(items):
     boxes = []
     scannedItems = []
     totalVolume = 0
+    check = 0
 
     for i in range(len(items)):
         totalVolume += items[i].volume
@@ -113,20 +114,27 @@ def determine_boxes(items):
             boxes.append(box.MediumBox(scannedItems))
     else:
         for i in range(len(scannedItems)):
-            if not side_check(scannedItems[i], 40):
-                pass
-        boxes.append(box.SmallBox(scannedItems))
+            check = side_check(scannedItems[i], 40)
+        if check:
+            boxes.append(box.SmallBox(scannedItems))
+        else:
+            for i in range(len(scannedItems)):
+                check = side_check(scannedItems[i], 75)
+            if check:
+                boxes.append(box.MediumBox(scannedItems))
+            else:
+                boxes.append(box.LargeBox(scannedItems))
 
     return boxes
 
 
-# x = box_algorithm('itemList.csv')
+# x = box_algorithm('sideTooBig.csv')
 # print(x)
 # print(x[0].volume)
 # print(x[0].contentsVolume)
 # for j in range(len(x[0].contents)):
 #     print(x[0].contents[j].name)
-# print(x[0].contents[0])
+# # print(x[0].contents[0]
 # print(largest_side(x[0].contents[0]))
 
 # a = 9
