@@ -15,6 +15,6 @@ typedef struct SerialPort{
 
 void init_serial(SerialPort *serial);
 
-void serial_print(char *text, SerialPort *serial)
+void serial_print(char *text, SerialPort *serial);
 
 #endif

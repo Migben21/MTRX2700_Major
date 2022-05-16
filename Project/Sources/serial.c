@@ -1,7 +1,6 @@
 #include <hidef.h>
 #include "derivative.h"
 #include <string.h>
-#include <stdio.h>
 #include "serial.h"
 
 SerialPort sci_port = {&SCI1BDH, &SCI1BDL, &SCI1CR1, &SCI1CR2, &SCI1DRL, &SCI1SR1};

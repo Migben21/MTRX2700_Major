@@ -371,8 +371,10 @@ Section Name                    Size  Type     From       To       Segment
 .abs_section_17e                   2   N/I      0x17E      0x17F   .absSeg338
 .abs_section_2ae                   2   N/I      0x2AE      0x2AF   .absSeg339
 .abs_section_2be                   2   N/I      0x2BE      0x2BF   .absSeg340
+.abs_section_ffd4                  2     R     0xFFD4     0xFFD5   .absSeg342
 
 Summary of section sizes per section type:
+READ_ONLY (R):           2 (dec:        2)
 NO_INIT (N/I):         190 (dec:      400)
 
 *********************************************************************************************
