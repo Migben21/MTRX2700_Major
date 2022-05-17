@@ -110,8 +110,8 @@ for i in range(number_of_items):
             Placed_matrix[i][j] = Placed_matrix[i][j] + convert_matrix[i][j]
     
     # Print test for matrix
-    # for i in range(len(Placed_matrix)):
-    #     print(Placed_matrix[i])
+    for i in range(len(Placed_matrix)):
+        print(Placed_matrix[i])
     # print('\n')
 
 
@@ -129,9 +129,9 @@ for i in range(number_of_items):
     width = depth = 1
 
     # ax.title('Placement')
-    ax.bar3d(x,y , height, width, depth, z,  color='b', zsort='average')  # width, depth, height
-    ax.set_xlabel('Width')
-    ax.set_ylabel('Length')
+    ax.bar3d(y,x , height, width, depth, z,  color='b', zsort='average')  # width, depth, height
+    ax.set_ylabel('Width')
+    ax.set_xlabel('Length')
     ax.set_zlabel('Height')
     ax.set_zlim([0,8])
 
