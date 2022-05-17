@@ -1,0 +1,50 @@
+Design Project Group Assignment 3
+Minutes of the team meeting
+17 May, 2022, Mechatronics Lab
+
+Present: Aditya Bhambri, Miguel Bentiro, Yingjie Mie 
+
+Meeting Purpose: Update project progress for Aditya & Miguel's task for the LIDAR Module
+
+Regular Items:
+- Updated GitHub repository
+
+New Items:
+- Updated progress on each others' tasks
+- Further modularised the LIDAR:
+    1st part goes through half of the box. Can only go through 1 half of the box due to hardware 
+    limitations if using PTU
+    2nd is the LIDAR module which moves the sensor around. Splits angle into each individual angle?
+    Each movement senses the LIDAR info at each point
+    next part 
+
+- Considered hardware components we're using so far, concerns about not using enough 
+PTU components for marks. For now there's Servo Motors and the LIDAR itself
+- Also considered we might be in charge of making the physical box model
+
+- Adi (C Program)
+    3x3 Grid with 5cm cubes, creates a program that sends 3 arrays with data of which cube 
+    spaces are taken up. 1 Array for each layer. Sensor is actually sensing the top of the 
+    middle of the cube. There will be preset distances for each point, including one for
+    ground zero.
+    Will send data for i.e. level x, x+1, x+2, x+3...
+
+- Mig (Python Program)
+    A program to compare each point
+    However, using the 90-Degree Angle Assumption for now (Doesn't use PTU, this is a temporary fix)
+    Takes in a number and compare which of the 4 preset values it is closest to
+    There will be a preset value for each level (value being what the sensor gives)
+    Build an array (in the case of a 3x3x3 cube, will be a total of 9)
+    Compare given data to level 0, 1, 2 & 3 for each point
+
+    Preset Values to on each level for now:
+    Level 0: 0cm
+    Level 1: 3cm
+    Level 2: 6cm
+    Level 3: 9cm
+	
+AOB (Any Other Business):
+None.
+
+Next Meetings:
+a) 
