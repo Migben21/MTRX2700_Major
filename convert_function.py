@@ -1,4 +1,5 @@
 import math
+import numpy as np
 
 
 def convert_in_function(data_array):
@@ -34,10 +35,10 @@ def convert_in_function(data_array):
     matrix_height = math.ceil(height / division)
 
     # Add them on matrix
-    for i in range((coordinate_x - matrix_length), (coordinate_x )):
+    for i in range(coordinate_x - matrix_length, coordinate_x ):
         for j in range(coordinate_y, (coordinate_y + matrix_width )):
             initial_matrix[i][j] = initial_matrix[i][j] + matrix_height
-    
+
     return initial_matrix
 
 data_array1 = [1,4,0,3,18,15.6,13]
