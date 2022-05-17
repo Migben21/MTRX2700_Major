@@ -20,13 +20,16 @@ y = []
 z = []
 
 while i < 50:
-    x.append(1)
-    y.append(1)
-    z.append(1)
+    x.append(0)
+    y.append(0)
+    z.append(0)
     i+=1
 
 box_space = [x, y, z]
+print("Box Space Array:", end = ' ')
+print(box_space)
 
+'''
 # Showing axis and their status
 print("x-axis:", end = ' ')
 print(box_space[0])
@@ -34,6 +37,7 @@ print("y-axis:", end = ' ')
 print(box_space[1])
 print("z-axis:", end = ' ')
 print(box_space[2])
+'''
 
 fig = plt.figure()
 ax = plt.axes(projection = '3d')
