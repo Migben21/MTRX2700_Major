@@ -6,9 +6,9 @@ import math
 # item position
 # item length, width, height
 item_position = [4,0,0]
-item_length = 18
-item_width = 15
-item_height = 13
+item_length = 20
+item_width = 20
+item_height = 15
 
 # Define parameters
 division = 5        # side length of each cube is 5cm
