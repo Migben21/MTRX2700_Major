@@ -3,10 +3,11 @@
 #include <string.h>
 #include "serial.h"
 #include "error.h"
+#include "button.h"
 
 char *x = "hello world!!!!!\n";
 char *y = "This is a test\n";
-char *blank = " ";
+
  
 void main(void) {
 
@@ -17,11 +18,15 @@ void main(void) {
 	current_character = &x[0];
 	
 	serial_print_string(&sci_port, x);
-
-	  
+	
+	error_button();
+	
   error_state(1);
-   
-  serial_print_string(&sci_port, blank);
+  
+  // Waits for the string to finish sending
+  // Last 2 characters in last printed string get thanos snapped if this isnt there
+  while (*current_character != 0x00){
+  }
   
 }
 

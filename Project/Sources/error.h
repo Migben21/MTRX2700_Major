@@ -9,9 +9,9 @@
 char *error_message;
 int alpha = 0;
 
-void error_state(int err_code){
+void error_state(int errCode){
   
-  switch (err_code) {
+  switch (errCode) {
     case 1:
       error_message = "Invalid Item name in contents\n";
       break;
@@ -24,16 +24,6 @@ void error_state(int err_code){
   }
   
   serial_print_string(&sci_port, error_message);
-}
-
-
-
-#pragma CODE_SEG __NEAR_SEG NON_BANKED
-__interrupt void ErrorHandler(void){
-  if (alpha != 0){
-    error_state(alpha);
-  alpha = 0;
-  }
 }
 
 

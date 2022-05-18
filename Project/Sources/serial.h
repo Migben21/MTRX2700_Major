@@ -1,3 +1,7 @@
+/*
+MAKE SURE THAT THE #pragma LINK_INFO DERIVATIVE MCU NAME HAS a 'b'
+AT THE END OTHERWISE SHIT JUST DOESNT LOL
+*/
 #ifndef SCI_Header
 #define SCI_Header
 
@@ -48,16 +52,7 @@ void serial_print_string(SerialPort *serial, char *text) {
   while (*text){
     serial_char_print(serial, *text);
     text++;
-  }
-}
-
-
-// Waits for DIP switch 2 or pushbutton SW4
-// Literally just waits for a button to be pressed
-// ~~/(>o<)\~~
-void button_wait(){
-  while(PTH_PTH1){
-  }
+  } 
 }
                        
 
