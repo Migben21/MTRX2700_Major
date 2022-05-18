@@ -7,10 +7,12 @@
 
 char *x = "hello world!!!!!\n";
 char *y = "This is a test\n";
-
+int py_err;
  
 void main(void) {
 
+  py_err = 2;
+  
   init_serial(&sci_port);
   
 	EnableInterrupts;
@@ -19,9 +21,9 @@ void main(void) {
 	
 	serial_print_string(&sci_port, x);
 	
-	error_button();
+	//error_button();
 	
-  error_state(1);
+  error_state(py_err);
   
   // Waits for the string to finish sending
   // Last 2 characters in last printed string get thanos snapped if this isnt there
