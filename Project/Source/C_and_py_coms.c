@@ -1,0 +1,27 @@
+#include <python2.3/Python.h>
+
+void process_expression(char* filename, int num, char** exp)
+{
+    FILE*       exp_file;
+    exp_file = fopen(filename, "r");
+    PyRun_SimpleFile(exp_file, exp);
+
+    // Iterate through the expressions
+    // and execute them
+    while(num--) {
+        PyRun_SimpleString(*exp++);
+        PyRun_SimpleString("print x");
+    }
+}
+
+int main(int argc, char** argv)
+{
+    Py_Initialize();
+
+    if(argc != 3) {
+        printf("Usage: %s FILENAME EXPRESSION+\n");
+        return 1;
+    }
+    process_expression(argv[1], argc - 1, argv + 2);
+    return 0;
+}

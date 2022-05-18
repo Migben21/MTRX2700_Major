@@ -41,11 +41,8 @@ def tetris_init(box_objs):
             #call function of error
             return 
         item_pos_data = organise_items(item_pos_data)
-        boxes_packed.append(item_pos_data)
-    
-    
-
-    return
+        boxes_packed.append(item_pos_data)    
+    return boxes_packed
 
 
 def tetris_main(box_matrix, contents, dimentions):
@@ -76,15 +73,25 @@ def tetris_main(box_matrix, contents, dimentions):
 
 def space_check_init(box_matrix, obj_dataframe, current_pos,n):
     #check the verticies of the box are not interfearing with another box 
-    check = space_check(box_matrix, obj_dataframe, current_pos)
+    n = 0
+    original_dimentions = obj_dataframe.dimentions
+    original_pos = obj_dataframe.rotations
 
     #recuring function to check different orientations if the object allows it
-    if check == 0 and obj_dataframe.type == 'N':
-        n = n + 1
-        #rotate x-axis -90 and 90 degrees
-        #rotate y-axis -90 and 90 degrees
-        #rotate z-axis -90 and 90 degrees
-        space_check_init(box_matrix, obj_dataframe, current_pos,n)
+    if obj_dataframe.type == 'N' and n < 5:
+        obj_dataframe = rotate_object(obj_dataframe, n)
+
+        check = space_check(box_matrix, obj_dataframe, current_pos)
+
+        if check == 0:
+            obj_dataframe.dimentions = original_dimentions 
+            obj_dataframe.rotations = original_pos 
+
+            n = n + 1
+            space_check_init(box_matrix, obj_dataframe, current_pos,n)
+        
+    else:
+        check = space_check(box_matrix, obj_dataframe, current_pos)
     
     #returning set
     if check == 0:
@@ -104,6 +111,21 @@ def space_check(box_matrix, obj_dataframe, current_pos):
                             if box_matrix[obj_dataframe.dimentions[0] + current_pos[0]][obj_dataframe.dimentions[1] + current_pos[1]][obj_dataframe.dimentions[2] + current_pos[2]] == 0: #checking (H+L+W)
                                 return 1
     return 0
+
+def rotate_object(obj_dataframe, n):
+    if n == 0:
+        return obj_dataframe
+    if n == 1:
+        obj_dataframe.dimentions[0], obj_dataframe.dimentions[1] = obj_dataframe.dimentions[1], obj_dataframe.dimentions[0]
+    if n == 2: 
+        obj_dataframe.dimentions[0], obj_dataframe.dimentions[2] = obj_dataframe.dimentions[2], obj_dataframe.dimentions[0]
+    if n == 3:
+        obj_dataframe.dimentions[2], obj_dataframe.dimentions[1] = obj_dataframe.dimentions[1], obj_dataframe.dimentions[2]
+    if n == 4:
+        obj_dataframe.dimentions[2], obj_dataframe.dimentions[1] = obj_dataframe.dimentions[1], obj_dataframe.dimentions[2]
+        obj_dataframe.dimentions[0], obj_dataframe.dimentions[1] = obj_dataframe.dimentions[1], obj_dataframe.dimentions[0]
+    
+
 
 def item_filler(box_matrix, obj_dataframe, current_pos):
     for i in range(0, obj_dataframe.dimentions[2] + 1):
