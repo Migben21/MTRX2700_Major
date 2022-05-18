@@ -34,7 +34,7 @@ hold_flag = 1       # hold_flag = 1 when clamp catches item
 motor_x = motor_x + Initial_distance
 motor_y = motor_y + Initial_distance
 # void motormove(char x,int Initial_distance)
-# void motormove(char x,int Initial_distance)
+# void motormove(char y,int Initial_distance)
 
 # 4.Move item to right place and loose it
 cube_length = math.ceil(item_length / division)
@@ -51,7 +51,11 @@ print('x = ',motor_x,'   y = ',motor_y,'    z = ',motor_z)
 # void motormove(char z,int motor_z)
 
 # 5.Clamp return
+# void motorback(char z,int motor_z)
 # void motorback(char x,int motor_x)
 # void motorback(char y,int motor_y)
-# void motorback(char z,int motor_z)
+# void motorback(char x,int Initial_distance)
+# void motorback(char y,int Initial_distance)
+
+
 
