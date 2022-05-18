@@ -6,16 +6,17 @@ Present: Michael Mei, Stephen Capar, Yingjie Mie
 
 Apologies: Aditya Bhambri and Miguel Benatiro are unable to make today's meeting.
 
-Meeting Purpose: To 
+Meeting Purpose: To plan for the coming weeks and set some soft deadlines
 
 Previous Actions:
-
+- Updated progress on each others' individual modules
 
 Regular Items:
-
+- Updated GitHub repository
+- Updated Group progress and tasks
 
 New Items:
-- Brainstorming 
+- Brainstorming topics such as how to call C Functions from Python
 - Michael added another check to the box algorithm and started work on Serial
 - Stephen 
 - Yingjie
@@ -24,4 +25,6 @@ AOB (Any Other Business):
 None.
 
 Next Meetings:
-a) 
+a) 18 May, 2-5pm, Mechatronics Lab
+b) Any online meetings inbetween the aforementioned meetings
+c) 25 May, 2-5pm, Mechatronics Lab (Group Presentation!)
