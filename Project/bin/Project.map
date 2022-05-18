@@ -23,8 +23,8 @@ Entry point: 0xC000 (_Startup)
 _startupData is allocated at 0xC00B and uses 6 Bytes
 extern struct _tagStartup {
   unsigned nofZeroOut     1
-  _Range   pZeroOut       0x1100     30
-  _Copy    *toCopyDownBeg 0xC02B
+  _Range   pZeroOut       0x1100     18
+  _Copy    *toCopyDownBeg 0xC05A
 } _startupData;
 
 *********************************************************************************************
@@ -33,11 +33,12 @@ Section Name                    Size  Type     From       To       Segment
 ---------------------------------------------------------------------------------------------
 .init                             11     R     0xC000     0xC00A   ROM_C000
 .startData                        10     R     0xC00B     0xC014   ROM_C000
-NON_BANKED                        22     R     0xC015     0xC02A   ROM_C000
-.copy                             29     R     0xC02B     0xC047   ROM_C000
-.text                             84     R   0x308000   0x308053   PAGE_30
+.rodata1                          34     R     0xC015     0xC036   ROM_C000
+NON_BANKED                        35     R     0xC037     0xC059   ROM_C000
+.copy                             21     R     0xC05A     0xC06E   ROM_C000
+.text                            123     R   0x308000   0x30807A   PAGE_30
 .stack                           256   R/W     0x1000     0x10FF   RAM
-.data                             28   R/W     0x1100     0x111B   RAM
+.data                             16   R/W     0x1100     0x110F   RAM
 .abs_section_8                     1   N/I        0x8        0x8   .absSeg0
 .abs_section_9                     1   N/I        0x9        0x9   .absSeg1
 .abs_section_a                     1   N/I        0xA        0xA   .absSeg2
@@ -379,12 +380,12 @@ NON_BANKED                        22     R     0xC015     0xC02A   ROM_C000
 .abs_section_17e                   2   N/I      0x17E      0x17F   .absSeg338
 .abs_section_2ae                   2   N/I      0x2AE      0x2AF   .absSeg339
 .abs_section_2be                   2   N/I      0x2BE      0x2BF   .absSeg340
-.bss                               2   R/W     0x111C     0x111D   RAM
+.bss                               2   R/W     0x1110     0x1111   RAM
 OSVECTORS_vect                   116     R     0xFF8C     0xFFFF   OSVECTORS
 
 Summary of section sizes per section type:
-READ_ONLY (R):         110 (dec:      272)
-READ_WRITE (R/W):      11E (dec:      286)
+READ_ONLY (R):         15E (dec:      350)
+READ_WRITE (R/W):      112 (dec:      274)
 NO_INIT (N/I):         190 (dec:      400)
 
 *********************************************************************************************
@@ -744,15 +745,19 @@ MODULE:                 -- mc9s12dg256.c.o --
 MODULE:                 -- main.c.o --
 - PROCEDURES:
      init_serial                             308000      16      22       2   .text       
-     serial_print_string                     308016      15      21       2   .text       
-     main                                      C015      16      22       2   NON_BANKED  
+     serial_char_print                       308016      23      35       2   .text       
+     serial_print_string                     308039      19      25       2   .text       
+     main                                      C037      23      35       2   NON_BANKED  
 - VARIABLES:
-     sci_port                                  1100       C      12       2   .data       
-     x                                         110C      10      16       1   .data       
-     current_character                         111C       2       2       1   .bss        
+     STRING.hello.world.......1                C015      12      18       1   .rodata1    
+     STRING.This.is.a.test..2                  C027      10      16       1   .rodata1    
+     sci_port                                  1100       C      12       3   .data       
+     x                                         110C       2       2       1   .data       
+     y                                         110E       2       2       1   .data       
+     current_character                         1110       2       2       1   .bss        
 MODULE:                 -- Start12.c.o --
 - PROCEDURES:
-     Init                                    30802B      29      41       2   .text       
+     Init                                    308052      29      41       2   .text       
      _Startup                                  C000       B      11       0   .init       
 - VARIABLES:
      _startupData                              C00B       6       6       3   .startData  
@@ -764,21 +769,23 @@ MODULE STATISTIC
   Name                                      Data   Code  Const
 ---------------------------------------------------------------------------------------------
   mc9s12dg256.c.o                            400      0      0
-  main.c.o                                    30     65      0
+  main.c.o                                    18    117     34
   Start12.c.o                                  0     52      0
-  other                                      256     12     29
+  other                                      256     12     21
 
 *********************************************************************************************
 SECTION USE IN OBJECT-ALLOCATION SECTION
 ---------------------------------------------------------------------------------------------
 SECTION: ".text"
-  init_serial serial_print_string Init 
+  init_serial serial_char_print serial_print_string Init 
 SECTION: ".data"
-  sci_port x 
+  sci_port x y 
 SECTION: ".bss"
   current_character 
 SECTION: ".init"
   _Startup 
+SECTION: ".rodata1"
+  STRING.hello.world.......1 STRING.This.is.a.test..2 
 SECTION: "NON_BANKED"
   main 
 SECTION: ".abs_section_8"
@@ -1809,47 +1816,54 @@ OBJECT LIST SORTED BY ADDRESS
      _CAN4TXDLR                                 2BC       1       1       0   .abs_section_2bc
      _CAN4TXTBPR                                2BD       1       1       0   .abs_section_2bd
      _CAN4TXTSR                                 2BE       2       2       0   .abs_section_2be
-     sci_port                                  1100       C      12       2   .data       
-     x                                         110C      10      16       1   .data       
-     current_character                         111C       2       2       1   .bss        
+     sci_port                                  1100       C      12       3   .data       
+     x                                         110C       2       2       1   .data       
+     y                                         110E       2       2       1   .data       
+     current_character                         1110       2       2       1   .bss        
      _Startup                                  C000       B      11       0   .init       
-     main                                      C015      16      22       2   NON_BANKED  
+     STRING.hello.world.......1                C015      12      18       1   .rodata1    
+     STRING.This.is.a.test..2                  C027      10      16       1   .rodata1    
+     main                                      C037      23      35       2   NON_BANKED  
      init_serial                             308000      16      22       2   .text       
-     serial_print_string                     308016      15      21       2   .text       
-     Init                                    30802B      29      41       2   .text       
+     serial_char_print                       308016      23      35       2   .text       
+     serial_print_string                     308039      19      25       2   .text       
+     Init                                    308052      29      41       2   .text       
 
 *********************************************************************************************
 UNUSED-OBJECTS SECTION
 ---------------------------------------------------------------------------------------------
 NOT USED PROCEDURES
 main.c.o:
-  serial_char_print button_wait SerialInterruptHandler 
-NOT USED VARIABLES
-main.c.o:
-  write_buffer 
+  button_wait SerialInterruptHandler 
 
 *********************************************************************************************
 COPYDOWN SECTION
 ---------------------------------------------------------------------------------------------
-------- ROM-ADDRESS: 0xC02B ---- SIZE       4 ---
+------- ROM-ADDRESS: 0xC05A ---- SIZE       4 ---
 Filling bytes inserted
- 00171101
-------- ROM-ADDRESS: 0xC02F ---- RAM-ADDRESS: 0x1101 ---- SIZE      11 ---
+ 000F1101
+------- ROM-ADDRESS: 0xC05E ---- RAM-ADDRESS: 0x1101 ---- SIZE      11 ---
 Name of initialized Object : sci_port:1
  D000D100D2 00D300D700 D4
-------- ROM-ADDRESS: 0xC03A ---- RAM-ADDRESS: 0x110C ---- SIZE      12 ---
+------- ROM-ADDRESS: 0xC069 ---- RAM-ADDRESS: 0x110C ---- SIZE       2 ---
 Name of initialized Object : x
- 68656C6C6F 20776F726C 640D
-------- ROM-ADDRESS: 0xC046 ---- SIZE       2 ---
+ C015
+------- ROM-ADDRESS: 0xC06B ---- RAM-ADDRESS: 0x110E ---- SIZE       2 ---
+Name of initialized Object : y
+ C027
+------- ROM-ADDRESS: 0xC06D ---- SIZE       2 ---
 Filling bytes inserted
  0000
 
 *********************************************************************************************
 OBJECT-DEPENDENCIES SECTION
 ---------------------------------------------------------------------------------------------
+x                         USES STRING.hello.world.......1 
+y                         USES STRING.This.is.a.test..2 
 _Startup                  USES __SEG_END_SSTACK Init main 
-main                      USES sci_port init_serial x serial_print_string 
-serial_print_string       USES current_character 
+main                      USES sci_port init_serial x current_character y 
+                                serial_print_string 
+serial_print_string       USES serial_char_print 
 Init                      USES _startupData 
 
 *********************************************************************************************
@@ -1862,7 +1876,9 @@ DEPENDENCY TREE
  |  +- init_serial         
  |  |    
  |  +- serial_print_string 
- |       
+ |     | 
+ |     +- serial_char_print   
+ |          
  +- _Startup            
     | 
     +- Init                
@@ -1875,6 +1891,6 @@ STATISTIC SECTION
 
 ExeFile:
 --------
-Number of blocks to be downloaded: 6
-Total size of all blocks to be downloaded: 158
+Number of blocks to be downloaded: 7
+Total size of all blocks to be downloaded: 236
 

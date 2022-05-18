@@ -3,7 +3,8 @@
 #include <string.h>
 #include "serial.h"
 
-char x[16] = "hello world\r";
+char *x = "hello world!!!!!\n";
+char *y = "This is a test\n";
  
 void main(void) {
 
@@ -11,7 +12,13 @@ void main(void) {
   
 	EnableInterrupts;
 	
-	serial_print_string(&sci_port, x);
+	current_character = &x[0];
+	
+	while(1){
+	  serial_print_string(&sci_port, y);
+	  
+	  *(sci_port.controlReg2) |= SCI1CR2_TCIE_MASK;
 
+	}
 }
 

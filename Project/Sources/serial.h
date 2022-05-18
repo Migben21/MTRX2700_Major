@@ -8,8 +8,7 @@
 #include <stdio.h>
 
 
-char write_buffer[256];
-char *current_character = 0x00;
+char  *current_character = 0x00;
 
 typedef struct SerialPort{
   byte *baudHigh;
@@ -27,29 +26,29 @@ SerialPort sci_port = {&SCI1BDH, &SCI1BDL, &SCI1CR1, &SCI1CR2, &SCI1DRL, &SCI1SR
 void init_serial(struct SerialPort *serial){
   *(serial->baudHigh) = 0;
   *(serial->baudLow) = 156;   
-  *(serial->controlReg2) = SCI1CR2_RE_MASK|SCI1CR2_TE_MASK;
+  *(serial->controlReg2) = SCI1CR2_RE_MASK|SCI1CR2_TE_MASK|SCI1CR2_TCIE_MASK;
   *(serial->controlReg1) = 0x00;  
 }
 
 
-void serial_print_string(SerialPort *serial, char *text) {
-    
-  *(serial->controlReg2) |= SCI1CR2_SCTIE_MASK;
+void serial_char_print(SerialPort *serial, char text){ 
   
-  // Waits for any previous strings to finish printing
-  while (128 == (*(serial->controlReg2) & SCI1CR2_SCTIE_MASK)){
+  int wait_counter = 0;
+  while ((*(serial->statusReg) & SCI1SR1_TDRE_MASK) == 0){
+    if (wait_counter < 0xFE){
+      wait_counter++;
+    }
   }
   
-  current_character = &text[0];
-
+  *(serial->dataReg) = text;
 }
 
 
-void serial_char_print(SerialPort *serial, char text){ 
- 
-  // Sends char to serial 
-  *(serial->dataReg) = text;
-
+void serial_print_string(SerialPort *serial, char *text) {
+  while (*text){
+    serial_char_print(serial, *text);
+    text++;
+  }
 }
 
 
@@ -64,9 +63,12 @@ void button_wait(){
 
 #pragma CODE_SEG __NEAR_SEG NON_BANKED
 __interrupt void SerialInterruptHandler(void){
-  serial_char_print(&sci_port, (*(current_character++)));
   
-  while (*current_character != 0x00){
+  if (*(sci_port.statusReg) & SCI1SR1_TDRE_MASK && *current_character != 0x00){
+    serial_char_print(&sci_port, *(current_character++));
+  } 
+  else if (*current_character == 0x00){
+    *(sci_port.controlReg2) &= ~SCI1CR2_TCIE_MASK;
   }
 }
 
