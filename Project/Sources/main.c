@@ -2,9 +2,11 @@
 #include "derivative.h"      /* derivative-specific definitions */
 #include <string.h>
 #include "serial.h"
+#include "error.h"
 
 char *x = "hello world!!!!!\n";
 char *y = "This is a test\n";
+char *blank = " ";
  
 void main(void) {
 
@@ -14,11 +16,12 @@ void main(void) {
 	
 	current_character = &x[0];
 	
-	while(1){
-	  serial_print_string(&sci_port, y);
-	  
-	  *(sci_port.controlReg2) |= SCI1CR2_TCIE_MASK;
+	serial_print_string(&sci_port, x);
 
-	}
+	  
+  error_state(1);
+   
+  serial_print_string(&sci_port, blank);
+  
 }
 

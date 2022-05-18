@@ -8,7 +8,7 @@
 #include <stdio.h>
 
 
-char  *current_character = 0x00;
+extern char  *current_character = 0x00;
 
 typedef struct SerialPort{
   byte *baudHigh;
@@ -20,7 +20,7 @@ typedef struct SerialPort{
 } SerialPort;
 
 
-SerialPort sci_port = {&SCI1BDH, &SCI1BDL, &SCI1CR1, &SCI1CR2, &SCI1DRL, &SCI1SR1};
+extern SerialPort sci_port = {&SCI1BDH, &SCI1BDL, &SCI1CR1, &SCI1CR2, &SCI1DRL, &SCI1SR1};
 
 
 void init_serial(struct SerialPort *serial){
