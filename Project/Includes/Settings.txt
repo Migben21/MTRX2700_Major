@@ -1,0 +1,11 @@
+x_angle_range_min = 0
+x_angle_range_max = 0
+y_angle_range_min = 0
+y_angle_range_max = 0
+z_angle_range_min = 0
+z_angle_range_max = 0
+lidar_check = 0
+
+stepper_motor_rotation_x = 0
+stepper_motor_roation_y = 0
+stepper_motor_roatation_z = 0

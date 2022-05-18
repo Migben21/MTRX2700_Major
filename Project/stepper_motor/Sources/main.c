@@ -16,6 +16,11 @@ void data_init_stepper(int x, int y, int z){
     motor_init(rotations[i], i);
   }
 
+  //move steppermotors to their rest positions 
+  for (i = 2; i >= 0; i--){
+    motor_init(-rotations[i], i);
+  }
+
   return
 }
 
@@ -57,7 +62,7 @@ void motor_init(steps, i)
    break; 
  }
 
- printf("---%c steppermotor Activated---\n", letters[i]);
+ printf("---%c Steppermotor Activated---\n", letters[i]);
  printf("Moving %d rotations in %c direction\n", steps, letters[i]);
 
 //Init Port to the starting state. In this example,
@@ -96,22 +101,7 @@ while (steps_to_move > 0)
   steps_to_move--; //Subtract 1 from the total # of steps remaining to be moved.
   
 }
-//The following code rotates the motor back in the opposite direction.
-steps_to_move = -steps;
-while (steps_to_move > 0)
-  {
-    if (next_state < 0)
-    {
-    next_state = (NUM_OF_STATES - 1);
-    }
-    port_selector(i, state_array, next_state);
-    for(a = 0; a < DELAY_MAX; a++)
-    {
-    //Wait here for a while.
-    next_state--; }
-    steps_to_move--;
-  }
-  } 
+ 
 }
 
 void port_selector(int i, char *state_array, int next_state){
