@@ -1,8 +1,8 @@
-Design Project Group Assignment 3
+Major Project Group A Assignment 3
 Minutes of the team meeting
-17 May, 2022, Mechatronics Lab
+17 May, 2022, Online Meeting on Zoom
 
-Present: Aditya Bhambri, Miguel Bentiro, Yingjie Mie 
+Present: Aditya Bhambri, Miguel Benatiro, Yingjie Mie 
 
 Meeting Purpose: Update project progress for Aditya & Miguel's task for the LIDAR Module
 

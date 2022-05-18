@@ -1,0 +1,28 @@
+Major Project Group A Assignment 3
+Minutes of the team meeting
+18 May, 2022, Mechatronics Lab
+
+Present: Aditya Bhambri, Michael Mei, Miguel Benatiro, Stephen Capar, Yingjie Mie 
+
+Meeting Purpose: Update & report on progress
+
+Previous Actions:
+- Discussed progress on project
+- Further modularised the tasks, particularly regarding the LIDAR
+
+Regular Items:
+- Updated GitHub repository
+
+New Items:
+- Updated progress on each others' tasks
+- No longer using the 90-Degree Angle assumption with a fixed LIDAR Sensor!
+- LIDAR Sensor Discussion: 
+    Will start at the bottom left of the box's bottom layer. [At (0,0,0)]
+    Exact PWM Values at each point in each box
+    Generate a set of values, by comparing the angles 
+
+AOB (Any Other Business):
+None.
+
+Next Meetings:
+a) 

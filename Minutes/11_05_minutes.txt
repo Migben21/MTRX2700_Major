@@ -1,1 +1,27 @@
->Have to fill in and ask group how this session went<
+Major Project Group A Assignment 3
+Minutes of the team meeting
+11 May, 2022, Mechatronics Lab
+
+Present: Michael Mei, Stephen Capar, Yingjie Mie 
+
+Apologies: Aditya Bhambri and Miguel Benatiro are unable to make today's meeting.
+
+Meeting Purpose: To 
+
+Previous Actions:
+
+
+Regular Items:
+
+
+New Items:
+- Brainstorming 
+- Michael added another check to the box algorithm and started work on Serial
+- Stephen 
+- Yingjie
+
+AOB (Any Other Business):
+None.
+
+Next Meetings:
+a) 
