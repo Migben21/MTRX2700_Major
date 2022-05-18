@@ -17,9 +17,9 @@ Regular Items:
 
 New Items:
 - Brainstorming topics such as how to call C Functions from Python
-- Michael added another check to the box algorithm and started work on Serial
-- Stephen 
-- Yingjie
+- Michael added another check to the box algorithm and started work on Serial input/output
+- Stephen did work on the Step Motors
+- Yingjie converted the MATLAB Code into Python
 
 AOB (Any Other Business):
 None.
