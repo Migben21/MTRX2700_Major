@@ -1,4 +1,4 @@
-from Project import Includes
+from Includes import boxes
 
 def send_data(data):
     f = open("data.txt", "w")
