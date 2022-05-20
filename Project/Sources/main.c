@@ -13,6 +13,8 @@ void main(void) {
 
   py_err = 2;
   
+  init_button();
+  
   init_serial(&sci_port);
   
 	EnableInterrupts;

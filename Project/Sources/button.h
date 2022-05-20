@@ -3,6 +3,13 @@
 
 #include "serial.h"
 
+
+// Writes 00000000 to the PORT H direction register for it to take input
+void init_button(){
+  DDRH = 0x00;
+}
+
+
 // Waits for DIP switch 2 or pushbutton SW4
 // Meant to be used to step through the code
 void step_button_wait(){
@@ -29,8 +36,19 @@ int error_button(){
     return 0;
   }
   else if (PTH_PTH2){
+  
     return 1;
   }
+}
+
+
+// Test function meant to check if something is working properly
+// Turns LED on
+void led_test(){
+  DDRJ = 0xFF;
+  DDRB = 0xFF;
+  
+  PORTB = 0xFF;
 }
 
 
