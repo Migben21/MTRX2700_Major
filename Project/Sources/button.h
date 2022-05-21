@@ -1,6 +1,7 @@
 #ifndef BUTT_HEAD
 #define BUTT_HEAD
 
+#include <stdio.h>
 #include "serial.h"
 
 
@@ -29,26 +30,29 @@ int error_button(){
   serial_print_string(&sci_port, message);
   
   // Waits for SW3 or SW2 to be pushed
-  while(PTH_PTH2 & PTH_PTH3){
+  while(PTH_PTH2 && PTH_PTH3){
   }
   
   if (PTH_PTH3){
+    serial_print_string(&sci_port, "Attempting last function again");
     return 0;
   }
   else if (PTH_PTH2){
-  
+    serial_print_string(&sci_port, "Exiting program");
     return 1;
   }
 }
 
 
 // Test function meant to check if something is working properly
-// Turns LED on
+// Enables LEDS, sets PORTB to be output and turns all PORTB LEDs on
 void led_test(){
+  
   DDRJ = 0xFF;
   DDRB = 0xFF;
   
   PORTB = 0xFF;
+  
 }
 
 

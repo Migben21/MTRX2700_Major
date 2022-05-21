@@ -7,10 +7,14 @@
 
 char *x = "hello world!!!!!\n";
 char *y = "This is a test\n";
-int py_err;
+
+int py_err; // Placeholder for error return from python functions
+// Placeholder for python function pointer
+// Will need to be declared within code with appropriate amount of function parameters
+int (*py_function)(); 
  
 void main(void) {
-
+  
   py_err = 2;
   
   init_button();

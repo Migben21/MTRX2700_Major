@@ -755,7 +755,7 @@ MODULE:                 -- main.c.o --
      STRING.Invalid.Item.name.in.1             C015      1F      31       1   .rodata1    
      STRING.Item.too.big.to.fit..2             C034      24      36       1   .rodata1    
      STRING.Undefined.Error.Code.3             C058      16      22       1   .rodata1    
-     STRING.hello.world.......5                C06E      12      18       1   .rodata1    
+     STRING.hello.world.......7                C06E      12      18       1   .rodata1    
      sci_port                                  1100       C      12       3   .data       
      x                                         110C       2       2       2   .data       
      current_character                         110E       2       2       2   .bss        
@@ -792,7 +792,7 @@ SECTION: ".init"
   _Startup 
 SECTION: ".rodata1"
   STRING.Invalid.Item.name.in.1 STRING.Item.too.big.to.fit..2 
-  STRING.Undefined.Error.Code.3 STRING.hello.world.......5 
+  STRING.Undefined.Error.Code.3 STRING.hello.world.......7 
 SECTION: "NON_BANKED"
   error_state init_button main 
 SECTION: ".abs_section_8"
@@ -1834,7 +1834,7 @@ OBJECT LIST SORTED BY ADDRESS
      STRING.Invalid.Item.name.in.1             C015      1F      31       1   .rodata1    
      STRING.Item.too.big.to.fit..2             C034      24      36       1   .rodata1    
      STRING.Undefined.Error.Code.3             C058      16      22       1   .rodata1    
-     STRING.hello.world.......5                C06E      12      18       1   .rodata1    
+     STRING.hello.world.......7                C06E      12      18       1   .rodata1    
      error_state                               C080      2F      47       1   NON_BANKED  
      init_button                               C0AF       4       4       1   NON_BANKED  
      main                                      C0B3      30      48       2   NON_BANKED  
@@ -1848,10 +1848,11 @@ UNUSED-OBJECTS SECTION
 ---------------------------------------------------------------------------------------------
 NOT USED PROCEDURES
 main.c.o:
-  SerialInterruptHandler step_button_wait error_button 
+  SerialInterruptHandler step_button_wait error_button led_test 
 NOT USED VARIABLES
 main.c.o:
-  STRING.Error.raised..press..4 STRING.This.is.a.test..6 y alpha 
+  STRING.Error.raised..press..4 STRING.Attempting.last.func.5 
+  STRING.Exiting.program.6 STRING.This.is.a.test..8 y alpha py_function 
 
 *********************************************************************************************
 COPYDOWN SECTION
@@ -1872,7 +1873,7 @@ Filling bytes inserted
 *********************************************************************************************
 OBJECT-DEPENDENCIES SECTION
 ---------------------------------------------------------------------------------------------
-x                         USES STRING.hello.world.......5 
+x                         USES STRING.hello.world.......7 
 _Startup                  USES __SEG_END_SSTACK Init main 
 error_state               USES STRING.Invalid.Item.name.in.1 error_message 
                                 STRING.Item.too.big.to.fit..2 STRING.Undefined.Error.Code.3 sci_port 
