@@ -103,6 +103,7 @@ def space_check_init(box_matrix, obj_dataframe, current_pos,n):
     
 
 def space_check(box_matrix, obj_dataframe, current_pos):
+    #check all verticies of the box are not colliding with others
     if box_matrix[current_pos[0]][current_pos[1]][current_pos[2]] == 0 : #checking current point (O)
         if box_matrix[obj_dataframe.dimentions[0] + current_pos[0]][current_pos[1]][current_pos[2]] == 0 : #checking width from current point vertex (W)
             if box_matrix[current_pos[0]][obj_dataframe.dimentions[1] + current_pos[1]][current_pos[2]] == 0 : # checking length from current point vertex (L)
@@ -113,6 +114,7 @@ def space_check(box_matrix, obj_dataframe, current_pos):
                                 return 1
     return 0
 
+#check different roations of the object 
 def rotate_object(obj_dataframe, n):
     if n == 0:
         return obj_dataframe

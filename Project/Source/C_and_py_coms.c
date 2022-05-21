@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../Includes"
+//#include "../Includes"
 
 void pool_data_transfer(FILE* ptr){
     i = 0;
  
     // Opening file in reading mode and determining if file has content
     while (i != 1){
-        ptr = fopen("data.txt", "r");
+        ptr = fopen("../MTRX2700_Major/Project/Includes/data.txt", "r");
 
         fseek (ptr, 0, SEEK_END);
         size = ftell(ptr);
@@ -41,5 +41,5 @@ int * data_collector(){
       token = strtok(NULL, s);
 
       return data
-   }*
+   }
 }
