@@ -1,7 +1,7 @@
 import sys
 import numpy as np
 import matplotlib as mp
-from Includes import boxes as box
+
 
 class item_organised:
     def __init__(self):
@@ -14,33 +14,33 @@ class item_organised:
 def tetris_init(box_objs):
     #boxes packed with required information, each element references a box, in each box contain the items in order of placement 
     boxes_packed = []
+    item_pos_data = []
 
     #determine amount of boxes and set to array
-    for b in range(box_objs): #set to change
+    for b in range(len(box_objs)): #set to change
 
-        #box data
-        box = box_objs[b]
-        dimentions = [box.width/5, box.length/5, box.height/5 ]
+        dimentions = [box_objs[b].width, box_objs[b].length, box_objs[b].depth]
 
         #Make 3D matrix for each box
         box_matrix = []
         
         #using 'o' to represent avalible space and 'x' to represent used space 
         for i in range(dimentions[0]):
-           box_matrix.append(0)
+           box_matrix.append([])
 
            for j in range(dimentions[1]):
-                box_matrix[i].append(0)
+                box_matrix[i].append([])
 
                 for k in range(dimentions[2]):
                    box_matrix[i][j].append(0)
 
         #begin organising objects in the box
-        item_pos_data = tetris_main(box_matrix, box.conents, dimentions)
+        item_pos_data.append(tetris_main(box_matrix, box_objs[b].contents, dimentions))
         
         if(item_pos_data == "Error"):
             #call function of error
             return 
+        
         item_pos_data = organise_items(item_pos_data)
         boxes_packed.append(item_pos_data)    
     return boxes_packed
@@ -49,12 +49,12 @@ def tetris_init(box_objs):
 def tetris_main(box_matrix, contents, dimentions):
     item_pos_data = []
 
-    for i in range(contents):
-        obj_dataframe = item_organised #[name, (point_x, point_y, point_z), (length, width, hight), (rotation x_axis, rotation y_axis rotation z_axis)]
+    for i in range(len(contents)):
+        obj_dataframe = item_organised() #[name, (point_x, point_y, point_z), (length, width, hight), (rotation x_axis, rotation y_axis rotation z_axis)]
 
     #set name and length, width and hight (due to change depending on the method of item data strcture)
         obj_dataframe.name = contents[i].name  
-        obj_dataframe.dimentions = contents[i].dimentions 
+        obj_dataframe.dimentions = [contents[i].width, contents[i].length ,contents[i].height ]
         obj_dataframe.type = contents[i].type
 
     #snaking algorithm for each item in the box
@@ -62,7 +62,8 @@ def tetris_main(box_matrix, contents, dimentions):
            for y in range(0, dimentions[1]+1):
                 for x in range(0, dimentions[2]+1):
                     current_pos = [x,y,z]
-                    box_matrix, obj_dataframe = space_check_init(box_matrix, obj_dataframe, current_pos) #double check that obj_dataframe and box_matrix can be sent back and forth 
+                    n = 0
+                    box_matrix, obj_dataframe = space_check_init(box_matrix, obj_dataframe, current_pos, n) #double check that obj_dataframe and box_matrix can be sent back and forth 
                     
                     if obj_dataframe != 0:
                         item_pos_data.append(obj_dataframe)
@@ -72,9 +73,8 @@ def tetris_main(box_matrix, contents, dimentions):
     return item_pos_data
 
 
-def space_check_init(box_matrix, obj_dataframe, current_pos,n):
+def space_check_init(box_matrix, obj_dataframe, current_pos, n):
     #check the verticies of the box are not interfearing with another box 
-    n = 0
     original_dimentions = obj_dataframe.dimentions
     original_pos = obj_dataframe.rotations
 
@@ -82,7 +82,7 @@ def space_check_init(box_matrix, obj_dataframe, current_pos,n):
     if obj_dataframe.type == 'N' and n < 5:
         obj_dataframe = rotate_object(obj_dataframe, n)
 
-        check = space_check(box_matrix, obj_dataframe, current_pos)
+        check = space_check(box_matrix, obj_dataframe, current_pos, n)
 
         if check == 0:
             obj_dataframe.dimentions = original_dimentions 
@@ -90,7 +90,6 @@ def space_check_init(box_matrix, obj_dataframe, current_pos,n):
 
             n = n + 1
             space_check_init(box_matrix, obj_dataframe, current_pos,n)
-        
     else:
         check = space_check(box_matrix, obj_dataframe, current_pos)
     
@@ -150,6 +149,8 @@ def organise_items(item_pos_data):
     
     return item_pos_data
  
+
+
 
 
 
