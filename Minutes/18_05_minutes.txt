@@ -16,26 +16,26 @@ Regular Items:
 New Items:
 - Updated progress on each others' tasks
 - No longer using the 90-Degree Angle assumption with a fixed LIDAR Sensor!
+- This means tasks/approaches from the last minutes have changed
 - LIDAR Sensor Discussion: 
     - Will start at the bottom left of the box's bottom layer. [At (0,0,0)]
     - Exact PWM Values at each point in each box
     - Generate a set of values, by comparing the angles 
     - Turns out our LIDAR was broken, received a new one from Andre
 
-    - Step 1: Running through each point in the box (3x3 grid or; 24cm x 24cm) [Adi]
+    - Step 1: Running through each point in the box (3x3 grid or; 24cm x 24cm)
     - Step 2: Collect LIDAR Data from each point and store in array with both PWM values 
     
     3D Array, 3 Dimensions: 2 PWM's, 1 Distance
-    Points 1-50 Create a loop that takes the data at each point and puts it into an array [Mig]
+    Points 1-50 Create a loop that takes the data at each point and puts it into an array
     Array for 50 points
     2 PWM Values (int), 1 Distance value (int) for each point
 
-    - Step 3: Comparing/Sending array data [Mig]
+    - Step 3: Comparing/Sending array data
     - Compare an original array to a new array
     - Check outside the range to see that those values haven't changed as well (Optional; Time dependent)
 
     - Step 4: Sending data to Stephen, only has to be True/False
-
 
 AOB (Any Other Business):
 None.
