@@ -24,15 +24,11 @@ class item_organised:
 box_type = 's'
 item = item_organised
 item.point = [0,0,0]
-item.dimentions = [20,15,5]
+item.dimentions = [20,10,5]
 
 # item2 = item_organised
 # item2.point = [1,1,1]
 # item2.dimentions = [5,5,5]
-
-data_array1 = [1, 0, 0, 0, 20, 20, 5]
-data_array2 = [1, 1, 1, 1, 5, 5, 5]
-# data = [item1, item2]
 
 
 def Initialised_matrix(type):
@@ -63,7 +59,7 @@ def convert_function(item,box_type):
     length = item.dimentions[0]
     width = item.dimentions[1]
     height = item.dimentions[2]
-    print(item.point)
+    # print(item.point)
     
     # Initialise the dimensions for different-size box
     # side length of each cube
@@ -96,13 +92,6 @@ def flatten(a):
 
 
 def plot_3d(item,box_type,Placed_matrix):
-    # Error handling
-    # 1. Not the defined size of the box
-    # 2. Given hight is lower than height of existing items
-    if box_type != 's' and box_type != 'm' and box_type != 'l':
-        print('Error! Please use Correct box!\n')
-        return
-
     # Convert item to matrix and plot them in 3D in turns
     # Use a convert function to convert item to cube
     # and place in right location
@@ -110,14 +99,12 @@ def plot_3d(item,box_type,Placed_matrix):
 
     for i in range(len(convert_matrix)):
         for j in range(len(convert_matrix[0])):
-            Placed_matrix[len(convert_matrix)-1-i][j] = Placed_matrix[len(convert_matrix)-1-i][j] + convert_matrix[i][j]
+            Placed_matrix[i][j] = Placed_matrix[i][j] + convert_matrix[i][j]
 
-
-    # Print test for matrix
-    for i in range(len(Placed_matrix)):
-        print(Placed_matrix[i])
-    print('\n')
-
+    # # Print test for matrix
+    # for i in range(len(Placed_matrix)):
+    #     print(Placed_matrix[i])
+    # print('\n')
 
     ## 3D plot
     fig = plt.figure()
@@ -132,15 +119,22 @@ def plot_3d(item,box_type,Placed_matrix):
     height = np.zeros_like(z)
     width = depth = 1
 
-    # ax.title('Placement')
     ax.bar3d(y,x , height, width, depth, z,  color='b', zsort='average')  # width, depth, height
     ax.set_xlabel('Width')
     ax.set_ylabel('Length')
     ax.set_zlabel('Height')
     ax.set_zlim([0,8])
+    ax.xaxis.set_ticks_position('top')  #Invert the x axis
+    ax.invert_xaxis()
 
     plt.show()
+
+    # The matrix for plot is inversed, so here inverse back
+    Placed_matrix = np.flipud(Placed_matrix)
     return Placed_matrix
 
-matrix = [[1] * int(8) for i in range(int(8))]
+# test
+matrix = Initialised_matrix(box_type)
 matrix = plot_3d(item,box_type,matrix)
+for i in range(len(matrix)):
+    print(matrix[i])
