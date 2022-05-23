@@ -12,7 +12,7 @@ small_box = box.SmallBox(items)
 
 boxes = [small_box]
 
-print(small_box.width)
+boxes_packed = tetris_init(boxes)
 
-tetris_init(boxes)
+print(boxes_packed)
 
