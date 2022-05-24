@@ -1,0 +1,66 @@
+Major Project Group A Assignment 3
+Minutes of the team meeting
+29 April, 2022, Online Meeting
+
+Present: Michael Mei, Miguel Bentiro, Stephen Capar, Yingjie Mie 
+
+Apologies: Aditya is unable to make it to today's online meeting.
+
+Meeting Purpose: To split project module tasks amongst the group members
+
+Previous Actions:
+- Introduced all members
+- Brainstormed some ideas
+- Established means of communication
+- Created GitHub repository
+- Decided on Project Premise
+
+Regular Items:
+- Updated GitHub Repository
+
+New Items:
+- Discussed how to modularise the Project
+- Michael is initialisation, working on how to check how many boxes 
+are needed
+    - Has to read CSV file and determine how many boxes are needed
+    - Return an array with item oredered from largest to smallest with
+    each array referencing a certain box, also stating its range
+    - Also consider other conditions (e.g. fragile items)
+- Stephen is working on how to determine the most efficient way of placing
+of objects
+    - Will take in an order in which the objects placed are known
+    - Will be outputted asn a array ordered in the method of which they'll
+    be placed
+    - It's then shown in a 3D Graph that displays where it's meant to be in
+    the box, the object is then placed in the box. A function stops this
+    process from contuining until a command is inputted, which checks
+    the space and then proceeds.
+- Yingjie is working on the placement algorithm of the items in the boxes
+    - Uses a 2D Space to determine where to place the items
+    - z-axis order doesn't matter. Choosing the area is more important
+    - Should also do the boxes in the 3D Space. Also need a 3D Representation
+    of where the boxes will go (Maybe using matplotlib)
+- Aditya and Miguel are working on getting the LIDAR working
+    - Should consider that its range is radial
+
+- A draw.io diagram was given for the members to add all their subroutines
+ & functions to
+
+Other things to add to project: 
+- Machine beeps when complete and sends message to LCD. Also notifies
+the Python console
+    - Double beep for errors
+    - Print a code for the error (There's an ID for every error)
+
+Things to note:
+- Decided unit of measurement for length is cm
+	
+AOB (Any Other Business):
+None.
+
+Next Meetings:
+a) 4 May, 2-5pm, Mechatronics Lab
+b) 11 May, 2-5pm, Mechatronics Lab
+c) 18 May, 2-5pm, Mechatronics Lab
+d) Any online meetings inbetween the aforementioned meetings
+e) 25 May, 2-5pm, Mechatronics Lab (Group Presentation!)
