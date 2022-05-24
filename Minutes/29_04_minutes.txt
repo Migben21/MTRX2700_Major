@@ -4,9 +4,7 @@ Minutes of the team meeting
 
 Present: Michael Mei, Miguel Bentiro, Stephen Capar, Yingjie Mie 
 
-Welcome: 
-
-Apologies: None.
+Apologies: Aditya is unable to make it to today's online meeting.
 
 Meeting Purpose: To split project module tasks amongst the group members
 
