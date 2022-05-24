@@ -1,4 +1,4 @@
-Design Project Group Assignment 3
+Major Project Group A Assignment 3
 Minutes of the team meeting
 4 May, 2022, Mechatronics Lab
 
@@ -6,7 +6,7 @@ Present: Michael Mei, Miguel Bentiro, Yingjie Mie
 
 Apologies: Aditya Bhambri and Stephen Capar are unable to make today's meeting.
 
-Meeting Purpose: 
+Meeting Purpose: To update progress on our individual modules
 
 Previous Actions:
 - Discussed how to modularise the project
@@ -23,4 +23,7 @@ AOB (Any Other Business):
 None.
 
 Next Meetings:
-a) 
+a) 11 May, 2-5pm, Mechatronics Lab
+b) 18 May, 2-5pm, Mechatronics Lab
+c) Any online meetings inbetween the aforementioned meetings
+d) 25 May, 2-5pm, Mechatronics Lab (Group Presentation!)

@@ -1,4 +1,4 @@
-Design Project Group Assignment 3
+Major Project Group A Assignment 3
 Minutes of the team meeting
 29 April, 2022, Online Meeting
 
@@ -59,4 +59,8 @@ AOB (Any Other Business):
 None.
 
 Next Meetings:
-a) 
+a) 4 May, 2-5pm, Mechatronics Lab
+b) 11 May, 2-5pm, Mechatronics Lab
+c) 18 May, 2-5pm, Mechatronics Lab
+d) Any online meetings inbetween the aforementioned meetings
+e) 25 May, 2-5pm, Mechatronics Lab (Group Presentation!)
