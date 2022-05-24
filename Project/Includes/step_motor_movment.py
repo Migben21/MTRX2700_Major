@@ -50,9 +50,9 @@ def calculate_step(box_type,item):
     # print('length = ',cube_length,'   width = ',cube_width,'    height = ',cube_height)
     motor_x = (item.point[0] + 0.5*cube_length)
     motor_y = (item.point[1] + 0.5*cube_width)
-    motor_z = motor_z - item_height - matrix[item.point[0]+1][item.point[1]] * division - item.point[2]*division
+    if item.point[0]+1 <= len(matrix) and item.point[1] <= len(matrix[0]):
+        motor_z = motor_z - item_height - matrix[item.point[0]+1][item.point[1]] * division - item.point[2]*division
     motor_z = motor_z/division
-    hold_flag = 0
     movement = [motor_x,motor_y,motor_z]
     # print('x = ',motor_x,'   y = ',motor_y,'    z = ',motor_z)
     # void motormove(char x,int motor_x)
