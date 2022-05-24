@@ -1,0 +1,24 @@
+Major Project Group A Assignment 3
+Minutes of the team meeting
+24 May, 2022, PNR
+
+Present: Aditya Bhambri, Michael Mei, Miguel Benatiro, Yingjie Mi
+
+Meeting Purpose: To finalise code & integrate all the tasks together
+
+Previous Actions:
+- 
+
+Regular Items:
+- Updated GitHub repository
+
+New Items:
+- 
+
+
+AOB (Any Other Business):
+None.
+
+Next Meetings:
+a) Any online meetings inbetween the aforementioned meetings
+b) 25 May, 2-5pm, Mechatronics Lab (Group Presentation!)
