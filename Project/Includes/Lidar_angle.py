@@ -1,9 +1,38 @@
 import numpy as np
 import math
 
+# input:
+class item_organised:
+    def __init__(self):
+        self.name = ""
+        self.point = [0,0,0]
+        self.dimentions = [0,0,0]
+        self.rotations = [0,0,0]
+        self.type = "N"
+
+box_type = 's'
+item = item_organised
+item.point = [0,4,0]
+item.dimentions = [20,10,5]
+
+# Output:
+#           angle range[xmin,xmax]
+#                      [ymin,ymax]     
+
+# # Item dimensions: [length,width,height] 
+# item.dimentions = [5,5,5]
+# # item_dimesion = item.dimension
+# # Item coordinater:
+# item.point = [0,0,0]
+# # item.point = item.point
+# Lidar position: eg.[len/2,wid/2,hight]
+# box_dimension = [40,40,40]
+# box_dimension = 
+
 def angle_at_corners(item,box_type): #main function
     # Initialise the angle and corners, lidar position is at center of box
     angle=np.full((4,2),0)
+    angle_range = np.full((2,2),0)
     corners = [[0,1,0],[1,1,0],[1,0,0],[0,0,0]]
     division = 5
     box_dimension = box_cal(box_type)
@@ -12,7 +41,7 @@ def angle_at_corners(item,box_type): #main function
     corners[0][0] = item.point[0]*division                    # left-top point
     corners[0][1] = item.point[1]*division + item.dimentions[1]
     corners[0][2] = item.point[2]*division + item.dimentions[2]
-    corners[1][0] = item.point[0]*division + item.dimentions[0]# right-botton point
+    corners[1][0] = item.point[0]*division + item.dimentions[0]# right-top point
     corners[1][1] = item.point[1]*division + item.dimentions[1]
     corners[1][2] = item.point[2]*division + item.dimentions[2] 
     corners[2][0] = item.point[0]*division + item.dimentions[0]# right-botton point
@@ -25,7 +54,14 @@ def angle_at_corners(item,box_type): #main function
 
     for i in range(len(corners)):
         angle = calculate_angle(corners[i],i,angle,box_dimension)
-    return angle
+    # print(angle)
+
+    angle_range[0][0] = min(angle[0,:])
+    angle_range[0][1] = max(angle[1,:])
+    angle_range[1][0] = min(angle[:,1])
+    angle_range[1][1] = min(angle[:,0])
+
+    return angle_range
 
 def box_cal(box_type):
     if box_type == 's':
@@ -56,3 +92,7 @@ def calculate_angle(point,n,angle_matrix,box_dimension):
         # print(angle)
         return angle_matrix
 
+
+# test
+# angle = angle_at_corners(item,box_type)
+# print(angle)
