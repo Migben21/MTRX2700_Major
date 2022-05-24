@@ -68,7 +68,7 @@ for i in range(len(box_pos_data)):
 
         num_items = num_items - 1
 
-        #waiting()
+        waiting()
 
 
 
