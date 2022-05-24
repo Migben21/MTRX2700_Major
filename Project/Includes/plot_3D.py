@@ -3,38 +3,6 @@ import math
 import matplotlib.pyplot as plt
 
 
-# Read the item data
-############################
-# Example:
-# type = 1
-# coodinate_x = 0   [0,0,0]
-# coodinate_y = 0
-# length = 20
-# width = 15
-# height = 5
-############################
-
-#   Output:
-#           1 plot figure
-#           Placed matrix
-class item_organised:
-    def __init__(self):
-        self.name = ""
-        self.point = [0,0,0]
-        self.dimentions = [0,0,0]
-        self.rotations = [0,0,0]
-        self.type = "N"
-
-box_type = 's'
-item = item_organised
-item.point = [0,4,0]
-item.dimentions = [20,10,5]
-
-# item2 = item_organised
-# item2.point = [1,1,1]
-# item2.dimentions = [5,5,5]
-
-
 def Initialised_matrix(type):
     # Initialise the dimensions for different-size box
     # side length of each cube

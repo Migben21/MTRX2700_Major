@@ -1,35 +1,6 @@
 import numpy as np
 import math
 
-# input:
-class item_organised:
-    def __init__(self):
-        self.name = ""
-        self.point = [0,0,0]
-        self.dimentions = [0,0,0]
-        self.rotations = [0,0,0]
-        self.type = "N"
-
-box_type = 's'
-item = item_organised
-item.point = [0,4,0]
-item.dimentions = [20,10,5]
-
-# Output:
-#           angle array[y,x]
-#           x is angle at y axis
-# #         y is angle at x axis 
-
-# # Item dimensions: [length,width,height] 
-# item.dimentions = [5,5,5]
-# # item_dimesion = item.dimension
-# # Item coordinater:
-# item.point = [0,0,0]
-# # item.point = item.point
-# Lidar position: eg.[len/2,wid/2,hight]
-# box_dimension = [40,40,40]
-# box_dimension = 
-
 def angle_at_corners(item,box_type): #main function
     # Initialise the angle and corners, lidar position is at center of box
     angle=np.full((4,2),0)
@@ -85,7 +56,3 @@ def calculate_angle(point,n,angle_matrix,box_dimension):
         # print(angle)
         return angle_matrix
 
-
-# test
-angle = angle_at_corners(item,box_type)
-print(angle)

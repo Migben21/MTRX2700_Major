@@ -1,24 +1,7 @@
 from difflib import diff_bytes
 import numpy as np
 import math
-from plot_3D import Initialised_matrix
-
-# Read data:
-# item position
-# item length, width, height
-# type of box
-class item_organised:
-    def __init__(self):
-        self.name = ""
-        self.point = [0,0,0]
-        self.dimentions = [0,0,0]
-        self.rotations = [0,0,0]
-        self.type = "N"
-
-box_type = 'm'
-item = item_organised
-item.point = [2,2,0]
-item.dimentions = [20,10,5]
+from Includes.plot_3D import Initialised_matrix
 
 #   Output:
 #           movement array[x,y,z]
@@ -84,8 +67,3 @@ def calculate_step(box_type,item):
     # void motorback(char y,int Initial_distance)
 
     return movement
-
-
-# test
-move = calculate_step(box_type,item)
-print(move)

@@ -1,14 +1,13 @@
 import csv
 import sys
-import objecttypes as obj
-import boxes as box
-
+from Includes import objecttypes as obj
+from Includes import boxes as box
 
 # Opens csv file and reads what items need to be sorted and parses them into determine_boxes()
 # Returns array of boxes with objects to be placed inside
 def box_algorithm(filename):
     boxes = []
-    with open('../Includes/items/' + filename, newline='') as csvfile:
+    with open('..Project/Includes/items/' + filename, newline='') as csvfile:
         contents = csv.reader(csvfile, delimiter=',', quotechar='|')
         for line in contents:
             # array to store items

@@ -14,9 +14,7 @@ def Init_send_data(num_array):
 
 def send_data(data):
     #getting the file directory
-    path = os.getcwd()
-    file_path = os.path.abspath(os.path.join(path, os.pardir))
-    file_path = file_path + '\MTRX2700_Major\Project\Includes\data.txt'
+    file_path = "data.txt"
 
 
     f = open(file_path, "w")
@@ -26,9 +24,7 @@ def send_data(data):
     return
 
 def waiting():
-    path = os.getcwd()
-    file_path = os.path.abspath(os.path.join(path, os.pardir))
-    file_path = file_path + '\MTRX2700_Major\Project\Includes\data.txt'
+    file_path = "data.txt"
 
     i = 0
     str = ""
