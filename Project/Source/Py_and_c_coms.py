@@ -3,10 +3,13 @@ import os
 def Init_send_data(num_array):
     string = ""
 
-    for i in range(num_array):
+    string = string + str(num_array[0])
+
+    for i in range(1,num_array):
         string = string + "," + str(num_array[i])
 
     send_data(string)
+    
     return
 
 def send_data(data):
