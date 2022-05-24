@@ -7,7 +7,7 @@
 
 
 char *error_message;
-int alpha = 0;
+
 
 void error_state(int errCode){
   

@@ -30,6 +30,9 @@ void main(void) {
 	
 	error_button();
 	
+	serial_print_string(&sci_port, y);
+	
+	step_button_wait();
 	led_test();
 	
   error_state(py_err);
