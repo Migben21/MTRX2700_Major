@@ -39,5 +39,7 @@ void main(void) {
   while (*current_character != 0x00){
   }
   
+  step_button_wait();
+  // first function
 }
 
