@@ -8,7 +8,7 @@
 #define DELAY_MAX 2000 //The maximum # of counts used to create a time delay.
 
 
-void port_selector(int i, char *state_array, int next_state){
+void port_selector(int i, int *state_array, int next_state){
    int PTU;
    int PTL;
    int PTV;
@@ -32,7 +32,7 @@ void port_selector(int i, char *state_array, int next_state){
 }
 
 
-void motor_stepping(int steps, char next_state, char *state_array, int i){
+void motor_stepping(int steps, char next_state, int *state_array, int i){
   int steps_to_move = steps; //Set the # of steps to move. An arbitrary positive # can be used.
   int a;
   
