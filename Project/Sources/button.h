@@ -11,14 +11,6 @@ void init_button(){
 }
 
 
-// Waits for DIP switch 2 or pushbutton SW4
-// Meant to be used to step through the code
-void step_button_wait(){
-  while(PTH_PTH1){
-  }
-}
-
-
 // When error is raised, prints to serial asking if 
 // user wishes to try again or exit program
 // Uses SW3 (PTH_PTH2) as exit and SW2 (PTH_PTH3) as try again

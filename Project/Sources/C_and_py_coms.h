@@ -1,10 +1,29 @@
+#ifndef COMMS
+#define COMMS
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 //#include "../Includes"
 
-void pool_data_transfer(FILE* ptr){
-    i = 0;
+void clean_file(){
+    FILE* ptr;
+    
+    ptr = fopen("../MTRX2700_Major/Project/Includes/data.txt", "w");
+
+    fclose(ptr);
+
+    return;
+}
+
+int * data_collector(){
+    char buffer[50];
+    char *token;
+    const char *s = ",";
+    int data[10];
+    int i = 0;
+    FILE* ptr;
+    int size = 0;
  
     // Opening file in reading mode and determining if file has content
     while (i != 1){
@@ -14,27 +33,17 @@ void pool_data_transfer(FILE* ptr){
         size = ftell(ptr);
 
         if (0 != size) {
-            i = 1
+            i = 1;
         }else{
-            fclose(ptr)
+            fclose(ptr);
         }
     }
 
-    return ptr
-}
-
-int * data_collector(){
-    char buffer[50];
-    char *token
-    const char s = ","
-    int data[10]
-    int i = 0
-
-    FILE* ptr = pool_data_transfer(FILE* ptr)
-
+    //scan file for string and begin deconstruction into elements of int 
     fscanf(ptr, "%s", buffer);
+    i = 0;
 
-    strok(buffer, s);
+    strtok(buffer, s);
 
     while( token != NULL ) {
       data[i] = atoi(token);
@@ -44,16 +53,9 @@ int * data_collector(){
     
       
    }
-   fclose(ptr)
-   return data
+   
+   fclose(ptr);
+   return data;
 }
 
-void clean_file(){
-    FILE* ptr
-    
-    ptr = fopen("../MTRX2700_Major/Project/Includes/data.txt", "w");
-
-    fclose(ptr)
-
-    return
-}
+#endif

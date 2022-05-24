@@ -23,8 +23,7 @@ def box_algorithm(filename):
                 try:
                     itemList.append(obj.allItems[i.lower()]())
                 except KeyError:
-                    sys.stderr.write("Invalid item name")
-                    exit(1)  # Invalid item name found in contents
+                    return 1  # Invalid item name found in contents
             # Sorts array in order from largest to smallest
             itemList.sort(key=vol, reverse=True)
 
@@ -99,8 +98,7 @@ def determine_boxes(items):
 
         if totalVolume >= 100 * 100 * 40:  # Volume of large box
             if len(scannedItems) == 1:
-                sys.stderr.write("Item too large to fit in a box")
-                exit(2)  # Item too large for any box
+                return 2  # Item too large for any box
             elif totalVolume != 0:
                 scannedItems.pop(len(scannedItems)-1)
                 boxes.append(box.LargeBox(scannedItems))
