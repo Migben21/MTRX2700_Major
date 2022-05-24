@@ -38,16 +38,6 @@ int array_compare() {
         }
     }
 
-/* // This variation checks through all the points
-    for (i=0; i < no_points_1; i++) {
-        if (dataset_1[i] != dataset_2[i]) {
-            invalid_points[j] = i;
-            j++;
-            no_invalid++;
-        }
-    }
-*/
-
     printf("\nInvalid points: ");
     for (i=0; i < no_invalid; i++) {
         printf("%d ", invalid_points[i]);
