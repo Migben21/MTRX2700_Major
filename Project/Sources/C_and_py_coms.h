@@ -6,8 +6,7 @@
 #include <string.h>
 //#include "../Includes"
 
-<<<<<<< HEAD:Project/Sources/C_and_py_coms.c
-=======
+
 void clean_file(){
     FILE* ptr;
     
@@ -17,23 +16,14 @@ void clean_file(){
 
     return;
 }
->>>>>>> boxalgorithm:Project/Sources/C_and_py_coms.h
 
 int * data_collector(){
     char buffer[50];
-    char *token;
-<<<<<<< HEAD:Project/Sources/C_and_py_coms.c
-    const char s = ",";
-    int data[10];
-    int i = 0;
-    FILE* ptr
-=======
     const char *s = ",";
     int data[10];
     int i = 0;
     FILE* ptr;
     int size = 0;
->>>>>>> boxalgorithm:Project/Sources/C_and_py_coms.h
  
     // Opening file in reading mode and determining if file has content
     while (i != 1){

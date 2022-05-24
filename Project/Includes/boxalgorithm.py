@@ -1,12 +1,9 @@
-<<<<<<< HEAD
 import csv
 import sys
 from Includes import objecttypes as obj
 from Includes import boxes as box
 
-=======
-		from Includes import boxes as box
->>>>>>> boxalgorithm
+
 # Opens csv file and reads what items need to be sorted and parses them into determine_boxes()
 # Returns array of boxes with objects to be placed inside
 def box_algorithm(filename):
@@ -42,13 +39,19 @@ def box_algorithm(filename):
                 if fragileItems[i].contentsVolume:
                     boxes.append(fragileItems[i])
     return boxes
+
+
 # Functions to be used for .sort() key parameter
 # Returns the volume of an input object for use with later sorting
 def vol(entry):
     return entry.volume
+
+
 # Returns the type of the input object
 def get_type(entry):
     return entry.type
+
+
 # Returns the size of the smallest side of a rotatable object
 def smallest_side(entry):
     if entry.type != 'F':
@@ -57,11 +60,15 @@ def smallest_side(entry):
         return smallest
     else:
         return entry.height
+
+
 # Returns the largest side of an object
 def largest_side(entry):
     dimensions = [int(entry.height), int(entry.width), int(entry.length)]
     largest = sorted(dimensions)[2]
     return largest
+
+
 # Checks the dimensions of an input item and checks if the largest side of an item is larger than the size of a box
 # Returns 0 if item won't fit in box, or 1 if it can
 def side_check(items, side):
@@ -69,6 +76,8 @@ def side_check(items, side):
         return 0
     else:
         return 1
+
+
 # Function to determine the amount of and size of boxes needed for a list of items
 def determine_boxes(items):
     boxes = []
