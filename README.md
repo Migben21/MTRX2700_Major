@@ -24,23 +24,23 @@ This section is to describe the functions and how they're broken down into modul
 5: Checking
 6: Outputting 3D Representation
 
-## Module 1: Initialisation
+## Module 1: Initialisation / Box Algorithm / Initialising Serial
 The function reads a CSV file, and determines how many boxes are needed. It then returns an array with each item ordered from largest to smallest with each array referencing a certain box, and also stating its range.
 
 It must also consider other conditions (e.g. fragile items such as eggs).
 
-## Module 2: Determining placement method
-This function takes in an order in which the objects placed are known. It then outputs an array ordered in the method of which the objects should be placed. 
+## Module 2: Tetris
+Determines the most efficient way of placing objects. This function takes in an order in which the objects placed are known. It then outputs an array ordered in the method of which the objects should be placed. 
 
 A 3D Graph is also shown that displays where it's meant to be in the box.
 
 The function stops this process constantly until a command is inputted, which checks the space and then proceeds in an endless loop, constantly updating after each command.
 
-## Module 3: Placement Algorithms (name pending?)
-This module uses a 2D view of the space to determine where to place items. The z-axis is irrelevant for this as choosing the area is the main focus. 
+## Module 3: Placement Algorithm
+This module uses a 2D view of the space to determine where to place items. The z-axis is irrelevant for this as choosing the area is the main focus.  It should also do the boxes in the 3D space, possibly giving a 3D representation of where the boxes will go (likely using MatplotLib).
 
 ## Module 4: LIDAR Sensor
-
+This module concerns more hardware and operating the LIDAR to scan objects inside boxes and determine from their distances to the sensor how the box is already filled up or possibly empty. It also has to transfer the microcontroller's C data into readable data for the Python programs. 
 
 # Testing Procedures:
 * 
