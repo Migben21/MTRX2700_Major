@@ -12,8 +12,13 @@ class item_organised:
 
 box_type = 's'
 item = item_organised
-item.point = [2,2,0]
+item.point = [0,4,0]
 item.dimentions = [20,10,5]
+
+# Output:
+#           angle array[y,x]
+#           x is angle at y axis
+# #         y is angle at x axis 
 
 # # Item dimensions: [length,width,height] 
 # item.dimentions = [5,5,5]
@@ -73,11 +78,10 @@ def calculate_angle(point,n,angle_matrix,box_dimension):
         
         # calculate the angle value
         # xy plane and zy
-        angle_matrix[n][0] = round(90 -math.atan2(y_distance,x_distance)/math.pi*180)
-        if y_distance == 0:
-            angle_matrix[n][1] = round(math.atan2(x_distance,z_distance)/math.pi*180)
-        else:
-            angle_matrix[n][1] = round(math.atan2(y_distance,z_distance)/math.pi*180)
+        angle_matrix[n][0] = round(math.atan2(y_distance,z_distance)/math.pi*180)
+        
+        angle_matrix[n][1] = round(math.atan2(x_distance,z_distance)/math.pi*180)
+        
         # print(angle)
         return angle_matrix
 

@@ -13,6 +13,10 @@ import matplotlib.pyplot as plt
 # width = 15
 # height = 5
 ############################
+
+#   Output:
+#           1 plot figure
+#           Placed matrix
 class item_organised:
     def __init__(self):
         self.name = ""
@@ -23,7 +27,7 @@ class item_organised:
 
 box_type = 's'
 item = item_organised
-item.point = [0,0,0]
+item.point = [0,4,0]
 item.dimentions = [20,10,5]
 
 # item2 = item_organised
@@ -136,5 +140,5 @@ def plot_3d(item,box_type,Placed_matrix):
 # test
 matrix = Initialised_matrix(box_type)
 matrix = plot_3d(item,box_type,matrix)
-for i in range(len(matrix)):
-    print(matrix[i])
+# for i in range(len(matrix)):
+#     print(matrix[i])

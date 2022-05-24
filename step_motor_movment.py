@@ -20,6 +20,12 @@ item = item_organised
 item.point = [2,2,0]
 item.dimentions = [20,10,5]
 
+#   Output:
+#           movement array[x,y,z]
+#           x is the move distance for motor x 
+#           y is the move distance for motor y 
+#           z is the move distance for motor z 
+
 
 def calculate_step(box_type,item):
 
@@ -58,14 +64,14 @@ def calculate_step(box_type,item):
     cube_length = math.ceil(item_length / division)
     cube_width = math.ceil(item_width / division)
     cube_height = math.ceil(item_height / division)
-    print('length = ',cube_length,'   width = ',cube_width,'    height = ',cube_height)
+    # print('length = ',cube_length,'   width = ',cube_width,'    height = ',cube_height)
     motor_x = (item.point[0] + 0.5*cube_length)
     motor_y = (item.point[1] + 0.5*cube_width)
     motor_z = motor_z - item_height - matrix[item.point[0]+1][item.point[1]] * division - item.point[2]*division
     motor_z = motor_z/division
     hold_flag = 0
     movement = [motor_x,motor_y,motor_z]
-    print('x = ',motor_x,'   y = ',motor_y,'    z = ',motor_z)
+    # print('x = ',motor_x,'   y = ',motor_y,'    z = ',motor_z)
     # void motormove(char x,int motor_x)
     # void motormove(char y,int motor_y)
     # void motormove(char z,int motor_z)

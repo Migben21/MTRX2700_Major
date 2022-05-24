@@ -1,2 +1,2 @@
-_position('top')  #Invert the x axis
-    ax.invert_xaxis()
+matrix = Initialised_matrix(box_type)
+matrix = plot_3d(item,box_type,matrix)
