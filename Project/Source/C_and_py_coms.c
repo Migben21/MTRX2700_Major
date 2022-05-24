@@ -15,6 +15,8 @@ void pool_data_transfer(FILE* ptr){
 
         if (0 != size) {
             i = 1
+        }else{
+            fclose(ptr)
         }
     }
 
@@ -39,7 +41,19 @@ int * data_collector(){
       i++;
     
       token = strtok(NULL, s);
-
-      return data
+    
+      
    }
+   fclose(ptr)
+   return data
+}
+
+void clean_file(){
+    FILE* ptr
+    
+    ptr = fopen("../MTRX2700_Major/Project/Includes/data.txt", "w");
+
+    fclose(ptr)
+
+    return
 }
