@@ -20,6 +20,25 @@ int main() {
         printf("Datasets do not have same number of points.\n");
     }
 
+    printf("Points to Compare: ");
+    for (i=0; i < no_comp_points; i++) {
+        printf("%d ", comp_points[i]);
+    }
+
+    for (i=0; i < no_points_1; i++) {
+        // Checks if it's one of the points to be compared, if so then compares
+        // Have to put -1 since i starts counting from 0
+        if (i == comp_points[k] - 1) { 
+            if (dataset_1[i] != dataset_2[i]) {
+                invalid_points[j] = i + 1; // Since i counts at 0
+                j++;
+                no_invalid++;
+            }
+            k++;
+        }
+    }
+
+/* // This variation checks through all the points
     for (i=0; i < no_points_1; i++) {
         if (dataset_1[i] != dataset_2[i]) {
             invalid_points[j] = i;
@@ -27,17 +46,12 @@ int main() {
             no_invalid++;
         }
     }
-
-    printf("Points to Compare: ");
-    for (i=0; i < no_comp_points; i++) {
-        printf("%d, ", comp_points[i]);
-    }
+*/
 
     printf("\nInvalid points: ");
     for (i=0; i < no_invalid; i++) {
-        printf("%d, ", invalid_points[i]);
+        printf("%d ", invalid_points[i]);
     }
-
     printf("\n");
 
     return 0;
