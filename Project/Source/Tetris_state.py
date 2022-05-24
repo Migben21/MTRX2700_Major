@@ -1,4 +1,5 @@
 import sys
+from tabnanny import check
 import numpy as np
 import matplotlib as mp
 
@@ -41,7 +42,7 @@ def tetris_init(box_objs):
             #call function of error
             return 
         
-        #item_pos_data = organise_items(item_pos_data)
+        item_pos_data = organise_items(item_pos_data)
         boxes_packed.append(item_pos_data)    
     return boxes_packed
 
@@ -54,7 +55,7 @@ def tetris_main(box_matrix, contents, dimentions):
 
         #set name and length, width and hight (due to change depending on the method of item data strcture)
         obj_dataframe.name = contents[i].name  
-        obj_dataframe.dimentions = [contents[i].width, contents[i].length ,contents[i].height]
+        obj_dataframe.dimentions = [contents[i].width, contents[i].height, contents[i].length]
         obj_dataframe.type = contents[i].type
 
         item_pos_data.append(snaking_sub_alg(dimentions, box_matrix, obj_dataframe))
@@ -70,9 +71,9 @@ def snaking_sub_alg(dimentions, box_matrix, obj_dataframe):
                 current_pos = [x,y,z]
                 n = 0
                 
-                obj_dataframe = space_check_init(box_matrix, obj_dataframe,dimentions,current_pos, n) #double check that obj_dataframe and box_matrix can be sent back and forth 
+                check = space_check_init(box_matrix, obj_dataframe,dimentions,current_pos, n) #double check that obj_dataframe and box_matrix can be sent back and forth 
 
-                if obj_dataframe.name != "NULL":
+                if check == 1:
                     #set data into memory of pace and point 
                     box_matrix = item_filler(box_matrix, obj_dataframe, current_pos) 
                     obj_dataframe.point = current_pos
@@ -81,7 +82,7 @@ def snaking_sub_alg(dimentions, box_matrix, obj_dataframe):
                     print("---------------------")
                     print(obj_dataframe.name)
                     print(obj_dataframe.point, " Point")
-                    print(obj_dataframe.dimentions ," OG POS")
+                    print(obj_dataframe.dimentions ," OG DIM")
                     print("Cont...")
                     return obj_dataframe
     print("Failed")
@@ -104,27 +105,26 @@ def space_check_init(box_matrix, obj_dataframe, dimentions, current_pos, n):
             #obj_dataframe.rotations = original_pos 
 
             n = n + 1
-            space_check_init(box_matrix, obj_dataframe, current_pos,n)
     else:
         check = space_check(box_matrix, obj_dataframe, dimentions,current_pos)
     
     #returning set
-    if check == 0:
-        obj_dataframe.name = "NULL"
-    
-    return obj_dataframe
+    return check
     
 
 def space_check(box_matrix, obj_dataframe, dimentions, current_pos):
+    #print("checking", current_pos)
+    #ensure that the values to do not exceed the matrix index boundries 
     if obj_dataframe.dimentions[0] + current_pos[0] <= dimentions[0] and obj_dataframe.dimentions[1] + current_pos[1] <= dimentions[1] and obj_dataframe.dimentions[2] + current_pos[2] <= dimentions[2]:
     #check all verticies of the box are not colliding with others
+        #print("within RANGE")
         if box_matrix[current_pos[0]][current_pos[1]][current_pos[2]] == 0 : #checking current point (O)
-            if box_matrix[obj_dataframe.dimentions[0] + current_pos[0]][current_pos[1]][current_pos[2]] == 0: #checking width from current point vertex (W)
                 if box_matrix[current_pos[0]][obj_dataframe.dimentions[1] + current_pos[1]][current_pos[2]] == 0 : # checking length from current point vertex (L)
-                    if box_matrix[current_pos[0]][current_pos[1]][obj_dataframe.dimentions[2] + current_pos[2]] == 0: #checking height from current point vertex (H)
-                        if box_matrix[current_pos[0]][obj_dataframe.dimentions[1] + current_pos[1]][obj_dataframe.dimentions[2] + current_pos[2]] == 0 : #checking (H+L)
+                    if box_matrix[current_pos[0]][current_pos[1]][obj_dataframe.dimentions[2] + current_pos[2]] == 0: #checking height from current point vertex (
+                        if box_matrix[current_pos[0]][obj_dataframe.dimentions[1] + current_pos[1]][obj_dataframe.dimentions[2] + current_pos[2]] == 0 : #checking (H+L
                             if box_matrix[obj_dataframe.dimentions[0] + current_pos[0]][obj_dataframe.dimentions[1] + current_pos[1]][current_pos[2]] == 0 : # checking (W+L)
                                 if box_matrix[obj_dataframe.dimentions[0] + current_pos[0]][obj_dataframe.dimentions[1] + current_pos[1]][obj_dataframe.dimentions[2] + current_pos[2]] == 0: #checking (H+L+W)
+                                    #print("WITHIN SPACE")
                                     return 1
     return 0
 
