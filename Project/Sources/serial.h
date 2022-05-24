@@ -1,7 +1,3 @@
-/*
-MAKE SURE THAT THE #pragma LINK_INFO DERIVATIVE MCU NAME HAS a 'b'
-AT THE END OTHERWISE SHIT JUST DOESNT LOL
-*/
 #ifndef SCI_Header
 #define SCI_Header
 
@@ -57,7 +53,7 @@ void serial_print_string(SerialPort *serial, char *text) {
                        
 
 #pragma CODE_SEG __NEAR_SEG NON_BANKED
-__interrupt void SerialInterruptHandler(void){
+__interrupt VectorNumber_Vsci1 void SerialInterruptHandler(void){
   
   if (*(sci_port.statusReg) & SCI1SR1_TDRE_MASK && *current_character != 0x00){
     serial_char_print(&sci_port, *(current_character++));
