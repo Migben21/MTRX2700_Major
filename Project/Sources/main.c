@@ -28,7 +28,9 @@ void main(void) {
 	
 	serial_print_string(&sci_port, x);
 	
-	//error_button();
+	error_button();
+	
+	led_test();
 	
   error_state(py_err);
   
