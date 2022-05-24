@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include "../Includes"
 
 
 void clean_file(){
@@ -13,12 +12,12 @@ void clean_file(){
     ptr = fopen("../MTRX2700_Major/Project/Includes/data.txt", "w");
 
     fclose(ptr);
-
-    return;
 }
+
 
 int * data_collector(){
     char buffer[50];
+    char *token;
     const char *s = ",";
     int data[10];
     int i = 0;
@@ -45,7 +44,7 @@ int * data_collector(){
 
     strtok(buffer, s);
 
-    while( token != NULL ) {
+    while(token != NULL ) {
       data[i] = atoi(token);
       i++;
     
@@ -58,16 +57,5 @@ int * data_collector(){
    return data;
 }
 
-<<<<<<< HEAD:Project/Sources/C_and_py_coms.c
-void clean_file(){
-    FILE* ptr;
-    
-    ptr = fopen("../MTRX2700_Major/Project/Includes/data.txt", "w");
 
-    fclose(ptr);
-
-    return
-}
-=======
 #endif
->>>>>>> boxalgorithm:Project/Sources/C_and_py_coms.h
