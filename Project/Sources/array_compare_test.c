@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-int array_compare() {
+int main() {
     // Hardcoded Input for now:
-    int comp_points[] = {2, 4, 5, 6}; // Points to compare
-    int dataset_1[] = {14, 32, 23, 55, 66, 34, 50};
-    int dataset_2[] = {14, 32, 23, 43, 40, 34, 50};
+    int comp_points[] = {1, 3, 4, 9, 19, 20}; // Points to compare
+    int dataset_1[27] = {11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37};
+    int dataset_2[27] = {11, 00, 13, 00, 00, 16, 17, 18, 00, 20, 21, 22, 23, 00, 25, 26, 27, 28, 00, 30, 31, 32, 00, 34, 35, 00, 00};
 
     int i, k, j = 0;
-    int invalid_points[69]; // Array to store index numbers of invalid points
+    int invalid_points[27]; // Array to store index numbers of invalid points
     int no_invalid = 0; // Integer to store number of invalid points
 
     // Checking sizes of arrays, division to account for memory differences
@@ -38,21 +38,12 @@ int array_compare() {
         }
     }
 
-/* // This variation checks through all the points
-    for (i=0; i < no_points_1; i++) {
-        if (dataset_1[i] != dataset_2[i]) {
-            invalid_points[j] = i;
-            j++;
-            no_invalid++;
-        }
-    }
-*/
-
+    printf("\nNumber of Invalid Points: %d", no_invalid);
     printf("\nInvalid points: ");
     for (i=0; i < no_invalid; i++) {
         printf("%d ", invalid_points[i]);
     }
-    printf("\n");
+    printf("\nNo. of Points: %d\n", no_points_1);
 
     return 0;
 }
