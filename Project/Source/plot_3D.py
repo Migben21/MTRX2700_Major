@@ -138,7 +138,7 @@ def plot_3d(item,box_type,Placed_matrix):
     return Placed_matrix
 
 # test
-matrix = Initialised_matrix(box_type)
-matrix = plot_3d(item,box_type,matrix)
+# matrix = Initialised_matrix(box_type)
+# matrix = plot_3d(item,box_type,matrix)
 # for i in range(len(matrix)):
 #     print(matrix[i])

@@ -66,8 +66,8 @@ def box_cal(box_type):
     return box_dimension
 
 def calculate_angle(point,n,angle_matrix,box_dimension):
-        
-        lidar_position = [box_dimension[0]/2,box_dimension[1]/2,300]
+        # edit lidar position here
+        lidar_position = [box_dimension[0]/2,0,100]
         # distance in x
         x_distance = lidar_position[0] - point[0]
         # distance in y
@@ -78,7 +78,7 @@ def calculate_angle(point,n,angle_matrix,box_dimension):
         
         # calculate the angle value
         # xy plane and zy
-        angle_matrix[n][0] = round(math.atan2(y_distance,z_distance)/math.pi*180)
+        angle_matrix[n][0] = -round(math.atan2(y_distance,z_distance)/math.pi*180)
         
         angle_matrix[n][1] = round(math.atan2(x_distance,z_distance)/math.pi*180)
         
