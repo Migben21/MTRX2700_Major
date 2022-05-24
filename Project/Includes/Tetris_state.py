@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-print("hello")
-=======
 import sys
 from tabnanny import check
 import numpy as np
@@ -166,10 +163,3 @@ def organise_items(item_pos_data):
                 item_pos_data[b], item_pos_data[b + 1] = item_pos_data[b + 1], item_pos_data[b]
     
     return item_pos_data
- 
-
-
-
-
-
->>>>>>> 8f523e6bbc7e71556941f15b04a9813bc5ad0d05

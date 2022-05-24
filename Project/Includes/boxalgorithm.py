@@ -1,7 +1,7 @@
 import csv
 import sys
-from Includes import objecttypes as obj
-from Includes import boxes as box
+import objecttypes as obj
+import boxes as box
 
 
 # Opens csv file and reads what items need to be sorted and parses them into determine_boxes()
