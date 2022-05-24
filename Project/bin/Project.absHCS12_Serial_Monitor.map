@@ -1,5 +1,5 @@
 *** EVALUATION ***
-PROGRAM "C:\Users\Michael\Desktop\Study\MTRX2700\MTRX2700_Major\Project\bin\Project.absHCS12_Serial_Monitor.abs"
+PROGRAM "C:\Users\micha\Desktop\Everything\Study\MTRX2700\MTRX2700_Major\Project\bin\Project.absHCS12_Serial_Monitor.abs"
 
 *********************************************************************************************
 TARGET SECTION
@@ -20,25 +20,25 @@ Start12.c.o                             Model: BANKED,        Lang: ANSI-C
 STARTUP SECTION
 ---------------------------------------------------------------------------------------------
 Entry point: 0xC000 (_Startup)
-_startupData is allocated at 0xC015 and uses 6 Bytes
+_startupData is allocated at 0xC00B and uses 6 Bytes
 extern struct _tagStartup {
   unsigned nofZeroOut     1
   _Range   pZeroOut       0x1100     20
-  _Copy    *toCopyDownBeg 0xC0E8
+  _Copy    *toCopyDownBeg 0xC1E3
 } _startupData;
 
 *********************************************************************************************
 SECTION-ALLOCATION SECTION
 Section Name                    Size  Type     From       To       Segment
 ---------------------------------------------------------------------------------------------
-.init                             21     R     0xC000     0xC014   ROM_C000
-.startData                        10     R     0xC015     0xC01E   ROM_C000
-.rodata1                         109     R     0xC01F     0xC08B   ROM_C000
-NON_BANKED                        92     R     0xC08C     0xC0E7   ROM_C000
-.copy                             21     R     0xC0E8     0xC0FC   ROM_C000
+.init                             11     R     0xC000     0xC00A   ROM_C000
+.startData                        10     R     0xC00B     0xC014   ROM_C000
+.rodata1                         231     R     0xC015     0xC0FB   ROM_C000
+NON_BANKED                       231     R     0xC0FC     0xC1E2   ROM_C000
+.copy                             19     R     0xC1E3     0xC1F5   ROM_C000
 .text                            123     R   0x308000   0x30807A   PAGE_30
 .stack                           256   R/W     0x1000     0x10FF   RAM
-.data                             16   R/W     0x1100     0x110F   RAM
+.data                             14   R/W     0x1100     0x110D   RAM
 .abs_section_8                     1   N/I        0x8        0x8   .absSeg0
 .abs_section_9                     1   N/I        0x9        0x9   .absSeg1
 .abs_section_a                     1   N/I        0xA        0xA   .absSeg2
@@ -380,12 +380,13 @@ NON_BANKED                        92     R     0xC08C     0xC0E7   ROM_C000
 .abs_section_17e                   2   N/I      0x17E      0x17F   .absSeg338
 .abs_section_2ae                   2   N/I      0x2AE      0x2AF   .absSeg339
 .abs_section_2be                   2   N/I      0x2BE      0x2BF   .absSeg340
-.bss                               2   R/W     0x1110     0x1111   RAM
-.common                            2   R/W     0x1112     0x1113   RAM
-.vectSeg341_vect                   2     R     0xFFFE     0xFFFF   .vectSeg341
+.abs_section_ffd4                  2     R     0xFFD4     0xFFD5   .absSeg341
+.bss                               2   R/W     0x110E     0x110F   RAM
+.common                            4   R/W     0x1110     0x1113   RAM
+.vectSeg342_vect                   2     R     0xFFFE     0xFFFF   .vectSeg342
 
 Summary of section sizes per section type:
-READ_ONLY (R):         17A (dec:      378)
+READ_ONLY (R):         275 (dec:      629)
 READ_WRITE (R/W):      114 (dec:      276)
 NO_INIT (N/I):         190 (dec:      400)
 
@@ -611,9 +612,9 @@ MODULE:                 -- mc9s12dg256.c.o --
      _PPSP                                      25D       1       1       0   .abs_section_25d
      _PIEP                                      25E       1       1       0   .abs_section_25e
      _PIFP                                      25F       1       1       0   .abs_section_25f
-     _PTH                                       260       1       1       0   .abs_section_260
+     _PTH                                       260       1       1       5   .abs_section_260
      _PTIH                                      261       1       1       0   .abs_section_261
-     _DDRH                                      262       1       1       0   .abs_section_262
+     _DDRH                                      262       1       1       1   .abs_section_262
      _RDRH                                      263       1       1       0   .abs_section_263
      _PERH                                      264       1       1       0   .abs_section_264
      _PPSH                                      265       1       1       0   .abs_section_265
@@ -621,7 +622,7 @@ MODULE:                 -- mc9s12dg256.c.o --
      _PIFH                                      267       1       1       0   .abs_section_267
      _PTJ                                       268       1       1       0   .abs_section_268
      _PTIJ                                      269       1       1       0   .abs_section_269
-     _DDRJ                                      26A       1       1       0   .abs_section_26a
+     _DDRJ                                      26A       1       1       1   .abs_section_26a
      _RDRJ                                      26B       1       1       0   .abs_section_26b
      _PERJ                                      26C       1       1       0   .abs_section_26c
      _PPSJ                                      26D       1       1       0   .abs_section_26d
@@ -684,8 +685,8 @@ MODULE:                 -- mc9s12dg256.c.o --
      _CAN4TXDSR7                                2BB       1       1       0   .abs_section_2bb
      _CAN4TXDLR                                 2BC       1       1       0   .abs_section_2bc
      _CAN4TXTBPR                                2BD       1       1       0   .abs_section_2bd
-     _PORTAB                                      0       2       2       0   .abs_section_0
-     _DDRAB                                       2       2       2       0   .abs_section_2
+     _PORTAB                                      0       2       2       1   .abs_section_0
+     _DDRAB                                       2       2       2       1   .abs_section_2
      _PARTID                                     1A       2       2       0   .abs_section_1a
      _TCNT                                       44       2       2       0   .abs_section_44
      _TC0                                        50       2       2       0   .abs_section_50
@@ -746,27 +747,35 @@ MODULE:                 -- mc9s12dg256.c.o --
 MODULE:                 -- main.c.o --
 - PROCEDURES:
      init_serial                             308000      16      22       2   .text       
-     serial_char_print                       308016      23      35       2   .text       
-     serial_print_string                     308039      19      25       6   .text       
-     error_state                               C08C      2F      47       1   NON_BANKED  
-     main                                      C0BB      2D      45       2   NON_BANKED  
+     serial_char_print                       308016      23      35       4   .text       
+     serial_print_string                     308039      19      25      10   .text       
+     SerialInterruptHandler                    C0FC      2C      44       1   NON_BANKED  
+     error_state                               C128      2F      47       1   NON_BANKED  
+     init_button                               C157       4       4       1   NON_BANKED  
+     step_button_wait                          C15B       6       6       1   NON_BANKED  
+     error_button                              C161      42      66       1   NON_BANKED  
+     led_test                                  C1A3       A      10       1   NON_BANKED  
+     main                                      C1AD      36      54       2   NON_BANKED  
 - VARIABLES:
-     STRING.Invalid.Item.name.in.1             C01F      1F      31       1   .rodata1    
-     STRING.Item.too.big.to.fit..2             C03E      24      36       1   .rodata1    
-     STRING.Undefined.Error.Code.3             C062      16      22       1   .rodata1    
-     STRING.hello.world.......4                C078      12      18       1   .rodata1    
-     STRING...6                                C08A       2       2       1   .rodata1    
-     sci_port                                  1100       C      12       4   .data       
+     STRING.Invalid.Item.name.in.1             C015      1F      31       1   .rodata1    
+     STRING.Item.too.big.to.fit..2             C034      24      36       1   .rodata1    
+     STRING.Undefined.Error.Code.3             C058      16      22       1   .rodata1    
+     STRING.Error.raised..press..4             C06E      4D      77       1   .rodata1    
+     STRING.Attempting.last.func.5             C0BB      1F      31       1   .rodata1    
+     STRING.Exiting.program.6                  C0DA      10      16       1   .rodata1    
+     STRING.hello.world.......7                C0EA      12      18       1   .rodata1    
+     sci_port                                  1100       C      12       9   .data       
      x                                         110C       2       2       2   .data       
-     blank                                     110E       2       2       1   .data       
-     current_character                         1110       2       2       1   .bss        
-     error_message                             1112       2       2       4   .common     
+     current_character                         110E       2       2       6   .bss        
+     _Vector_21                                FFD4       2       2       0   .abs_section_ffd4
+     error_message                             1110       2       2       4   .common     
+     py_err                                    1112       2       2       2   .common     
 MODULE:                 -- Start12.c.o --
 - PROCEDURES:
      Init                                    308052      29      41       2   .text       
-     _Startup                                  C000      15      21       0   .init       
+     _Startup                                  C000       B      11       0   .init       
 - VARIABLES:
-     _startupData                              C015       6       6       3   .startData  
+     _startupData                              C00B       6       6       3   .startData  
 - LABELS:
      __SEG_END_SSTACK                          1100       0       0       1               
 
@@ -775,9 +784,9 @@ MODULE STATISTIC
   Name                                      Data   Code  Const
 ---------------------------------------------------------------------------------------------
   mc9s12dg256.c.o                            400      0      0
-  main.c.o                                    20    174    109
-  Start12.c.o                                  0     62      0
-  other                                      256     12     21
+  main.c.o                                    20    313    233
+  Start12.c.o                                  0     52      0
+  other                                      256     12     19
 
 *********************************************************************************************
 SECTION USE IN OBJECT-ALLOCATION SECTION
@@ -785,16 +794,19 @@ SECTION USE IN OBJECT-ALLOCATION SECTION
 SECTION: ".text"
   init_serial serial_char_print serial_print_string Init 
 SECTION: ".data"
-  sci_port x blank 
+  sci_port x 
 SECTION: ".bss"
   current_character 
 SECTION: ".init"
   _Startup 
 SECTION: ".rodata1"
   STRING.Invalid.Item.name.in.1 STRING.Item.too.big.to.fit..2 
-  STRING.Undefined.Error.Code.3 STRING.hello.world.......4 STRING...6 
+  STRING.Undefined.Error.Code.3 STRING.Error.raised..press..4 
+  STRING.Attempting.last.func.5 STRING.Exiting.program.6 
+  STRING.hello.world.......7 
 SECTION: "NON_BANKED"
-  error_state main 
+  SerialInterruptHandler error_state init_button step_button_wait error_button 
+  led_test main 
 SECTION: ".abs_section_8"
   _PORTE 
 SECTION: ".abs_section_9"
@@ -1477,15 +1489,17 @@ SECTION: ".abs_section_2ae"
   _CAN4RXTSR 
 SECTION: ".abs_section_2be"
   _CAN4TXTSR 
+SECTION: ".abs_section_ffd4"
+  _Vector_21 
 SECTION: ".common"
-  error_message 
+  error_message py_err 
 
 *********************************************************************************************
 OBJECT LIST SORTED BY ADDRESS
      Name                                      Addr   hSize   dSize     Ref    Section   RLIB
 ---------------------------------------------------------------------------------------------
-     _PORTAB                                      0       2       2       0   .abs_section_0
-     _DDRAB                                       2       2       2       0   .abs_section_2
+     _PORTAB                                      0       2       2       1   .abs_section_0
+     _DDRAB                                       2       2       2       1   .abs_section_2
      _PORTE                                       8       1       1       0   .abs_section_8
      _DDRE                                        9       1       1       0   .abs_section_9
      _PEAR                                        A       1       1       0   .abs_section_a
@@ -1750,9 +1764,9 @@ OBJECT LIST SORTED BY ADDRESS
      _PPSP                                      25D       1       1       0   .abs_section_25d
      _PIEP                                      25E       1       1       0   .abs_section_25e
      _PIFP                                      25F       1       1       0   .abs_section_25f
-     _PTH                                       260       1       1       0   .abs_section_260
+     _PTH                                       260       1       1       5   .abs_section_260
      _PTIH                                      261       1       1       0   .abs_section_261
-     _DDRH                                      262       1       1       0   .abs_section_262
+     _DDRH                                      262       1       1       1   .abs_section_262
      _RDRH                                      263       1       1       0   .abs_section_263
      _PERH                                      264       1       1       0   .abs_section_264
      _PPSH                                      265       1       1       0   .abs_section_265
@@ -1760,7 +1774,7 @@ OBJECT LIST SORTED BY ADDRESS
      _PIFH                                      267       1       1       0   .abs_section_267
      _PTJ                                       268       1       1       0   .abs_section_268
      _PTIJ                                      269       1       1       0   .abs_section_269
-     _DDRJ                                      26A       1       1       0   .abs_section_26a
+     _DDRJ                                      26A       1       1       1   .abs_section_26a
      _RDRJ                                      26B       1       1       0   .abs_section_26b
      _PERJ                                      26C       1       1       0   .abs_section_26c
      _PPSJ                                      26D       1       1       0   .abs_section_26d
@@ -1825,64 +1839,74 @@ OBJECT LIST SORTED BY ADDRESS
      _CAN4TXDLR                                 2BC       1       1       0   .abs_section_2bc
      _CAN4TXTBPR                                2BD       1       1       0   .abs_section_2bd
      _CAN4TXTSR                                 2BE       2       2       0   .abs_section_2be
-     sci_port                                  1100       C      12       4   .data       
+     sci_port                                  1100       C      12       9   .data       
      x                                         110C       2       2       2   .data       
-     blank                                     110E       2       2       1   .data       
-     current_character                         1110       2       2       1   .bss        
-     error_message                             1112       2       2       4   .common     
-     _Startup                                  C000      15      21       0   .init       
-     STRING.Invalid.Item.name.in.1             C01F      1F      31       1   .rodata1    
-     STRING.Item.too.big.to.fit..2             C03E      24      36       1   .rodata1    
-     STRING.Undefined.Error.Code.3             C062      16      22       1   .rodata1    
-     STRING.hello.world.......4                C078      12      18       1   .rodata1    
-     STRING...6                                C08A       2       2       1   .rodata1    
-     error_state                               C08C      2F      47       1   NON_BANKED  
-     main                                      C0BB      2D      45       2   NON_BANKED  
+     current_character                         110E       2       2       6   .bss        
+     error_message                             1110       2       2       4   .common     
+     py_err                                    1112       2       2       2   .common     
+     _Startup                                  C000       B      11       0   .init       
+     STRING.Invalid.Item.name.in.1             C015      1F      31       1   .rodata1    
+     STRING.Item.too.big.to.fit..2             C034      24      36       1   .rodata1    
+     STRING.Undefined.Error.Code.3             C058      16      22       1   .rodata1    
+     STRING.Error.raised..press..4             C06E      4D      77       1   .rodata1    
+     STRING.Attempting.last.func.5             C0BB      1F      31       1   .rodata1    
+     STRING.Exiting.program.6                  C0DA      10      16       1   .rodata1    
+     STRING.hello.world.......7                C0EA      12      18       1   .rodata1    
+     SerialInterruptHandler                    C0FC      2C      44       1   NON_BANKED  
+     error_state                               C128      2F      47       1   NON_BANKED  
+     init_button                               C157       4       4       1   NON_BANKED  
+     step_button_wait                          C15B       6       6       1   NON_BANKED  
+     error_button                              C161      42      66       1   NON_BANKED  
+     led_test                                  C1A3       A      10       1   NON_BANKED  
+     main                                      C1AD      36      54       2   NON_BANKED  
+     _Vector_21                                FFD4       2       2       0   .abs_section_ffd4
      init_serial                             308000      16      22       2   .text       
-     serial_char_print                       308016      23      35       2   .text       
-     serial_print_string                     308039      19      25       6   .text       
+     serial_char_print                       308016      23      35       4   .text       
+     serial_print_string                     308039      19      25      10   .text       
      Init                                    308052      29      41       2   .text       
 
 *********************************************************************************************
 UNUSED-OBJECTS SECTION
 ---------------------------------------------------------------------------------------------
-NOT USED PROCEDURES
-main.c.o:
-  button_wait SerialInterruptHandler ErrorHandler 
 NOT USED VARIABLES
 main.c.o:
-  STRING.This.is.a.test..5 y alpha 
+  STRING.This.is.a.test..8 y alpha py_function 
 
 *********************************************************************************************
 COPYDOWN SECTION
 ---------------------------------------------------------------------------------------------
-------- ROM-ADDRESS: 0xC0E8 ---- SIZE       4 ---
+------- ROM-ADDRESS: 0xC1E3 ---- SIZE       4 ---
 Filling bytes inserted
- 000F1101
-------- ROM-ADDRESS: 0xC0EC ---- RAM-ADDRESS: 0x1101 ---- SIZE      11 ---
+ 000D1101
+------- ROM-ADDRESS: 0xC1E7 ---- RAM-ADDRESS: 0x1101 ---- SIZE      11 ---
 Name of initialized Object : sci_port:1
  D000D100D2 00D300D700 D4
-------- ROM-ADDRESS: 0xC0F7 ---- RAM-ADDRESS: 0x110C ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC1F2 ---- RAM-ADDRESS: 0x110C ---- SIZE       2 ---
 Name of initialized Object : x
- C078
-------- ROM-ADDRESS: 0xC0F9 ---- RAM-ADDRESS: 0x110E ---- SIZE       2 ---
-Name of initialized Object : blank
- C08A
-------- ROM-ADDRESS: 0xC0FB ---- SIZE       2 ---
+ C0EA
+------- ROM-ADDRESS: 0xC1F4 ---- SIZE       2 ---
 Filling bytes inserted
  0000
 
 *********************************************************************************************
 OBJECT-DEPENDENCIES SECTION
 ---------------------------------------------------------------------------------------------
-x                         USES STRING.hello.world.......4 
-blank                     USES STRING...6 
+x                         USES STRING.hello.world.......7 
 _Startup                  USES __SEG_END_SSTACK Init main 
+SerialInterruptHandler    USES sci_port current_character serial_char_print 
 error_state               USES STRING.Invalid.Item.name.in.1 error_message 
                                 STRING.Item.too.big.to.fit..2 STRING.Undefined.Error.Code.3 sci_port 
                                 serial_print_string 
-main                      USES sci_port init_serial x current_character 
-                                serial_print_string error_state blank 
+init_button               USES _DDRH 
+step_button_wait          USES _PTH 
+error_button              USES sci_port STRING.Error.raised..press..4 
+                                serial_print_string _PTH STRING.Attempting.last.func.5 
+                                STRING.Exiting.program.6 
+led_test                  USES _DDRJ _DDRAB _PORTAB 
+main                      USES py_err init_button sci_port init_serial x 
+                                current_character serial_print_string error_button led_test 
+                                error_state step_button_wait 
+_Vector_21                USES SerialInterruptHandler 
 serial_print_string       USES serial_char_print 
 Init                      USES _startupData 
 
@@ -1893,21 +1917,37 @@ DEPENDENCY TREE
  | 
  +- main                
  |  | 
+ |  +- init_button         
+ |  |    
  |  +- init_serial         
  |  |    
  |  +- serial_print_string 
  |  |  | 
  |  |  +- serial_char_print   
  |  |       
+ |  +- error_button        
+ |  |  | 
+ |  |  +- serial_print_string  (see above)
+ |  |     
+ |  +- led_test            
+ |  |    
  |  +- error_state         
- |     | 
- |     +- serial_print_string  (see above)
- |        
+ |  |  | 
+ |  |  +- serial_print_string  (see above)
+ |  |     
+ |  +- step_button_wait    
+ |       
  +- _Startup            
     | 
     +- Init                
     |    
     +- main                 (see above)
+       
+ _Vector_21          
+ | 
+ +- SerialInterruptHandler
+    | 
+    +- serial_char_print    (see above)
        
 *********************************************************************************************
 STATISTIC SECTION
@@ -1915,6 +1955,6 @@ STATISTIC SECTION
 
 ExeFile:
 --------
-Number of blocks to be downloaded: 6
-Total size of all blocks to be downloaded: 378
+Number of blocks to be downloaded: 8
+Total size of all blocks to be downloaded: 629
 
