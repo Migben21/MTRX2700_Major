@@ -6,8 +6,16 @@
 #include "button.h"
 #include "stepper_motor.h"
 #include "C_and_py_coms.h"
-
 #include "array_compare.h"
+#include "accelerometer.h"
+#include "servo.h"
+#include "pll.h"
+#include "l3g4200d_definitions.h"
+#include "l3g4200d.h"
+#include "iic.h"
+#include "gyro.h"
+#include "laser.h"
+#include "servo_laser.h"
 
 char *x = "hello world!!!!!\n";
 char *y = "This is a test\n";

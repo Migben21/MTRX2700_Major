@@ -1840,7 +1840,7 @@ UNUSED-OBJECTS SECTION
 NOT USED PROCEDURES
 main.c.o:
   error_state error_button led_test port_selector motor_stepping motor_init 
-  data_init_stepper clean_file data_collector 
+  data_init_stepper clean_file data_collector delay lidar 
 NOT USED VARIABLES
 main.c.o:
   STRING.Invalid.Item.name.in.1 STRING.Item.too.big.to.fit..2 
