@@ -30,7 +30,7 @@ int error_button(){
   serial_print_string(&sci_port, message);
   
   // Waits for SW3 or SW2 to be pushed
-  while(PTH_PTH2 && PTH_PTH3){
+  while(!(PTH_PTH2 && PTH_PTH3)){
   }
   
   if (PTH_PTH3){
