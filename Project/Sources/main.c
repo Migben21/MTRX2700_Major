@@ -7,6 +7,8 @@
 #include "stepper_motor.h"
 #include "C_and_py_coms.h"
 
+#include "array_compare.h"
+
 char *x = "hello world!!!!!\n";
 char *y = "This is a test\n";
 

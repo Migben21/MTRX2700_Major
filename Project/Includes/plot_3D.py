@@ -28,9 +28,9 @@ def convert_function(item,box_type):
     # Take data from array
     coordinate_x = item.point[0]
     coordinate_y = item.point[1]
-    length = item.dimentions[0]
-    width = item.dimentions[1]
-    height = item.dimentions[2]
+    length = item.dimensions[0]
+    width = item.dimensions[1]
+    height = item.dimensions[2]
     # print(item.point)
     
     # Initialise the dimensions for different-size box

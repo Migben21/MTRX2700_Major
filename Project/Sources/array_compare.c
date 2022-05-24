@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main() {
+int array_compare() {
     // Hardcoded Input for now:
     int comp_points[] = {2, 4, 5, 6}; // Points to compare
     int dataset_1[] = {14, 32, 23, 55, 66, 34, 50};
