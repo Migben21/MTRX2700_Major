@@ -6,6 +6,9 @@
 #include <string.h>
 
 
+int data[10];
+
+    
 void clean_file(){
     FILE* ptr;
     
@@ -15,11 +18,10 @@ void clean_file(){
 }
 
 
-int * data_collector(){
+void data_collector(){
     char buffer[50];
     char *token;
     const char *s = ",";
-    int data[10];
     int i = 0;
     FILE* ptr;
     int size = 0;
@@ -54,7 +56,6 @@ int * data_collector(){
    }
    
    fclose(ptr);
-   return data;
 }
 
 

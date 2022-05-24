@@ -1,5 +1,5 @@
 *** EVALUATION ***
-PROGRAM "C:\Users\micha\Desktop\Everything\Study\MTRX2700\MTRX2700_Major\Project\bin\Project.abs"
+PROGRAM "C:\Users\Michael\Desktop\Study\MTRX2700\MTRX2700_Major\Project\bin\Project.abs"
 
 *********************************************************************************************
 TARGET SECTION
@@ -1852,8 +1852,8 @@ main.c.o:
   STRING.Attempting.last.func.5 STRING.Exiting.program.6 
   STRING.....c.Steppermotor.A.7 STRING.Moving..d.rotations..8 
   STRING....MTRX2700_Major.Pr.9 STRING.w.10 STRING...11 
-  STRING....MTRX2700_Major.Pr.12 STRING.r.13 STRING..s.14 error_message py_err 
-  py_function 
+  STRING....MTRX2700_Major.Pr.12 STRING.r.13 STRING..s.14 error_message data 
+  py_err py_function 
 
 *********************************************************************************************
 COPYDOWN SECTION
