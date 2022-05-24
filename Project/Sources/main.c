@@ -5,6 +5,8 @@
 #include "error.h"
 #include "button.h"
 
+#include "array_compare.h"
+
 char *x = "hello world!!!!!\n";
 char *y = "This is a test\n";
 
