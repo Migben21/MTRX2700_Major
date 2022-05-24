@@ -23,8 +23,8 @@ Entry point: 0xC000 (_Startup)
 _startupData is allocated at 0xC00B and uses 6 Bytes
 extern struct _tagStartup {
   unsigned nofZeroOut     1
-  _Range   pZeroOut       0x1100     16
-  _Copy    *toCopyDownBeg 0xC07D
+  _Range   pZeroOut       0x1100     18
+  _Copy    *toCopyDownBeg 0xC08D
 } _startupData;
 
 *********************************************************************************************
@@ -33,12 +33,12 @@ Section Name                    Size  Type     From       To       Segment
 ---------------------------------------------------------------------------------------------
 .init                             11     R     0xC000     0xC00A   ROM_C000
 .startData                        10     R     0xC00B     0xC014   ROM_C000
-.rodata1                          18     R     0xC015     0xC026   ROM_C000
-NON_BANKED                        86     R     0xC027     0xC07C   ROM_C000
-.copy                             19     R     0xC07D     0xC08F   ROM_C000
+.rodata1                          34     R     0xC015     0xC036   ROM_C000
+NON_BANKED                        86     R     0xC037     0xC08C   ROM_C000
+.copy                             21     R     0xC08D     0xC0A1   ROM_C000
 .text                            123     R   0x308000   0x30807A   PAGE_30
 .stack                           256   R/W     0x1000     0x10FF   RAM
-.data                             14   R/W     0x1100     0x110D   RAM
+.data                             16   R/W     0x1100     0x110F   RAM
 .abs_section_8                     1   N/I        0x8        0x8   .absSeg0
 .abs_section_9                     1   N/I        0x9        0x9   .absSeg1
 .abs_section_a                     1   N/I        0xA        0xA   .absSeg2
@@ -381,12 +381,12 @@ NON_BANKED                        86     R     0xC027     0xC07C   ROM_C000
 .abs_section_2ae                   2   N/I      0x2AE      0x2AF   .absSeg339
 .abs_section_2be                   2   N/I      0x2BE      0x2BF   .absSeg340
 .abs_section_ffd4                  2     R     0xFFD4     0xFFD5   .absSeg341
-.bss                               2   R/W     0x110E     0x110F   RAM
+.bss                               2   R/W     0x1110     0x1111   RAM
 .vectSeg342_vect                   2     R     0xFFFE     0xFFFF   .vectSeg342
 
 Summary of section sizes per section type:
-READ_ONLY (R):         10F (dec:      271)
-READ_WRITE (R/W):      110 (dec:      272)
+READ_ONLY (R):         121 (dec:      289)
+READ_WRITE (R/W):      112 (dec:      274)
 NO_INIT (N/I):         190 (dec:      400)
 
 *********************************************************************************************
@@ -748,14 +748,16 @@ MODULE:                 -- main.c.o --
      init_serial                             308000      16      22       2   .text       
      serial_char_print                       308016      23      35       4   .text       
      serial_print_string                     308039      19      25       2   .text       
-     SerialInterruptHandler                    C027      2C      44       1   NON_BANKED  
-     init_button                               C053       4       4       1   NON_BANKED  
-     main                                      C057      26      38       2   NON_BANKED  
+     SerialInterruptHandler                    C037      2C      44       1   NON_BANKED  
+     init_button                               C063       4       4       1   NON_BANKED  
+     main                                      C067      26      38       2   NON_BANKED  
 - VARIABLES:
      STRING.hello.world.......15               C015      12      18       1   .rodata1    
+     STRING.This.is.a.test..16                 C027      10      16       1   .rodata1    
      sci_port                                  1100       C      12       5   .data       
-     x                                         110C       2       2       2   .data       
-     current_character                         110E       2       2       6   .bss        
+     x                                         110C       2       2       1   .data       
+     y                                         110E       2       2       1   .data       
+     current_character                         1110       2       2       6   .bss        
      _Vector_21                                FFD4       2       2       0   .abs_section_ffd4
 MODULE:                 -- Start12.c.o --
 - PROCEDURES:
@@ -771,9 +773,9 @@ MODULE STATISTIC
   Name                                      Data   Code  Const
 ---------------------------------------------------------------------------------------------
   mc9s12dg256.c.o                            400      0      0
-  main.c.o                                    16    168     20
+  main.c.o                                    18    168     36
   Start12.c.o                                  0     52      0
-  other                                      256     12     19
+  other                                      256     12     21
 
 *********************************************************************************************
 SECTION USE IN OBJECT-ALLOCATION SECTION
@@ -781,13 +783,13 @@ SECTION USE IN OBJECT-ALLOCATION SECTION
 SECTION: ".text"
   init_serial serial_char_print serial_print_string Init 
 SECTION: ".data"
-  sci_port x 
+  sci_port x y 
 SECTION: ".bss"
   current_character 
 SECTION: ".init"
   _Startup 
 SECTION: ".rodata1"
-  STRING.hello.world.......15 
+  STRING.hello.world.......15 STRING.This.is.a.test..16 
 SECTION: "NON_BANKED"
   SerialInterruptHandler init_button main 
 SECTION: ".abs_section_8"
@@ -1821,13 +1823,15 @@ OBJECT LIST SORTED BY ADDRESS
      _CAN4TXTBPR                                2BD       1       1       0   .abs_section_2bd
      _CAN4TXTSR                                 2BE       2       2       0   .abs_section_2be
      sci_port                                  1100       C      12       5   .data       
-     x                                         110C       2       2       2   .data       
-     current_character                         110E       2       2       6   .bss        
+     x                                         110C       2       2       1   .data       
+     y                                         110E       2       2       1   .data       
+     current_character                         1110       2       2       6   .bss        
      _Startup                                  C000       B      11       0   .init       
      STRING.hello.world.......15               C015      12      18       1   .rodata1    
-     SerialInterruptHandler                    C027      2C      44       1   NON_BANKED  
-     init_button                               C053       4       4       1   NON_BANKED  
-     main                                      C057      26      38       2   NON_BANKED  
+     STRING.This.is.a.test..16                 C027      10      16       1   .rodata1    
+     SerialInterruptHandler                    C037      2C      44       1   NON_BANKED  
+     init_button                               C063       4       4       1   NON_BANKED  
+     main                                      C067      26      38       2   NON_BANKED  
      _Vector_21                                FFD4       2       2       0   .abs_section_ffd4
      init_serial                             308000      16      22       2   .text       
      serial_char_print                       308016      23      35       4   .text       
@@ -1848,22 +1852,25 @@ main.c.o:
   STRING.Attempting.last.func.5 STRING.Exiting.program.6 
   STRING.....c.Steppermotor.A.7 STRING.Moving..d.rotations..8 
   STRING....MTRX2700_Major.Pr.9 STRING.w.10 STRING...11 
-  STRING....MTRX2700_Major.Pr.12 STRING.r.13 STRING..s.14 
-  STRING.This.is.a.test..16 y error_message py_err py_function 
+  STRING....MTRX2700_Major.Pr.12 STRING.r.13 STRING..s.14 error_message py_err 
+  py_function 
 
 *********************************************************************************************
 COPYDOWN SECTION
 ---------------------------------------------------------------------------------------------
-------- ROM-ADDRESS: 0xC07D ---- SIZE       4 ---
+------- ROM-ADDRESS: 0xC08D ---- SIZE       4 ---
 Filling bytes inserted
- 000D1101
-------- ROM-ADDRESS: 0xC081 ---- RAM-ADDRESS: 0x1101 ---- SIZE      11 ---
+ 000F1101
+------- ROM-ADDRESS: 0xC091 ---- RAM-ADDRESS: 0x1101 ---- SIZE      11 ---
 Name of initialized Object : sci_port:1
  D000D100D2 00D300D700 D4
-------- ROM-ADDRESS: 0xC08C ---- RAM-ADDRESS: 0x110C ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC09C ---- RAM-ADDRESS: 0x110C ---- SIZE       2 ---
 Name of initialized Object : x
  C015
-------- ROM-ADDRESS: 0xC08E ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC09E ---- RAM-ADDRESS: 0x110E ---- SIZE       2 ---
+Name of initialized Object : y
+ C027
+------- ROM-ADDRESS: 0xC0A0 ---- SIZE       2 ---
 Filling bytes inserted
  0000
 
@@ -1871,11 +1878,12 @@ Filling bytes inserted
 OBJECT-DEPENDENCIES SECTION
 ---------------------------------------------------------------------------------------------
 x                         USES STRING.hello.world.......15 
+y                         USES STRING.This.is.a.test..16 
 _Startup                  USES __SEG_END_SSTACK Init main 
 SerialInterruptHandler    USES sci_port current_character serial_char_print 
 init_button               USES _DDRH 
 main                      USES init_button sci_port init_serial x 
-                                current_character serial_print_string 
+                                current_character y serial_print_string 
 _Vector_21                USES SerialInterruptHandler 
 serial_print_string       USES serial_char_print 
 Init                      USES _startupData 
@@ -1914,5 +1922,5 @@ STATISTIC SECTION
 ExeFile:
 --------
 Number of blocks to be downloaded: 8
-Total size of all blocks to be downloaded: 271
+Total size of all blocks to be downloaded: 289
 

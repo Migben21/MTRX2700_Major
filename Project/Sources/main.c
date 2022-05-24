@@ -33,7 +33,7 @@ void main(void) {
 	EnableInterrupts;
 	current_character = &x[0];
 	
-	serial_print_string(&sci_port, x);
+	serial_print_string(&sci_port, y);
   
   // Waits for the string to finish sending
   // Last 2 characters in last printed string get thanos snapped if this isnt there
