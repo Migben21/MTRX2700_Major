@@ -1,10 +1,10 @@
-from Source.Py_and_c_coms import Init_send_data
-from Source.Tetris_state import tetris_init
-from Source.boxalgorithm import box_algorithm
-from Source.Lidar_angle import  
-from Source.3dplot import  
-from Source.Py_and_c_coms import Init_send_data
-from Source.Py_and_c_coms import waiting
+from Sources.Py_and_c_coms import Init_send_data
+from Sources.Tetris_state import tetris_init
+from Sources.boxalgorithm import box_algorithm
+from Sources.Lidar_angle import  
+from Sources.3dplot import  
+from Sources.Py_and_c_coms import Init_send_data
+from Sources.Py_and_c_coms import waiting
 from Includes import CSV 
 
 #DATA PLAN
