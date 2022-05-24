@@ -1,9 +1,6 @@
 # Dimensions in centimetres
-# d(doesn't matter) types can be placed anywhere
-# f(fragile) types require their own padded box
-# t(top layers) types require placement on the topmost layers
-# h(heavy) types require placement on the bottommost layers
-# o(orientated) types cannot be rotated
+# N types can be placed anywhere
+# F types are fragile and are in their own box and cannot be rotated
 
 class Apples:
     def __init__(self):
@@ -12,7 +9,7 @@ class Apples:
         self.width = 5
         self.length = 5
         self.volume = self.height * self.width * self.length
-        self.type = "d"
+        self.type = "N"
 
 
 class Bottles:
@@ -22,7 +19,7 @@ class Bottles:
         self.width = 5
         self.length = 20
         self.volume = self.height * self.width * self.length
-        self.type = "f"
+        self.type = "F"
 
 
 class Eggs:
@@ -32,7 +29,7 @@ class Eggs:
         self.width = 5
         self.length = 5
         self.volume = self.height * self.width * self.length
-        self.type = "t"
+        self.type = "F"
 
 
 class WaterBottlePack:
@@ -42,7 +39,7 @@ class WaterBottlePack:
         self.width = 25
         self.length = 20
         self.volume = self.height * self.width * self.length
-        self.type = "h"
+        self.type = "N"
 
 
 class JSOW:  # For testing
@@ -52,7 +49,7 @@ class JSOW:  # For testing
         self.width = 330
         self.length = 150
         self.volume = self.height * self.width * self.length
-        self.type = "h"
+        self.type = "N"
 
 
 class BoxFiller:  # For testing
@@ -62,7 +59,7 @@ class BoxFiller:  # For testing
         self.width = 99
         self.length = 40
         self.volume = self.height * self.width * self.length
-        self.type = "h"
+        self.type = "N"
 
 
 class MilkCarton:
@@ -72,7 +69,7 @@ class MilkCarton:
         self.width = 10
         self.length = 10
         self.volume = self.height * self.width * self.length
-        self.type = "o"
+        self.type = "N"
 
 
 class Plank:
@@ -82,7 +79,7 @@ class Plank:
         self.width = 20
         self.length = 10
         self.volume = self.height * self.width * self.length
-        self.type = "d"
+        self.type = "N"
 
 
 # Dictionary to store all possible item names

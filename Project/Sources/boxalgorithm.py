@@ -30,7 +30,7 @@ def box_algorithm(filename):
 
             # Separates fragile items into their own list and removes them from the normal item list
             for i in range(len(itemList)):
-                if itemList[i].type == "f":
+                if itemList[i].type == "F":
                     fragileItemList.append(itemList[i])
 
             for i in range(len(fragileItemList)):
@@ -62,7 +62,7 @@ def get_type(entry):
 
 # Returns the size of the smallest side of a rotatable object
 def smallest_side(entry):
-    if entry.type != 'o':
+    if entry.type != 'F':
         dimensions = [int(entry.height), int(entry.width), int(entry.length)]
         smallest = sorted(dimensions)[0]
         return smallest
@@ -131,25 +131,3 @@ def determine_boxes(items):
                 boxes.append(box.LargeBox(scannedItems))
 
     return boxes
-
-
-# x = box_algorithm('sideTooBig.csv')
-# print(x)
-# print(x[0].volume)
-# print(x[0].contentsVolume)
-# for j in range(len(x[0].contents)):
-#     print(x[0].contents[j].name)
-# print(x[0].contents[0]
-# print(largest_side(x[0].contents[0]))
-
-# a = 9
-# b = 3
-# y = [['o'] * a for i in range(b)]
-# for i in range(len(y)):
-#     print(y[i])
-# coordinate_x = 10
-# matrix_length = 5
-# p = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
-#
-# for i in range((coordinate_x - matrix_length), coordinate_x):
-#     print(p[i])
