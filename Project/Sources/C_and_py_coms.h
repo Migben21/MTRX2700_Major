@@ -4,10 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "termio.h"
 
 int data[10];
-
     
 void clean_file(){
     FILE* ptr;
@@ -28,9 +27,9 @@ void data_collector(){
  
     // Opening file in reading mode and determining if file has content
     while (i != 1){
-        ptr = fopen("../MTRX2700_Major/Project/Includes/data.txt", "r");
-
-        fseek (ptr, 0, SEEK_END);
+        ptr = fopen("..Includes/data.txt", "r");
+                                                      
+        fseek(ptr, 0, SEEK_END);
         size = ftell(ptr);
 
         if (0 != size) {
@@ -56,6 +55,8 @@ void data_collector(){
    }
    
    fclose(ptr);
+   
+   clean_file();
 }
 
 

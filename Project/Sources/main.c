@@ -1,6 +1,8 @@
 #include <hidef.h>      /* common defines and macros */
 #include "derivative.h"      /* derivative-specific definitions */
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "serial.h"
 #include "error.h"
 #include "button.h"
@@ -32,6 +34,7 @@ void main(void) {
   init_serial(&sci_port);
 	EnableInterrupts;
 	current_character = &x[0];
+	data[0] = 420;  // arbitrary number to poll for changes to data.txt
 	
 	serial_print_string(&sci_port, y);
   
@@ -40,5 +43,11 @@ void main(void) {
   while (*current_character != 0x00){
   }
 
+  
+  while (data[0] == 420){
+    data_collector();
+  }
+  
+  serial_print_string(&sci_port, x);
 }
 
