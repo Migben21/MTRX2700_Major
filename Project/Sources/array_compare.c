@@ -2,18 +2,17 @@
 #include "array_compare.h"
 
 void point_compare(int data_1, int data_2, int *storage_array, int counter) {
-<<<<<<< HEAD
     if (data_1 != data_2) {
-=======
-    if (((data_1 - data_2) > 1 ) || ((data_2 - data_2) > 1)) {
->>>>>>> 0eb73a231692fcf5ab2f73a6d3a283e9b38f0052
-        *storage_array = counter;
+        if (((data_1 - data_2) > 1 ) || ((data_2 - data_2) > 1){
+            *storage_array = counter;
+        }
+        else{
+            *storage_array = -1;
+        }
     }
-    else{
-        *storage_array = -1;
-    }
-}
-<<<<<<< HEAD
+ }
+            
+            
 
 int main() {
     // Hardcoded Input for now
@@ -61,7 +60,7 @@ int array_compare(int comp_points[], int dataset_1[], int dataset_2[], int *inva
     return 0;
 }
 */
-=======
+
 
 int array_compare() {
     // Hardcoded Input for now
@@ -76,4 +75,3 @@ int array_compare() {
     }
 }
 
->>>>>>> 0eb73a231692fcf5ab2f73a6d3a283e9b38f0052
