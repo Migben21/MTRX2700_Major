@@ -23,6 +23,7 @@
 char *x = "hello world!!!!!\n";
 char *y = "This is a test\n";
 char *z = "this is the end\n";
+char *cb = "Changing box\n";
 
 int data[10];
 
@@ -89,13 +90,17 @@ void main(void) {
     
     lidar();
     
-    //motor_init(5, 0);
+    data_init_stepper(arr[1], arr[2], arr[3]);
     
     //check
     
     //clean something idk
     
-    //go to next box
+    //go to next box if no items
+    if (arr[0] == 1){
+      //next box
+      serial_print_string(&sci_port, cb);
+    }
     
     serial_print_string(&sci_port,z);
       
