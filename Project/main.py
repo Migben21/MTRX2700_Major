@@ -7,8 +7,9 @@ from Includes.step_motor_movment import calculate_step
 from Includes.Py_and_c_coms import Init_send_data
 from Includes.Py_and_c_coms import waiting
 from Includes.plot_3D import Initialised_matrix
+from Includes.Py_and_c_coms import clear_file
 
-#DATA PLAN
+#DATA PLAN (Orginial) (Issues with C and Py communication have caused issues)
 #   CSV --> BOXALGORITHM --> box data with items inside 
 #   box data with items inside --> TETRISALGORITHM --> each box with item positions and dimentions inside 
 #   each box with item positions and dimentions inside --> ORGANISE ITEMS/BOX ALGORITHM --> ITEM DATA + NUM OF ITEM 
@@ -39,6 +40,9 @@ for c in range(len(box_data)):
 #Performing tetris algorithm to find placment of items in their boxes 
 box_pos_data = tetris_init(box_data)
 
+#clear data in TXT file
+clear_file()
+
 #Preparing data for Input into C
 for i in range(len(box_pos_data)):
     num_items = len(box_pos_data[i])
@@ -68,7 +72,7 @@ for i in range(len(box_pos_data)):
 
         num_items = num_items - 1
 
-        waiting()
+        #waiting()
 
 
 

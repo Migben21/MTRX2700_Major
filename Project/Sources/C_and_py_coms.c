@@ -16,8 +16,8 @@ int * data_collector(){
     while (i != 1){
         ptr = fopen("../MTRX2700_Major/Project/Includes/data.txt", "r");
 
-        fseek (ptr, 0, SEEK_END);
-        size = ftell(ptr);
+        fseek (ptr, 0, SEEK_END); //not
+        size = ftell(ptr); //not
 
         if (0 != size) {
             i = 1;
@@ -27,7 +27,7 @@ int * data_collector(){
     }
 
     //scan file for string and begin deconstruction into elements of int 
-    fscanf(ptr, "%s", buffer);
+    fscanf(ptr, "%s", buffer); //not
     i = 0;
 
     strok(buffer, s);
