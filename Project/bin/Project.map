@@ -22,6 +22,7 @@ rtshc12.c.o (ansibi.lib)                Model: BANKED,        Lang: ANSI-C
 servo.c.o                               Model: BANKED,        Lang: ANSI-C
 pll.c.o                                 Model: BANKED,        Lang: ANSI-C
 laser.c.o                               Model: BANKED,        Lang: ANSI-C
+array_compare.c.o                       Model: BANKED,        Lang: ANSI-C
 
 *********************************************************************************************
 STARTUP SECTION
@@ -31,7 +32,7 @@ _startupData is allocated at 0xC015 and uses 6 Bytes
 extern struct _tagStartup {
   unsigned nofZeroOut     1
   _Range   pZeroOut       0x1100     274
-  _Copy    *toCopyDownBeg 0xC500
+  _Copy    *toCopyDownBeg 0xC504
 } _startupData;
 
 *********************************************************************************************
@@ -41,9 +42,9 @@ Section Name                    Size  Type     From       To       Segment
 .init                             21     R     0xC000     0xC014   ROM_C000
 .startData                        10     R     0xC015     0xC01E   ROM_C000
 .rodata1                         209     R     0xC01F     0xC0EF   ROM_C000
-NON_BANKED                      1040     R     0xC0F0     0xC4FF   ROM_C000
-.copy                             25     R     0xC500     0xC518   ROM_C000
-.text                           1061     R   0x308000   0x308424   PAGE_30
+NON_BANKED                      1044     R     0xC0F0     0xC503   ROM_C000
+.copy                             25     R     0xC504     0xC51C   ROM_C000
+.text                           1360     R   0x308000   0x30854F   PAGE_30
 .stack                           256   R/W     0x1000     0x10FF   RAM
 .data                             20   R/W     0x1100     0x1113   RAM
 .abs_section_8                     1   N/I        0x8        0x8   .absSeg0
@@ -394,7 +395,7 @@ NON_BANKED                      1040     R     0xC0F0     0xC4FF   ROM_C000
 .vectSeg343_vect                   2     R     0xFFFE     0xFFFF   .vectSeg343
 
 Summary of section sizes per section type:
-READ_ONLY (R):         944 (dec:     2372)
+READ_ONLY (R):         A73 (dec:     2675)
 READ_WRITE (R/W):      212 (dec:      530)
 NO_INIT (N/I):         190 (dec:      400)
 
@@ -766,7 +767,7 @@ MODULE:                 -- main.c.o --
      data_init_stepper                         C1E6      48      72       1   NON_BANKED  
      delay                                     C22E      1F      31       1   NON_BANKED  
      lidar                                     C24D      B3     179       1   NON_BANKED  
-     main                                      C300      A5     165       2   NON_BANKED  
+     main                                      C300      A9     169       3   NON_BANKED  
 - VARIABLES:
      STRING.Error.raised..press..4             C01F      4D      77       1   .rodata1    
      STRING.Attempting.last.func.5             C06C      20      32       1   .rodata1    
@@ -816,12 +817,12 @@ MODULE:                 -- STRING.C.o (ansibi.lib) --
      next.2                                    1116       2       2       9   .bss        
 MODULE:                 -- rtshc12.c.o (ansibi.lib) --
 - PROCEDURES:
-     _LCMP_P                                   C3A5      15      21       1   NON_BANKED  
-     _LNEG                                     C3BA       D      13       2   NON_BANKED  
-     _LMULS16x32                               C3C7      1F      31       1   NON_BANKED  
-     _lDivMod                                  C3E6      BE     190       1   NON_BANKED  
-     _LDIVU                                    C4A4       E      14       1   NON_BANKED  
-     _ILSEXT                                   C4B2       7       7       2   NON_BANKED  
+     _LCMP_P                                   C3A9      15      21       1   NON_BANKED  
+     _LNEG                                     C3BE       D      13       2   NON_BANKED  
+     _LMULS16x32                               C3CB      1F      31       1   NON_BANKED  
+     _lDivMod                                  C3EA      BE     190       1   NON_BANKED  
+     _LDIVU                                    C4A8       E      14       1   NON_BANKED  
+     _ILSEXT                                   C4B6       7       7       2   NON_BANKED  
 - VARIABLES:
      errno                                     1210       2       2       2   .common     
 MODULE:                 -- servo.c.o --
@@ -838,19 +839,24 @@ MODULE:                 -- laser.c.o --
 - PROCEDURES:
      laserInit                               308405      13      19       1   .text       
      GetLatestLaserSample                    308418       D      13       1   .text       
-     TC1_ISR                                   C4B9      47      71       1   NON_BANKED  
+     TC1_ISR                                   C4BD      47      71       1   NON_BANKED  
 - VARIABLES:
      riseEdge                                  1118       4       4       7   .bss        
      fallEdge                                  111C       4       4       6   .bss        
      lastLaserSample                           1120       4       4       4   .bss        
      _Vector_9                                 FFEC       2       2       0   .abs_section_ffec
+MODULE:                 -- array_compare.c.o --
+- PROCEDURES:
+     point_compare                           308425      19      25       2   .text       
+     array_check                             30843E     112     274       1   .text       
+- VARIABLES:
 
 *********************************************************************************************
 MODULE STATISTIC
   Name                                      Data   Code  Const
 ---------------------------------------------------------------------------------------------
   mc9s12dg256.c.o                            400      0      0
-  main.c.o                                   258    775    211
+  main.c.o                                   258    779    211
   Start12.c.o                                  0     62      0
   CTYPE.C.o (ansibi.lib)                       0     57      0
   STDLIB.C.o (ansibi.lib)                      0    663      0
@@ -859,6 +865,7 @@ MODULE STATISTIC
   servo.c.o                                    0     71      0
   pll.c.o                                      0     21      0
   laser.c.o                                   12    103      2
+  array_compare.c.o                            0    299      0
   other                                      256     12     25
 
 *********************************************************************************************
@@ -867,7 +874,8 @@ SECTION USE IN OBJECT-ALLOCATION SECTION
 SECTION: ".text"
   init_serial serial_char_print serial_print_string Init isdigit isspace 
   toupper CheckCharWithBase _strtoul _strtol strtol strtok PWMinitialise 
-  setServoPose Init_TC6 PLL_Init laserInit GetLatestLaserSample 
+  setServoPose Init_TC6 PLL_Init laserInit GetLatestLaserSample point_compare 
+  array_check 
 SECTION: ".data"
   sci_port x y z cb 
 SECTION: ".bss"
@@ -1951,14 +1959,14 @@ OBJECT LIST SORTED BY ADDRESS
      data_init_stepper                         C1E6      48      72       1   NON_BANKED  
      delay                                     C22E      1F      31       1   NON_BANKED  
      lidar                                     C24D      B3     179       1   NON_BANKED  
-     main                                      C300      A5     165       2   NON_BANKED  
-     _LCMP_P                                   C3A5      15      21       1   NON_BANKED  
-     _LNEG                                     C3BA       D      13       2   NON_BANKED  
-     _LMULS16x32                               C3C7      1F      31       1   NON_BANKED  
-     _lDivMod                                  C3E6      BE     190       1   NON_BANKED  
-     _LDIVU                                    C4A4       E      14       1   NON_BANKED  
-     _ILSEXT                                   C4B2       7       7       2   NON_BANKED  
-     TC1_ISR                                   C4B9      47      71       1   NON_BANKED  
+     main                                      C300      A9     169       3   NON_BANKED  
+     _LCMP_P                                   C3A9      15      21       1   NON_BANKED  
+     _LNEG                                     C3BE       D      13       2   NON_BANKED  
+     _LMULS16x32                               C3CB      1F      31       1   NON_BANKED  
+     _lDivMod                                  C3EA      BE     190       1   NON_BANKED  
+     _LDIVU                                    C4A8       E      14       1   NON_BANKED  
+     _ILSEXT                                   C4B6       7       7       2   NON_BANKED  
+     TC1_ISR                                   C4BD      47      71       1   NON_BANKED  
      _Vector_21                                FFD4       2       2       0   .abs_section_ffd4
      _Vector_9                                 FFEC       2       2       0   .abs_section_ffec
      init_serial                             308000      16      22       2   .text       
@@ -1979,6 +1987,8 @@ OBJECT LIST SORTED BY ADDRESS
      PLL_Init                                3083F0      15      21       1   .text       
      laserInit                               308405      13      19       1   .text       
      GetLatestLaserSample                    308418       D      13       1   .text       
+     point_compare                           308425      19      25       2   .text       
+     array_check                             30843E     112     274       1   .text       
 
 *********************************************************************************************
 UNUSED-OBJECTS SECTION
@@ -2007,7 +2017,7 @@ servo.c.o:
 NOT USED VARIABLES
 main.c.o:
   STRING.Invalid.Item.name.in.1 STRING.Item.too.big.to.fit..2 
-  STRING.Undefined.Error.Code.3 error_message py_err py_function 
+  STRING.Undefined.Error.Code.3 error_message lidar_data py_err py_function 
 CTYPE.C.o (ansibi.lib):
   _ctype 
 STDLIB.C.o (ansibi.lib):
@@ -2020,25 +2030,25 @@ rtshc12.c.o (ansibi.lib):
 *********************************************************************************************
 COPYDOWN SECTION
 ---------------------------------------------------------------------------------------------
-------- ROM-ADDRESS: 0xC500 ---- SIZE       4 ---
+------- ROM-ADDRESS: 0xC504 ---- SIZE       4 ---
 Filling bytes inserted
  00131101
-------- ROM-ADDRESS: 0xC504 ---- RAM-ADDRESS: 0x1101 ---- SIZE      11 ---
+------- ROM-ADDRESS: 0xC508 ---- RAM-ADDRESS: 0x1101 ---- SIZE      11 ---
 Name of initialized Object : sci_port:1
  D000D100D2 00D300D700 D4
-------- ROM-ADDRESS: 0xC50F ---- RAM-ADDRESS: 0x110C ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC513 ---- RAM-ADDRESS: 0x110C ---- SIZE       2 ---
 Name of initialized Object : x
  C09D
-------- ROM-ADDRESS: 0xC511 ---- RAM-ADDRESS: 0x110E ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC515 ---- RAM-ADDRESS: 0x110E ---- SIZE       2 ---
 Name of initialized Object : y
  C0AF
-------- ROM-ADDRESS: 0xC513 ---- RAM-ADDRESS: 0x1110 ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC517 ---- RAM-ADDRESS: 0x1110 ---- SIZE       2 ---
 Name of initialized Object : z
  C0BF
-------- ROM-ADDRESS: 0xC515 ---- RAM-ADDRESS: 0x1112 ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC519 ---- RAM-ADDRESS: 0x1112 ---- SIZE       2 ---
 Name of initialized Object : cb
  C0D0
-------- ROM-ADDRESS: 0xC517 ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC51B ---- SIZE       2 ---
 Filling bytes inserted
  0000
 
@@ -2064,7 +2074,7 @@ lidar                     USES PLL_Init PWMinitialise laserInit Init_TC6
 main                      USES STRING...11 STRING.1.1.1.1.1.1.1.1.12 
                                 init_button sci_port init_serial x current_character data 
                                 y serial_print_string error_button strtol strtok 
-                                lidar data_init_stepper cb z 
+                                lidar data_init_stepper array_check cb z main 
 _LMULS16x32               USES _LNEG 
 _LDIVU                    USES _lDivMod 
 TC1_ISR                   USES _PTT _TC1 riseEdge fallEdge lastLaserSample 
@@ -2086,6 +2096,7 @@ Init_TC6                  USES _TSCR1 _TSCR2 _TIOS _TCTL1 _TIE _TFLG1
 PLL_Init                  USES _SYNR _REFDV _CLKSEL _PLLCTL _CRGFLG 
 laserInit                 USES _TSCR1 _TIE _TIOS _TCTL4 _TFLG1 
 GetLatestLaserSample      USES lastLaserSample 
+array_check               USES point_compare 
 
 *********************************************************************************************
 DEPENDENCY TREE
@@ -2157,13 +2168,17 @@ DEPENDENCY TREE
  |  |  +- GetLatestLaserSample
  |  |       
  |  +- data_init_stepper   
+ |  |  | 
+ |  |  +- motor_init          
+ |  |     | 
+ |  |     +- motor_stepping      
+ |  |        | 
+ |  |        +- port_selector       
+ |  |             
+ |  +- array_check         
  |     | 
- |     +- motor_init          
- |        | 
- |        +- motor_stepping      
- |           | 
- |           +- port_selector       
- |                
+ |     +- point_compare       
+ |          
  +- _Startup            
     | 
     +- Init                
@@ -2187,5 +2202,5 @@ STATISTIC SECTION
 ExeFile:
 --------
 Number of blocks to be downloaded: 8
-Total size of all blocks to be downloaded: 2372
+Total size of all blocks to be downloaded: 2675
 

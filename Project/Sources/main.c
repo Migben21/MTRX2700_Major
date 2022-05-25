@@ -26,6 +26,7 @@ char *z = "this is the end\n";
 char *cb = "Changing box\n";
 
 int data[10];
+int lidar_data[27];
 
 int py_err; // Placeholder for error return from python functions
 // Placeholder for python function pointer
@@ -88,11 +89,11 @@ void main(void) {
     
     serial_print_string(&sci_port, x);
     
-    lidar();
+    lidar();  // will be stored into an array
     
     data_init_stepper(arr[1], arr[2], arr[3]);
     
-    //check
+    array_check();
     
     //clean something idk
     

@@ -21,14 +21,6 @@ void array_check() {
     for (i=0; i < 27; i++) {
         point_compare(set_1[i], set_2[i], &invalid_array[i], i);
     }
-
-    printf("Invalid point indexi: ");
-    for (i=0; i < 27; i++) {
-        if (invalid_array[i] != -1) {
-            printf("%i ", invalid_array[i]);
-        }
-        //printf("%i ", array[i]);
-    }
 }
 
 
