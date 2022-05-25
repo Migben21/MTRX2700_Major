@@ -1,4 +1,5 @@
-# Controlled Universally Nextgen Tactical Systems
+# The Package Packer
+## Controlled Universally Nextgen Tactical Systems
 MTRX2700 Major project; Futuristic technology for supermarkets
 
 Project Aim: To create a state machine that organises supermarket products from a conveyor belt.
@@ -9,25 +10,9 @@ This is Group A's work for the MTRX2700 Major Project.
 Code as well as documentation are stored within this GitHub Repository.
 
 # Instructions:
-One simply writes a file with all the itemss thhey want
-Each new line defines a new set of items
+One simply writes a file with all the items they want, with each line in this file defining a new set of items. This file then has to be declared in main, and when the code is run, a set of data will be outputted & written into a file, 'data.txt'.
 
-Declare the file in main
-
-Run the code
-
-
-it will output a set of data and write it to data.txt
-
-This data is to be sent to the C Component of our code
-
-It's then manually fed in
-
-The system will then be checking if that object once placed is in the right area, and will return an error if it is not.
-
-
-## Operating the State Machine:
-
+This data is sent to the C Component of our code, where it's manually fed in, and the system will check if the object, once placed, is in the right area, returning an error if it is not, and an update message if placed correctly.
 
 # High Level Information about the Code:
 This section is to describe the functions and how they're broken down into modules
@@ -52,6 +37,8 @@ This module uses a 2D view of the space to determine where to place items. The z
 ## LIDAR Sensor
 The LIDAR Sensor is meant to check that items placed in the box are in the correct position. This module concerns more hardware and operating the LIDAR to scan objects inside boxes and determine from their distances to the sensor how the box is already filled up or possibly empty. It also has to communicate data between the C and Python Modules. It collects LIDAR data from each cubic point in the box and stores this into arrays. Code is run to check between 2 datasets, the current LIDAR array and the intended array, to see if any changes have been made. It outputs the distance between the sensor and the closest surface
 
+## Stepper Motor
+
 # Testing Procedures:
 * CodeWarrior's IDE Debugger was the main method used to debug programs, easily indicating whether the program even compiled or ran as intended. Files couldd also be run step by step, and variables could be checked as they updated through each line.
 * Any variables and their addresses could be easily viewed from the debugger, even at any step of debugging
@@ -60,12 +47,12 @@ The LIDAR Sensor is meant to check that items placed in the box are in the corre
 # Details about the Project:
 Group Members: Aditya Bhambri, Michael Mei, Miguel Benatiro, Stephen Capar, Yingjie Mi
 
-* Aditya Bhambri: Worked on
+* Aditya Bhambri: Worked on LIDAR Sensor Module 
 
-* Michael Mei:
+* Michael Mei: Worked on Box Algorithm & Initialisation Module, helped with GitHub merging and debugging code for other modules
 
-* Miguel Benatiro:
+* Miguel Benatiro: Assisted with LIDAR Sensor Module, Documentation; README & Minutes
 
-* Stephen Capar:
+* Stephen Capar: Worked on the 'Tetris' Algorithm, GitHub organisation
 
-* Yingjie Mi:
+* Yingjie Mi: Worked on Placement Algorithm and an Angle of Object Position Algorithm (Which we ended up failing to integrate)

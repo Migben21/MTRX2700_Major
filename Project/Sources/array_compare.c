@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+/* This function doesn't work yet */
 
 int array_compare(int comp_points[], int dataset_1[], int dataset_2[], int *invalid_points[]) {
     int i = 0, k = 0, j = 0;
