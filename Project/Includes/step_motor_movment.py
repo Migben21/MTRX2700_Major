@@ -1,7 +1,9 @@
 from difflib import diff_bytes
 import numpy as np
 import math
-from Includes.plot_3D import Initialised_matrix
+# from plot_3D import Initialised_matrix
+import plot_3D
+import Lidar_angle
 
 #   Output:
 #           movement array[x,y,z]
@@ -13,8 +15,8 @@ from Includes.plot_3D import Initialised_matrix
 def calculate_step(box_type,item):
 
     # Define parameters
-    division = 8        # side length of each cube is 5cm
-    matrix = Initialised_matrix(box_type)
+    division = 5        # side length of each cube is 5cm
+    matrix = plot_3D.Initialised_matrix(box_type)
     # Initial_distance = 5    # Initial distance between item position and (0,0) in each axis
     item_length = item.dimensions[0]
     item_width = item.dimensions[1]
@@ -24,7 +26,7 @@ def calculate_step(box_type,item):
     # Use a for loop to place item one by one
     # for i in range(len(data)): 
 
-    motor_z = 50   # Initial height for clamp is 50cm 
+    motor_z = 80   # Initial height for clamp is 50cm 
     motor_x = 0         # Initial position of step motor in x axis is 0
     motor_y = 0         # Initial position of step motor in y axis is 0
     clamp_movedown = motor_z - item_height # The distance that clamp will move downwards
@@ -67,3 +69,29 @@ def calculate_step(box_type,item):
     # void motorback(char y,int Initial_distance)
 
     return movement
+
+# test
+# input:
+class item_organised:
+    def __init__(self):
+        self.name = ""
+        self.point = [0,0,0]
+        self.dimensions = [0,0,0]
+        self.rotations = [0,0,0]
+        self.type = "N"
+
+box_type = 's'
+item = item_organised
+item.point = [0,0,0]
+item.dimensions = [20,10,5]
+
+# Output here
+distance = calculate_step(box_type,item)
+print(distance)
+matrix = plot_3D.Initialised_matrix(box_type)
+matrix = plot_3D.plot_3d(item,box_type,matrix)
+point_check = Lidar_angle.point_check_init(item,box_type)
+print(point_check)
+
+# for i in range(len(matrix)):
+#     print(matrix[i])
