@@ -1,11 +1,15 @@
 import os
 
+def clear_file():
+    file_path = "Project\Includes\data.txt"
+    open(file_path, "w").close()
+
 def Init_send_data(num_array):
     string = ""
 
-    string = string + str(num_array[0])
+    string = str(num_array[0])
 
-    for i in range(1,num_array):
+    for i in range(1,len(num_array)):
         string = string + "," + str(num_array[i])
 
     send_data(string)
@@ -14,11 +18,10 @@ def Init_send_data(num_array):
 
 def send_data(data):
     #getting the file directory
-    file_path = "data.txt"
+    file_path = "Project\Includes\data.txt"
 
-
-    f = open(file_path, "w")
-    f.write(data)
+    f = open(file_path, "a")
+    f.write(data + '\n')
     f.close()
 
     return
@@ -40,6 +43,8 @@ def waiting():
     
     return
 
-    
+
+
+
 
 

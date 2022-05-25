@@ -8,7 +8,7 @@ from Includes import boxes as box
 # Returns array of boxes with objects to be placed inside
 def box_algorithm(filename):
     boxes = []
-    with open('..Project/Includes/items/' + filename, newline='') as csvfile:
+    with open(filename, newline='') as csvfile:
         contents = csv.reader(csvfile, delimiter=',', quotechar='|')
         for line in contents:
             # array to store items

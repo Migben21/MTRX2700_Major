@@ -91,7 +91,7 @@ def plot_3d(item,box_type,Placed_matrix):
     height = np.zeros_like(z)
     width = depth = 1
 
-    ax.bar3d(y,x , height, width, depth, z,  color='b', zsort='average')  # width, depth, height
+    ax.bar3d(y,x , height, width, depth, z,  color='lightsteelblue', zsort='average')  # width, depth, height
     ax.set_xlabel('Width')
     ax.set_ylabel('Length')
     ax.set_zlabel('Height')
@@ -106,6 +106,19 @@ def plot_3d(item,box_type,Placed_matrix):
     return Placed_matrix
 
 # test
+# input:
+# class item_organised:
+#     def __init__(self):
+#         self.name = ""
+#         self.point = [0,0,0]
+#         self.dimensions = [0,0,0]
+#         self.rotations = [0,0,0]
+#         self.type = "N"
+
+# box_type = 's'
+# item = item_organised
+# item.point = [0,4,0]
+# item.dimensions = [20,10,5]
 # matrix = Initialised_matrix(box_type)
 # matrix = plot_3d(item,box_type,matrix)
 # for i in range(len(matrix)):

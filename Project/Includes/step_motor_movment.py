@@ -1,7 +1,9 @@
 from difflib import diff_bytes
 import numpy as np
 import math
-from Includes.plot_3D import Initialised_matrix
+# from plot_3D import Initialised_matrix
+import plot_3D
+import Lidar_angle
 
 #   Output:
 #           movement array[x,y,z]
@@ -14,7 +16,7 @@ def calculate_step(box_type,item):
 
     # Define parameters
     division = 5        # side length of each cube is 5cm
-    matrix = Initialised_matrix(box_type)
+    matrix = plot_3D.Initialised_matrix(box_type)
     # Initial_distance = 5    # Initial distance between item position and (0,0) in each axis
     item_length = item.dimensions[0]
     item_width = item.dimensions[1]
@@ -50,9 +52,9 @@ def calculate_step(box_type,item):
     # print('length = ',cube_length,'   width = ',cube_width,'    height = ',cube_height)
     motor_x = (item.point[0] + 0.5*cube_length)
     motor_y = (item.point[1] + 0.5*cube_width)
-    motor_z = motor_z - item_height - matrix[item.point[0]+1][item.point[1]] * division - item.point[2]*division
+    if item.point[0]+1 <= len(matrix) and item.point[1] <= len(matrix[0]):
+        motor_z = motor_z - item_height - matrix[item.point[0]+1][item.point[1]] * division - item.point[2]*division
     motor_z = motor_z/division
-    hold_flag = 0
     movement = [motor_x,motor_y,motor_z]
     # print('x = ',motor_x,'   y = ',motor_y,'    z = ',motor_z)
     # void motormove(char x,int motor_x)
@@ -67,3 +69,29 @@ def calculate_step(box_type,item):
     # void motorback(char y,int Initial_distance)
 
     return movement
+
+# test
+# input:
+class item_organised:
+    def __init__(self):
+        self.name = ""
+        self.point = [0,0,0]
+        self.dimensions = [0,0,0]
+        self.rotations = [0,0,0]
+        self.type = "N"
+
+box_type = 's'
+item = item_organised
+item.point = [0,0,0]
+item.dimensions = [20,10,5]
+
+# Output here
+distance = calculate_step(box_type,item)
+print(distance)
+matrix = plot_3D.Initialised_matrix(box_type)
+matrix = plot_3D.plot_3d(item,box_type,matrix)
+point_check = Lidar_angle.point_check_init(item,box_type)
+print(point_check)
+
+# for i in range(len(matrix)):
+#     print(matrix[i])
