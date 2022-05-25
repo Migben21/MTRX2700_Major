@@ -1,6 +1,5 @@
 #include <stdio.h>
-
-/* This function doesn't work yet */
+#include "array_compare.h"
 
 void point_compare(int data_1, int data_2, int *storage_array, int counter) {
     if (data_1 != data_2) {
@@ -10,30 +9,6 @@ void point_compare(int data_1, int data_2, int *storage_array, int counter) {
         *storage_array = -1;
     }
 }
-
-/*
-int array_compare(int comp_points[], int dataset_1[], int dataset_2[], int *invalid_points[]) {
-    int i = 0, k = 0, j = 0;
-    
-    int no_invalid = 0; // Integer to store number of invalid points
-
-    int no_points = 27;
-
-    for (i=0; i < no_points; i++) {
-        // Checks if it's one of the points to be compared, if so then compares
-        // Have to put -1 since i starts counting from 0
-        if (i == comp_points[k] - 1) { 
-            if (dataset_1[i] != dataset_2[i]) {
-                (*invalid_points)[j] = i + 1; // Since i counts at 0
-                j++;
-                no_invalid++;
-            }
-            k++;
-        }
-    }
-    return 0;
-}
-*/
 
 int main() {
     // Hardcoded Input for now
@@ -58,6 +33,7 @@ int main() {
 
     return 0;
 }
+
 /*
 arr 1
 arr 2
@@ -70,3 +46,27 @@ void single_compare(int data1, int data2, int *storage_array_entry);
      single_compare(set_1[i], set_2[i], &array[i]);   
  }
  */
+
+/*
+int array_compare(int comp_points[], int dataset_1[], int dataset_2[], int *invalid_points[]) {
+    int i = 0, k = 0, j = 0;
+    
+    int no_invalid = 0; // Integer to store number of invalid points
+
+    int no_points = 27;
+
+    for (i=0; i < no_points; i++) {
+        // Checks if it's one of the points to be compared, if so then compares
+        // Have to put -1 since i starts counting from 0
+        if (i == comp_points[k] - 1) { 
+            if (dataset_1[i] != dataset_2[i]) {
+                (*invalid_points)[j] = i + 1; // Since i counts at 0
+                j++;
+                no_invalid++;
+            }
+            k++;
+        }
+    }
+    return 0;
+}
+*/
