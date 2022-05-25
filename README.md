@@ -38,12 +38,9 @@ This module uses a 2D view of the space to determine where to place items. The z
 The LIDAR Sensor is meant to check that items placed in the box are in the correct position. This module concerns more hardware and operating the LIDAR to scan objects inside boxes and determine from their distances to the sensor how the box is already filled up or possibly empty. It also has to communicate data between the C and Python Modules. It collects LIDAR data from each cubic point in the box and stores this into arrays. Code is run to check between 2 datasets, the current LIDAR array and the intended array, to see if any changes have been made. It outputs the distance between the sensor and the closest surface
 
 ## Stepper Motor
-This module relates to the device's stepper motors, which were to be used in the placement of items (for this proof-of-concept presentation, there is no tangible stepper motor). It would change between different states, taking in input 
+This module relates to the device's stepper motors, which were to be used in the placement of items (for this proof-of-concept presentation, there is no tangible stepper motor). It initialises the machine's stepper motors and would change between different states, taking in input from the device.
 
-U, L & B are the ports connected to the stepper motors, and 
-
-
-Initialises the machine's stepper motors
+U, L & B are the ports connected to the stepper motors.
 
 # Testing Procedures:
 * CodeWarrior's IDE Debugger was the main method used to debug programs, easily indicating whether the program even compiled or ran as intended. Files couldd also be run step by step, and variables could be checked as they updated through each line.
