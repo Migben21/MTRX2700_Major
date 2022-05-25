@@ -56,7 +56,7 @@ for i in range(len(box_pos_data)):
         check_point =  point_check_init(item,box_sizes[i])
         stepper = calculate_step(box_sizes[i],item) 
 
-        #plot_3d(box_sizes[i],box_pos_data[i][a],box_matrix)
+        #plot_3d(box_sizes[i],item,box_matrix)
 
         data_send.append(num_items)
 

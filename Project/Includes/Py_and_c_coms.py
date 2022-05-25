@@ -1,5 +1,9 @@
 import os
 
+def clear_file():
+    file_path = "Project\Includes\data.txt"
+    open(file_path, "w").close()
+
 def Init_send_data(num_array):
     string = ""
 
@@ -39,11 +43,7 @@ def waiting():
     
     return
 
-def clear_file():
-    file_path = "data.txt"
 
-    f = open(file_path, "w")
-    f.close()
 
 
 
