@@ -6,14 +6,14 @@ import matplotlib.pyplot as plt
 def Initialised_matrix(type):
     # Initialise the dimensions for different-size box
     # side length of each cube
-    division = 5
+    division = 8
     # Type for box is: 1 for small; 2 for medium; 3 for large
     # Box sizes and dimensions(cm):
     # Large: 100*100*40
     # Medium: 75*75*40
     # Small: 40*40*40
     if type == 's':
-        side_length = 40 / division
+        side_length = 24 / division
         empty_matrix = [[0] * int(side_length) for i in range(int(side_length))]
     elif type == 'm':
         side_length = 75 / division

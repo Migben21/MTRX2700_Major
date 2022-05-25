@@ -13,7 +13,7 @@ from Includes.plot_3D import Initialised_matrix
 def calculate_step(box_type,item):
 
     # Define parameters
-    division = 5        # side length of each cube is 5cm
+    division = 8        # side length of each cube is 5cm
     matrix = Initialised_matrix(box_type)
     # Initial_distance = 5    # Initial distance between item position and (0,0) in each axis
     item_length = item.dimensions[0]
@@ -24,7 +24,7 @@ def calculate_step(box_type,item):
     # Use a for loop to place item one by one
     # for i in range(len(data)): 
 
-    motor_z = 80   # Initial height for clamp is 50cm 
+    motor_z = 50   # Initial height for clamp is 50cm 
     motor_x = 0         # Initial position of step motor in x axis is 0
     motor_y = 0         # Initial position of step motor in y axis is 0
     clamp_movedown = motor_z - item_height # The distance that clamp will move downwards
