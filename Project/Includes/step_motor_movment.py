@@ -3,6 +3,7 @@ import numpy as np
 import math
 # from plot_3D import Initialised_matrix
 import plot_3D
+import Lidar_angle
 
 #   Output:
 #           movement array[x,y,z]
@@ -25,7 +26,7 @@ def calculate_step(box_type,item):
     # Use a for loop to place item one by one
     # for i in range(len(data)): 
 
-    motor_z = 50   # Initial height for clamp is 50cm 
+    motor_z = 80   # Initial height for clamp is 50cm 
     motor_x = 0         # Initial position of step motor in x axis is 0
     motor_y = 0         # Initial position of step motor in y axis is 0
     clamp_movedown = motor_z - item_height # The distance that clamp will move downwards
@@ -81,13 +82,16 @@ class item_organised:
 
 box_type = 's'
 item = item_organised
-item.point = [0,4,0]
+item.point = [0,0,0]
 item.dimensions = [20,10,5]
 
-distance = []
+# Output here
 distance = calculate_step(box_type,item)
 print(distance)
 matrix = plot_3D.Initialised_matrix(box_type)
 matrix = plot_3D.plot_3d(item,box_type,matrix)
+point_check = Lidar_angle.point_check_init(item,box_type)
+print(point_check)
+
 # for i in range(len(matrix)):
 #     print(matrix[i])
