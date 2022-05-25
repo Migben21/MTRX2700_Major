@@ -1,23 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include "../Includes"
+#include "C_and_py_coms.h"
+#include "termio.h"
+
+    
+void clean_file(){
+    FILE* ptr;
+    
+    ptr = fopen("../MTRX2700_Major/Project/Includes/data.txt", "w");
+
+    fclose(ptr);
+}
 
 
-int * data_collector(){
-    char buffer[50];
+void data_collector(int *arr){
+    //char buffer[50];
     char *token;
-    const char s = ",";
-    int data[10];
+    const char *s = ",";
     int i = 0;
-    FILE* ptr
+    FILE* ptr;
+    int size;
  
     // Opening file in reading mode and determining if file has content
     while (i != 1){
+<<<<<<< HEAD
+        ptr = fopen("..Includes/data.txt", "r");
+                                                      
+        fseek(ptr, 0, SEEK_END);
+        size = ftell(ptr);
+=======
         ptr = fopen("../MTRX2700_Major/Project/Includes/data.txt", "r");
 
         fseek (ptr, 0, SEEK_END); //not
         size = ftell(ptr); //not
+>>>>>>> main
 
         if (0 != size) {
             i = 1;
@@ -30,10 +47,10 @@ int * data_collector(){
     fscanf(ptr, "%s", buffer); //not
     i = 0;
 
-    strok(buffer, s);
+    strtok(buffer, s);
 
-    while( token != NULL ) {
-      data[i] = atoi(token);
+    while(token != NULL ) {
+      arr[i] = atoi(token);
       i++;
     
       token = strtok(NULL, s);
@@ -42,15 +59,8 @@ int * data_collector(){
    }
    
    fclose(ptr);
-   return data;
+   
+   clean_file();
 }
 
-void clean_file(){
-    FILE* ptr;
-    
-    ptr = fopen("../MTRX2700_Major/Project/Includes/data.txt", "w");
 
-    fclose(ptr);
-
-    return
-}

@@ -3,6 +3,7 @@ import sys
 from Includes import objecttypes as obj
 from Includes import boxes as box
 
+
 # Opens csv file and reads what items need to be sorted and parses them into determine_boxes()
 # Returns array of boxes with objects to be placed inside
 def box_algorithm(filename):
@@ -13,38 +14,30 @@ def box_algorithm(filename):
             # array to store items
             itemList = []
             fragileItemList = []
-
             for i in line:
                 # Remove spaces from input
                 i = i.translate({ord(' '): None for j in ' '})
-
                 # Compares content of csv file to dictionary containing all item names to create objects
                 try:
                     itemList.append(obj.allItems[i.lower()]())
                 except KeyError:
-                    sys.stderr.write("Invalid item name")
-                    exit(1)  # Invalid item name found in contents
+                    return 1  # Invalid item name found in contents
             # Sorts array in order from largest to smallest
             itemList.sort(key=vol, reverse=True)
-
             # Separates fragile items into their own list and removes them from the normal item list
             for i in range(len(itemList)):
                 if itemList[i].type == "F":
                     fragileItemList.append(itemList[i])
-
             for i in range(len(fragileItemList)):
                 itemList.remove(fragileItemList[i])
-
             normalItems = determine_boxes(itemList)
             fragileItems = determine_boxes(fragileItemList)
-
             for i in range(len(normalItems)):
                 if normalItems[i].contentsVolume:
                     boxes.append(normalItems[i])
             for i in range(len(fragileItems)):
                 if fragileItems[i].contentsVolume:
                     boxes.append(fragileItems[i])
-
     return boxes
 
 
@@ -91,21 +84,17 @@ def determine_boxes(items):
     scannedItems = []
     totalVolume = 0
     check = 0
-
     for i in range(len(items)):
         totalVolume += items[i].volume
         scannedItems.append(items[i])
-
         if totalVolume >= 100 * 100 * 40:  # Volume of large box
             if len(scannedItems) == 1:
-                sys.stderr.write("Item too large to fit in a box")
-                exit(2)  # Item too large for any box
+                return 2  # Item too large for any box
             elif totalVolume != 0:
                 scannedItems.pop(len(scannedItems)-1)
                 boxes.append(box.LargeBox(scannedItems))
                 scannedItems = [items[i]]
                 totalVolume = 0
-
     if totalVolume > (40 * 40 * 40):
         if totalVolume > (75 * 75 * 40):
             boxes.append(box.LargeBox(scannedItems))
@@ -128,5 +117,4 @@ def determine_boxes(items):
                 boxes.append(box.MediumBox(scannedItems))
             else:
                 boxes.append(box.LargeBox(scannedItems))
-
     return boxes

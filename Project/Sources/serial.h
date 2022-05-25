@@ -48,7 +48,7 @@ void serial_print_string(SerialPort *serial, char *text) {
   while (*text){
     serial_char_print(serial, *text);
     text++;
-  } 
+  }
 }
                        
 
