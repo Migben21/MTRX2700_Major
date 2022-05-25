@@ -16,8 +16,8 @@ def send_data(data):
     #getting the file directory
     file_path = "Project\Includes\data.txt"
 
-    f = open(file_path, "w")
-    f.write(data)
+    f = open(file_path, "a")
+    f.write(data + '\n')
     f.close()
 
     return
@@ -38,6 +38,13 @@ def waiting():
         f.close()
     
     return
+
+def clear_file():
+    file_path = "data.txt"
+
+    f = open(file_path, "w")
+    f.close()
+
 
 
 
