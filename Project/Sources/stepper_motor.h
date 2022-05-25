@@ -3,6 +3,7 @@
 
 #include <hidef.h>      /* common defines and macros */
 #include "derivative.h"      /* derivative-specific definitions */
+#include "serial.h"
 
 #define NUM_OF_STATES 8 //There are 8 different states in this particular example.
 #define DELAY_MAX 2000 //The maximum # of counts used to create a time delay.
@@ -99,7 +100,7 @@ void motor_init(int steps,int i){
       PTV = state_array[next_state]; 
      break; 
    }
-
+ 
  printf("---%c Steppermotor Activated---\n", letters[i]);
  printf("Moving %d rotations in %c direction\n", steps, letters[i]);
 

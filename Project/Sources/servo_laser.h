@@ -13,7 +13,9 @@
 #include "servo.h"
 #include "laser.h"
 
-
+int azi_array[27];
+int ele_array[27];          
+unsigned long singleSample_array[27];  
 
 void delay(int duration){
 
@@ -33,15 +35,12 @@ void lidar(void) {
   int k = 0;
   int l = 0;  
   
-  int azi_array[27];
-  int ele_array[27];          
-  unsigned long singleSample_array[27];  
+ 
   
   //char buffer[128];  
   
   unsigned long singleSample;
-  
-  EnableInterrupts;
+ 
 
   // make sure the board is set to 24MHz
   //  this is needed only when not using the debugger
@@ -65,7 +64,7 @@ void lidar(void) {
         delay(2000);
         GetLatestLaserSample(&singleSample);
        
-        azi_array[k] = azi;
+        azi_array[k] = azi;     
         ele_array[k] = ele;
         singleSample_array[k] = singleSample;
 

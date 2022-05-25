@@ -38,16 +38,23 @@ void main(void) {
 	
 	serial_print_string(&sci_port, y);
   
+  error_button();  
+  
+  serial_print_string(&sci_port, x);
+  
+  led_test();
+  
+  laserInit();
+  
+  lidar();
+  
+  motor_init(10, 5);
+    
   // Waits for the string to finish sending
   // Last 2 characters in last printed string get thanos snapped if this isnt there
   while (*current_character != 0x00){
   }
 
-  
-  while (data[0] == 420){
-    data_collector();
-  }
-  
-  serial_print_string(&sci_port, x);
+
 }
 
