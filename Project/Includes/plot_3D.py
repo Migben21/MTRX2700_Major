@@ -6,14 +6,14 @@ import matplotlib.pyplot as plt
 def Initialised_matrix(type):
     # Initialise the dimensions for different-size box
     # side length of each cube
-    division = 8
+    division = 5
     # Type for box is: 1 for small; 2 for medium; 3 for large
     # Box sizes and dimensions(cm):
     # Large: 100*100*40
     # Medium: 75*75*40
     # Small: 40*40*40
     if type == 's':
-        side_length = 24 / division
+        side_length = 40 / division
         empty_matrix = [[0] * int(side_length) for i in range(int(side_length))]
     elif type == 'm':
         side_length = 75 / division
@@ -91,7 +91,7 @@ def plot_3d(item,box_type,Placed_matrix):
     height = np.zeros_like(z)
     width = depth = 1
 
-    ax.bar3d(y,x , height, width, depth, z,  color='b', zsort='average')  # width, depth, height
+    ax.bar3d(y,x , height, width, depth, z,  color='lightsteelblue', zsort='average')  # width, depth, height
     ax.set_xlabel('Width')
     ax.set_ylabel('Length')
     ax.set_zlabel('Height')
@@ -106,6 +106,19 @@ def plot_3d(item,box_type,Placed_matrix):
     return Placed_matrix
 
 # test
+# input:
+# class item_organised:
+#     def __init__(self):
+#         self.name = ""
+#         self.point = [0,0,0]
+#         self.dimensions = [0,0,0]
+#         self.rotations = [0,0,0]
+#         self.type = "N"
+
+# box_type = 's'
+# item = item_organised
+# item.point = [0,4,0]
+# item.dimensions = [20,10,5]
 # matrix = Initialised_matrix(box_type)
 # matrix = plot_3d(item,box_type,matrix)
 # for i in range(len(matrix)):

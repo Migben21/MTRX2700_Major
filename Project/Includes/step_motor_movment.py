@@ -1,7 +1,8 @@
 from difflib import diff_bytes
 import numpy as np
 import math
-from Includes.plot_3D import Initialised_matrix
+# from plot_3D import Initialised_matrix
+import plot_3D
 
 #   Output:
 #           movement array[x,y,z]
@@ -13,8 +14,8 @@ from Includes.plot_3D import Initialised_matrix
 def calculate_step(box_type,item):
 
     # Define parameters
-    division = 8        # side length of each cube is 5cm
-    matrix = Initialised_matrix(box_type)
+    division = 5        # side length of each cube is 5cm
+    matrix = plot_3D.Initialised_matrix(box_type)
     # Initial_distance = 5    # Initial distance between item position and (0,0) in each axis
     item_length = item.dimensions[0]
     item_width = item.dimensions[1]
@@ -67,3 +68,26 @@ def calculate_step(box_type,item):
     # void motorback(char y,int Initial_distance)
 
     return movement
+
+# test
+# input:
+class item_organised:
+    def __init__(self):
+        self.name = ""
+        self.point = [0,0,0]
+        self.dimensions = [0,0,0]
+        self.rotations = [0,0,0]
+        self.type = "N"
+
+box_type = 's'
+item = item_organised
+item.point = [0,4,0]
+item.dimensions = [20,10,5]
+
+distance = []
+distance = calculate_step(box_type,item)
+print(distance)
+matrix = plot_3D.Initialised_matrix(box_type)
+matrix = plot_3D.plot_3d(item,box_type,matrix)
+# for i in range(len(matrix)):
+#     print(matrix[i])
