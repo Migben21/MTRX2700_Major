@@ -2,7 +2,7 @@
 #include "array_compare.h"
 
 void point_compare(int data_1, int data_2, int *storage_array, int counter) {
-    if (data_1 != data_2) {
+    if (((data_1 - data_2) > 1 ) || ((data_2 - data_2) > 1)) {
         *storage_array = counter;
     }
     else{
