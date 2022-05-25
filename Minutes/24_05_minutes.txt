@@ -9,13 +9,15 @@ Meeting Purpose: To finalise code & integrate all the tasks together
 Previous Actions:
 - Updated Task progress & Progress Report
 - Discussed LIDAR Sensor
-- 
 
 Regular Items:
 - Updated GitHub repository
 
 New Items:
-- 
+- Merged all branches
+- Started integrating all the components
+- Discussed how to set up hardware
+- Made presentation files such as slides and documentation
 
 AOB (Any Other Business):
 None.
