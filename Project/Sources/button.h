@@ -26,11 +26,11 @@ int error_button(){
   }
   
   if (PTH_PTH3){
-    serial_print_string(&sci_port, "Attempting last function again");
+    serial_print_string(&sci_port, "Attempting last function again\n");
     return 0;
   }
   else if (PTH_PTH2){
-    serial_print_string(&sci_port, "Exiting program");
+    serial_print_string(&sci_port, "Exiting program\n");
     return 1;
   }
 }

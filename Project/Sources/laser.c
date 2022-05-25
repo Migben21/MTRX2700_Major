@@ -27,7 +27,7 @@ void GetLatestLaserSample(unsigned long *sample) {
 
 
 #pragma CODE_SEG __NEAR_SEG NON_BANKED /* Interrupt section for this module. Placement will be in NON_BANKED area. */
-__interrupt void TC1_ISR(void) { 
+__interrupt VectorNumber_Vtimch1 void TC1_ISR(void) { 
    
   // if captured a rising edge (lidar input is in port T bit 1)
   if (PTT_PTT1) { 

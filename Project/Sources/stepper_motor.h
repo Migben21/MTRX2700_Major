@@ -100,9 +100,6 @@ void motor_init(int steps,int i){
       PTV = state_array[next_state]; 
      break; 
    }
- 
- printf("---%c Steppermotor Activated---\n", letters[i]);
- printf("Moving %d rotations in %c direction\n", steps, letters[i]);
 
 //Init Port to the starting state. In this example,
  //since only 4 pins are needed to control the motor, only
@@ -111,9 +108,7 @@ void motor_init(int steps,int i){
  //(0x06) in the lower nibble of Port.
 
   motor_stepping(steps, next_state, state_array, i);
-
-  return;
-}
+}  
 
 
 void data_init_stepper(int x, int y, int z){

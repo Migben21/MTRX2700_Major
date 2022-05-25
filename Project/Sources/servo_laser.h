@@ -9,7 +9,6 @@
 #include <stdio.h>
 
 #include "pll.h"
-//#include "simple_serial.h"
 #include "servo.h"
 #include "laser.h"
 
